@@ -1,0 +1,1521 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.7. Global Warming Levels (GWLs) &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/GWLs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1.6. Seasonal stripes" href="seasonal_stripes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas dataset</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.4. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbaisimip.html">1.6. Monthly mean of daily accumulated precipitation of liquid water equivalent from all phasess (rbaisimip)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas products</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter02.html">1. Reproducibility of the C3S Atlas visual products</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">1.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_map.html">1.2. Spatial map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">1.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annual_cycle.html">1.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">1.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">1.6. Seasonal stripes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.7. Global Warming Levels (GWLs)</a></li>
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/GWLs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/GWLs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Global Warming Levels (GWLs)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.7. Global Warming Levels (GWLs)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages">1.7.1. Load Python packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test">1.7.2. Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">1.7.3. Define functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.7.4. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-inputs">1.7.5. Define inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmip6-and-cmip5">1.7.6. CMIP6 and CMIP5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-example-cmip6-ssp370-gwl-2-degc">Plotting example: CMIP6 (ssp370) GWL +2 degC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipcc-atlas-validation">IPCC Atlas validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-availability-of-all-driving-gcms-cmip5-for-the-cordex-dataset-in-the-cds-c3s">Verifying the availability of all driving GCMs (CMIP5) for the CORDEX dataset in the CDS-C3S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-the-gwls-calculated-with-the-cmip5-datasets-available-on-the-c3s-cds-using-the-ipcc-atlas">1.8. Complete the GWLs calculated with the CMIP5 datasets available on the C3S-CDS using the IPCC-Atlas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gwls-for-cordex-core">1.9. GWLs for CORDEX-CORE</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="global-warming-levels-gwls">
+<h1><span class="section-number">1.7. </span>Global Warming Levels (GWLs)<a class="headerlink" href="#global-warming-levels-gwls" title="Permalink to this heading">#</a></h1>
+<p>This notebook is a collection of recipes for calculating Global Warming Levels (GWLs) in the CMIP5 and CMIP6 <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">“Copernicus Interactive Climate Atlas: gridded monthly dataset”</a> produced by the Copernicus Atlas. It illustrates the entire process, including data access, selection, preparation, computation of GWL periods, and visualization.</p>
+<p>Note that this notebook is intended for reproducibility purposes and is not yet well organized or fully documented.</p>
+<p><strong><span style="color:red">Please be advised that downloading the required data for this script may take several minutes.</span></strong></p>
+<section id="load-python-packages">
+<h2><span class="section-number">1.7.1. </span>Load Python packages<a class="headerlink" href="#load-python-packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">cdsapi</span>
+
+<span class="kn">from</span> <span class="nn">c3s_atlas.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="test">
+<h2><span class="section-number">1.7.2. </span>Test<a class="headerlink" href="#test" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Unitary test for the rolling mean function implemented in xarray</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;1999-12-15&quot;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">1</span><span class="p">),)</span>
+    <span class="p">],</span>
+    <span class="n">dims</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">da_rolling</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;The definition of the rolling window boundaries implemented in xarray have changed&quot;</span>
+<span class="k">assert</span> <span class="n">da_rolling</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-functions">
+<h2><span class="section-number">1.7.3. </span>Define functions<a class="headerlink" href="#define-functions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">GSAT</span><span class="p">(</span><span class="n">ds</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate GSAT (Global‐mean Surface Air Temperature)</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ds : xr.Dataset</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ds : xr.Dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Temporal aggregation</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">skipna</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Spatial aggregation</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+    <span class="n">weights</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;weights&quot;</span>
+    <span class="n">tas_weighted</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="n">tas_weighted_mean</span> <span class="o">=</span> <span class="n">tas_weighted</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">),</span> <span class="n">skipna</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tas_weighted_mean</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-climate-data-with-the-cds-api">
+<h2><span class="section-number">1.7.4. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Copernicus Interactive Climate Atlas: gridded monthly dataset</a></p></li>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scenarios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CMIP6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;CMIP5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">,</span> <span class="s1">&#39;rcp26&#39;</span><span class="p">,</span> <span class="s1">&#39;rcp45&#39;</span><span class="p">,</span> <span class="s1">&#39;rcp85&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-data">
+<h3>Download data<a class="headerlink" href="#download-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">scenario</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="n">project</span><span class="p">]:</span>
+        <span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./data/</span><span class="si">{</span><span class="n">project</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">scenario</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;t_</span><span class="si">{</span><span class="n">project</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">scenario</span><span class="si">}</span><span class="s1">.zip&#39;</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp5_8_5&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_mean_temperature&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        
+        <span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="define-inputs">
+<h2><span class="section-number">1.7.5. </span>Define inputs<a class="headerlink" href="#define-inputs" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root_dataset</span> <span class="o">=</span> <span class="s1">&#39;./data/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;t&#39;</span>
+<span class="n">GWLs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1.5&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">]</span>
+<span class="n">scenarios</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CMIP6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ssp126&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp245&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp370&#39;</span><span class="p">,</span> <span class="s1">&#39;ssp585&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;CMIP5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rcp26&#39;</span><span class="p">,</span> <span class="s1">&#39;rcp45&#39;</span><span class="p">,</span> <span class="s1">&#39;rcp85&#39;</span><span class="p">]}</span>
+<span class="n">PI_period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1850&#39;</span><span class="p">,</span> <span class="s1">&#39;1900&#39;</span><span class="p">)</span>
+<span class="n">window_width</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CMIP5&#39;</span><span class="p">,</span> <span class="s1">&#39;CMIP6&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cmip6-and-cmip5">
+<h2><span class="section-number">1.7.6. </span>CMIP6 and CMIP5<a class="headerlink" href="#cmip6-and-cmip5" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+    
+    <span class="c1"># list of files</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">root_dataset</span> <span class="o">+</span> <span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>
+    <span class="c1"># find all .nc files in a root</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;/*/*.nc&#39;</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">variable</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+
+    <span class="c1"># create a empty dataframe to store the results</span>
+    <span class="c1">#(see https://github.com/IPCC-WG1/Atlas/blob/main/warming-levels/CMIP6_Atlas_WarmingLevels.csv)</span>
+    <span class="n">file_hist</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s1">&#39;historical&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_hist</span><span class="p">)</span>
+    <span class="n">simulations</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">GWL</span><span class="p">,</span> <span class="n">sce</span><span class="p">)</span> <span class="k">for</span> <span class="n">sce</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="n">project</span><span class="p">]</span> <span class="k">for</span> <span class="n">GWL</span> <span class="ow">in</span> <span class="n">GWLs</span><span class="p">])</span>
+    <span class="n">df_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">simulations</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+    <span class="c1"># Define dataframe to store the rolling mean series (used for plotting)</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="n">sce</span><span class="p">,</span> <span class="n">sim</span><span class="p">)</span> <span class="k">for</span> <span class="n">sce</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="n">project</span><span class="p">]</span> <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">simulations</span><span class="p">])</span>
+    <span class="n">df_GWLs_serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;1850&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;2101&#39;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="p">)</span>
+
+
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">df_GWLs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>        
+        <span class="n">model</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">member</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        
+        <span class="c1"># Select historical simulations and calculate GSAT</span>
+        <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">file_hist</span><span class="p">,</span> <span class="n">chunks</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;member&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+        <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">sim</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">GSAT</span><span class="p">(</span><span class="n">ds_hist</span><span class="p">)</span>
+        <span class="n">ds_hist_PI</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">PI_period</span><span class="p">)</span>
+        <span class="n">ds_hist_PI_mean</span> <span class="o">=</span> <span class="n">ds_hist_PI</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">ds_hist</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="c1"># Select future simulations</span>
+        <span class="k">for</span> <span class="n">sce</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="n">project</span><span class="p">]:</span>
+            <span class="n">ds_sce</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="n">sce</span> <span class="ow">in</span> <span class="n">f</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">chunks</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;member&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">sim</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="n">ds_sce</span> <span class="o">=</span> <span class="n">ds_sce</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">sim</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">ds_sce</span> <span class="o">=</span> <span class="n">GSAT</span><span class="p">(</span><span class="n">ds_sce</span><span class="p">)</span>
+            <span class="c1"># Calculate GWLs</span>
+            <span class="n">ds_hist_sce</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_hist</span><span class="p">,</span> <span class="n">ds_sce</span><span class="p">],</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+            <span class="c1">#ds_hist_sce_rolling = ds_hist_sce.rolling(time = window_width, min_periods=1, center = True).mean() # [n-10, n+9]</span>
+            <span class="n">ds_hist_sce_rolling</span> <span class="o">=</span> <span class="n">ds_hist_sce</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">window_width</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># [n - window + 1, n]</span>
+            <span class="n">GWLs_tas</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_hist_sce_rolling</span> <span class="o">-</span> <span class="n">ds_hist_PI_mean</span><span class="p">)</span>
+
+            <span class="c1"># Store delta change series with respect 1850-1900</span>
+            <span class="n">df_GWLs_serie</span><span class="p">[(</span><span class="n">sce</span><span class="p">,</span> <span class="n">sim</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_hist_sce_rolling</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ds_hist_PI_mean</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+            
+            <span class="k">for</span> <span class="n">GWL</span> <span class="ow">in</span> <span class="n">GWLs</span><span class="p">:</span>
+                <span class="c1"># Select time</span>
+                <span class="n">GWLs_time</span> <span class="o">=</span> <span class="n">GWLs_tas</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">GWLs_tas</span><span class="o">.</span><span class="n">t</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">GWL</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">GWLs_time</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">df_GWLs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][(</span><span class="n">GWL</span><span class="p">,</span> <span class="n">sce</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;NA&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">window_left</span> <span class="o">=</span> <span class="n">GWLs_time</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="p">(</span><span class="n">window_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="n">window_right</span> <span class="o">=</span> <span class="n">GWLs_time</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span>
+                    <span class="n">df_GWLs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">][(</span><span class="n">GWL</span><span class="p">,</span> <span class="n">sce</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">window_left</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">window_right</span><span class="p">))</span>
+            <span class="n">ds_sce</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">df_GWLs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;_WarmingLevels.csv&#39;</span><span class="p">)</span>
+    <span class="n">df_GWLs_serie</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;_WarmingSeries.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plotting-example-cmip6-ssp370-gwl-2-degc">
+<h3>Plotting example: CMIP6 (ssp370) GWL +2 degC<a class="headerlink" href="#plotting-example-cmip6-ssp370-gwl-2-degc" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;CMIP6_WarmingLevels.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_GWLs_serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;CMIP6_WarmingSeries.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sce</span> <span class="o">=</span> <span class="s1">&#39;ssp370&#39;</span>
+<span class="n">GWL</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<span class="n">df_GWLs_serie_sce</span> <span class="o">=</span> <span class="n">df_GWLs_serie</span><span class="p">[(</span><span class="n">sce</span><span class="p">)]</span>
+<span class="n">df_GWLs_serie_sce</span> <span class="o">=</span> <span class="n">df_GWLs_serie_sce</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_GWL</span> <span class="o">=</span> <span class="n">df_GWLs</span><span class="p">[(</span><span class="n">GWL</span><span class="p">,</span> <span class="n">sce</span><span class="p">)]</span>
+<span class="n">time_GWL</span> <span class="o">=</span> <span class="n">time_GWL</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">time_GWL</span><span class="p">)]</span>
+<span class="n">time_GWL</span> <span class="o">=</span> <span class="n">time_GWL</span><span class="p">[</span><span class="n">time_GWL</span><span class="o">!=</span><span class="s1">&#39;9999&#39;</span><span class="p">]</span>
+<span class="n">time_GWL_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">time_GWL</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">time_GWL_time</span><span class="p">[</span><span class="s1">&#39;year_left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;-12-31&#39;</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+                         <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">time_GWL</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">time_GWL_time</span><span class="p">[</span><span class="s1">&#39;year_right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;-12-31&#39;</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+                         <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">time_GWL</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xticks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">&quot;1850-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;1900-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;1950-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-12-31&quot;</span><span class="p">,</span><span class="s2">&quot;2050-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2100-12-31&quot;</span><span class="p">])</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">rainbow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">df_GWLs_serie_sce</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">df_GWLs_serie_sce</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">GWL</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">time_GWL_time</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">time_GWL_time</span><span class="p">[</span><span class="s1">&#39;year_right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
+               <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">time_GWL_time</span><span class="p">[</span><span class="s1">&#39;year_left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">],</span> <span class="n">time_GWL_time</span><span class="p">[</span><span class="s1">&#39;year_right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">]],</span> 
+                    <span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.93</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Delta change w.r.t. PI period 1850-1900 (degC)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;GWL range:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">time_GWL</span><span class="o">.</span><span class="n">values</span><span class="p">]))</span> 
+                   <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">time_GWL</span><span class="o">.</span><span class="n">values</span><span class="p">])),</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">GWL</span><span class="p">)</span><span class="o">+</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">year</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">xticks</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;CMIP6 (ssp370) GWL +2 degC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;20 - year window width&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">pad</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;20 - year window width&#39;)
+</pre></div>
+</div>
+<img alt="../_images/d3586614cac147d8f2a698e55318f3ecdad983fd030c5f732763be03b382c3a6.png" src="../_images/d3586614cac147d8f2a698e55318f3ecdad983fd030c5f732763be03b382c3a6.png" />
+</div>
+</div>
+</section>
+<section id="ipcc-atlas-validation">
+<h3>IPCC Atlas validation<a class="headerlink" href="#ipcc-atlas-validation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Copernicus_GWLs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">Atlas_GWLs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+    <span class="c1"># read GWLs results</span>
+    <span class="n">df_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;_WarmingLevels.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df_GWLs</span> <span class="o">=</span> <span class="n">df_GWLs</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">9999</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">)</span><span class="c1"># Pandas presents a bug and convert the same value &#39;9999&#39; as &#39;9999&#39; and 9999.0</span>
+    <span class="n">df_GWLs_serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;_WarmingSeries.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># read IPCC Atlas results</span>
+    <span class="n">root_Atlas</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/IPCC-WG1/Atlas/main/warming-levels/&quot;</span> <span class="o">+</span> <span class="n">project</span> <span class="o">+</span> <span class="s2">&quot;_Atlas_WarmingLevels.csv&quot;</span>
+    <span class="n">CMIP_Atlas_WarmingLevels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">root_Atlas</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">C_G</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">A_G</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">df_GWLs</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">sim_Atlas_format</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">sim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">sim_Atlas_format</span> <span class="ow">in</span> <span class="n">CMIP_Atlas_WarmingLevels</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">GWL</span> <span class="ow">in</span> <span class="n">GWLs</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">sce</span> <span class="ow">in</span> <span class="n">scenarios</span><span class="p">[</span><span class="n">project</span><span class="p">]:</span> 
+                    <span class="n">period</span> <span class="o">=</span> <span class="n">df_GWLs</span><span class="p">[(</span><span class="n">GWL</span><span class="p">,</span> <span class="n">sce</span><span class="p">)]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">period</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">period</span> <span class="o">==</span> <span class="s1">&#39;9999&#39;</span><span class="p">:</span>
+                            <span class="n">Copernicus2IPCC_central_period</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">10</span>
+                            <span class="n">C_G</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Copernicus2IPCC_central_period</span><span class="p">)</span>
+                            <span class="n">A_G</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CMIP_Atlas_WarmingLevels</span><span class="p">[</span><span class="n">GWL</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">sce</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim_Atlas_format</span><span class="p">])</span> 
+    
+    <span class="n">Copernicus_GWLs</span><span class="p">[</span><span class="n">project</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_G</span>
+    <span class="n">Atlas_GWLs</span><span class="p">[</span><span class="n">project</span><span class="p">]</span> <span class="o">=</span> <span class="n">A_G</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nc</span><span class="p">,</span> <span class="n">project</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">projects</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Atlas_GWLs</span><span class="p">[</span><span class="n">project</span><span class="p">],</span> <span class="n">Copernicus_GWLs</span><span class="p">[</span><span class="n">project</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2100</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Atlas&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nc</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;GWLs - &#39;</span> <span class="o">+</span> <span class="n">project</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Copernicus&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1">#plt.savefig(&#39;GWLs_AtlasvsCopernicus.pdf&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/55ff299770c98b4a2d16197e129ba413dc34c2326e33ff4e53002e89cb7b5806.png" src="../_images/55ff299770c98b4a2d16197e129ba413dc34c2326e33ff4e53002e89cb7b5806.png" />
+</div>
+</div>
+</section>
+<section id="verifying-the-availability-of-all-driving-gcms-cmip5-for-the-cordex-dataset-in-the-cds-c3s">
+<h3>Verifying the availability of all driving GCMs (CMIP5) for the CORDEX dataset in the CDS-C3S<a class="headerlink" href="#verifying-the-availability-of-all-driving-gcms-cmip5-for-the-cordex-dataset-in-the-cds-c3s" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_members_from_files</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="n">members</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">members</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flatten_list</span><span class="p">(</span><span class="n">nested_list</span><span class="p">):</span>
+    <span class="n">flat_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">nested_list</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">:</span>
+            <span class="n">flat_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">flat_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_CORE_sim_v1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;AFR-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;SAM-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_MOHC_HadGEM2-ES_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               
+               <span class="s1">&#39;AFR-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-4_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-6_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_MOHC_HadGEM2-ES_r1i1p1_ISU-RegCM4_v4-4-rc8&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;SAM-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_MOHC_HadGEM2-ES_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_MIROC_MIROC5_r1i1p1_ORNL-RegCM4-7_v0&#39;</span><span class="p">,</span> 
+               
+               <span class="s1">&#39;AFR-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_MPI-M_MPI-ESM-LR_r3i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;SAM-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_MPI-M_MPI-ESM-LR_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               
+               <span class="s1">&#39;AFR-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-4_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_MPI-M_MPI-ESM-LR_r1i1p1_ICTP-RegCM4-6_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_MPI-M_MPI-ESM-LR_r1i1p1_NCAR-RegCM4_v4-4-rc8&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;SAM-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_MPI-M_MPI-ESM-MR_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_MPI-M_MPI-ESM-MR_r1i1p1_ORNL-RegCM4-7_v0&#39;</span><span class="p">,</span> 
+               
+               <span class="s1">&#39;AFR-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               <span class="s1">&#39;SAM-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_NCC_NorESM1-M_r1i1p1_GERICS-REMO2015_v1&#39;</span><span class="p">,</span> 
+               
+               <span class="s1">&#39;AFR-22_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;AUS-22_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CAM-22_NOAA-GFDL_GFDL-ESM2M_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EAS-22_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-4_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;EUR-11_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-6_v1&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;NAM-22_NOAA-GFDL_GFDL-ESM2M_r1i1p1_ISU-RegCM4_v4-4-rc8&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SAM-22_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;SEA-22_NCC_NorESM1-M_r1i1p1_ICTP-RegCM4-7_v0&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;WAS-22_NCC_NorESM1-M_r1i1p1_ORNL-RegCM4-7_v0&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMIP5 members available in the CDS-C3S</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;./data/CMIP5/historical/&quot;</span>
+<span class="n">files_CMIP5</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s2">&quot;*.nc&quot;</span><span class="p">)</span>
+<span class="n">CMIP5_simulations</span> <span class="o">=</span> <span class="n">get_members_from_files</span><span class="p">(</span><span class="n">files_CMIP5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORDEX (GCMs) members available in the CICA-Atlas v1</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s2">&quot;./CORDEX-EUR-11/historical/&quot;</span>
+<span class="n">files_CORDEX_EUR_11</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;/*.nc&#39;</span><span class="p">)</span>
+<span class="n">CORDEX_EUR_11_simulations</span> <span class="o">=</span> <span class="n">get_members_from_files</span><span class="p">(</span><span class="n">files_CORDEX_EUR_11</span><span class="p">)</span>
+<span class="n">CORDEX_CORE_simulations</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">CORDEX_CORE_sim_v1</span><span class="p">]</span>
+<span class="n">CORDEX_CICA_Atlas_v1_simulations</span> <span class="o">=</span> <span class="n">CORDEX_EUR_11_simulations</span> <span class="o">+</span> <span class="n">CORDEX_CORE_simulations</span>
+<span class="n">CORDEX_CICA_Atlas_v1_GCM_simulations</span> <span class="o">=</span>\
+                        <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">CORDEX_CICA_Atlas_v1_simulations</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMIP5 models inclued in the CORDEX v1 dataset</span>
+<span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">CORDEX_CICA_Atlas_v1_GCM_simulations</span><span class="p">,</span> <span class="n">CMIP5_simulations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;CCCma_CanESM2_r1i1p1&#39;, &#39;CNRM-CERFACS_CNRM-CM5_r1i1p1&#39;,
+       &#39;ICHEC_EC-EARTH_r12i1p1&#39;, &#39;IPSL_IPSL-CM5A-MR_r1i1p1&#39;,
+       &#39;MOHC_HadGEM2-ES_r1i1p1&#39;, &#39;MPI-M_MPI-ESM-LR_r1i1p1&#39;,
+       &#39;MPI-M_MPI-ESM-LR_r2i1p1&#39;, &#39;MPI-M_MPI-ESM-LR_r3i1p1&#39;,
+       &#39;MPI-M_MPI-ESM-MR_r1i1p1&#39;, &#39;NCC_NorESM1-M_r1i1p1&#39;], dtype=&#39;&lt;U33&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMIP5 models not included in the CORDEX v1 dataset (NOAA-GFDL is included but it is wrong spelled in the CMIP5 datset)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">CORDEX_CICA_Atlas_v1_GCM_simulations</span><span class="p">,</span> <span class="n">CMIP5_simulations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ICHEC_EC-EARTH_r1i1p1&#39;, &#39;ICHEC_EC-EARTH_r3i1p1&#39;,
+       &#39;MIROC_MIROC5_r1i1p1&#39;, &#39;NOAA-GFDL_GFDL-ESM2M_r1i1p1&#39;], dtype=&#39;&lt;U28&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORDEX (GCMs) members available in the IPCC-Atlas (excluding EUR)</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;.data/ipcc-ar6-interactive-atlas-dataset/&#39;</span>
+<span class="n">domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AFR&#39;</span><span class="p">,</span> <span class="s1">&#39;ANT&#39;</span><span class="p">,</span> <span class="s1">&#39;ARC&#39;</span><span class="p">,</span> <span class="s1">&#39;AUS&#39;</span><span class="p">,</span> <span class="s1">&#39;CAM&#39;</span><span class="p">,</span> <span class="s1">&#39;EAS&#39;</span><span class="p">,</span> <span class="s1">&#39;NAM&#39;</span><span class="p">,</span> <span class="s1">&#39;SAM&#39;</span><span class="p">,</span> <span class="s1">&#39;SEA&#39;</span><span class="p">,</span> <span class="s1">&#39;WAS&#39;</span><span class="p">]</span>
+<span class="n">CORDEX_IPCC_Atlas_files</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">dom</span> <span class="ow">in</span> <span class="n">domains</span><span class="p">:</span>
+    <span class="n">CORDEX_IPCC_Atlas_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;CORDEX-&#39;</span> <span class="o">+</span>  <span class="n">dom</span> <span class="o">+</span> <span class="s1">&#39;/historical/*.nc&#39;</span><span class="p">))</span>
+<span class="n">CORDEX_IPCC_Atlas_files</span> <span class="o">=</span> <span class="n">flatten_list</span><span class="p">(</span><span class="n">CORDEX_IPCC_Atlas_files</span><span class="p">)</span>
+<span class="n">CORDEX_IPCC_Atlas_simulations</span> <span class="o">=</span> <span class="n">get_members_from_files</span><span class="p">(</span><span class="n">CORDEX_IPCC_Atlas_files</span><span class="p">)</span>
+<span class="n">CORDEX_IPCC_Atlas_GCM_simulations</span><span class="o">=</span>\
+                        <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">CORDEX_IPCC_Atlas_simulations</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMIP5 models inclued in the CORDEX IPCC-Atlas dataset (excluding EUR)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">CORDEX_IPCC_Atlas_GCM_simulations</span><span class="p">,</span> <span class="n">CMIP5_simulations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;CCCma_CanESM2_r1i1p1&#39;, &#39;CNRM-CERFACS_CNRM-CM5_r1i1p1&#39;,
+       &#39;CSIRO-BOM_ACCESS1-0_r1i1p1&#39;, &#39;CSIRO-BOM_ACCESS1-3_r1i1p1&#39;,
+       &#39;CSIRO-QCCCE_CSIRO-Mk3-6-0_r1i1p1&#39;, &#39;ICHEC_EC-EARTH_r12i1p1&#39;,
+       &#39;IPSL_IPSL-CM5A-MR_r1i1p1&#39;, &#39;MOHC_HadGEM2-ES_r1i1p1&#39;,
+       &#39;MPI-M_MPI-ESM-LR_r1i1p1&#39;, &#39;MPI-M_MPI-ESM-MR_r1i1p1&#39;,
+       &#39;NCC_NorESM1-M_r1i1p1&#39;], dtype=&#39;&lt;U33&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMIP5 models not inclued in the CORDEX IPCC-Atlas dataset (excluding EUR)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">CORDEX_IPCC_Atlas_GCM_simulations</span><span class="p">,</span> <span class="n">CMIP5_simulations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ICHEC_EC-EARTH_r1i1p1&#39;, &#39;ICHEC_EC-EARTH_r3i1p1&#39;,
+       &#39;IPSL_IPSL-CM5A-LR_r1i1p1&#39;, &#39;MIROC_MIROC5_r1i1p1&#39;,
+       &#39;NOAA-GFDL_GFDL-ESM2G_r1i1p1&#39;, &#39;NOAA-GFDL_GFDL-ESM2M_r1i1p1&#39;],
+      dtype=&#39;&lt;U32&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="complete-the-gwls-calculated-with-the-cmip5-datasets-available-on-the-c3s-cds-using-the-ipcc-atlas">
+<h1><span class="section-number">1.8. </span>Complete the GWLs calculated with the CMIP5 datasets available on the C3S-CDS using the IPCC-Atlas<a class="headerlink" href="#complete-the-gwls-calculated-with-the-cmip5-datasets-available-on-the-c3s-cds-using-the-ipcc-atlas" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root_IPCC_Atlas</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/IPCC-WG1/Atlas/main/warming-levels/CMIP5_Atlas_WarmingLevels.csv&quot;</span>
+<span class="n">CMIP5_IPCC_Atlas_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">root_IPCC_Atlas</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CMIP5_CICA_Atlas_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;CMIP5_WarmingLevels.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPCC_Atlas_GWLs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ICHEC_EC-EARTH_r1i1p1&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;ICHEC_EC-EARTH_r3i1p1&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="s1">&#39;9999&#39;</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2044</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2038</span><span class="p">,</span> <span class="mi">2061</span><span class="p">,</span> <span class="mi">2081</span><span class="p">],</span>
+    <span class="s2">&quot;MIROC_MIROC5_r1i1p1&quot;</span> <span class="p">:</span>   <span class="p">[</span><span class="mi">2046</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">2039</span><span class="p">,</span> <span class="mi">2071</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="mi">2033</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">2072</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># set period from central year [YYYY-9, YYYY+10]</span>
+
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">IPCC_Atlas_GWLs</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">n_val</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">IPCC_Atlas_GWLs</span><span class="p">[</span><span class="n">sim</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">!=</span> <span class="s1">&#39;NA&#39;</span> <span class="ow">and</span> <span class="n">val</span> <span class="o">!=</span> <span class="s1">&#39;9999&#39;</span><span class="p">:</span>
+            <span class="n">IPCC_Atlas_GWLs</span><span class="p">[</span><span class="n">sim</span><span class="p">][</span><span class="n">n_val</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">IPCC_Atlas_GWLs</span><span class="p">:</span>
+    <span class="n">CMIP5_CICA_Atlas_GWLs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sim</span><span class="p">]</span> <span class="o">=</span> <span class="n">IPCC_Atlas_GWLs</span><span class="p">[</span><span class="n">sim</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix NOAA GFDL_GFDL</span>
+<span class="n">index_</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="n">CMIP5_CICA_Atlas_GWLs</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">CMIP5_CICA_Atlas_GWLs</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CMIP5_CICA_Atlas_GWLs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;CMIP5_WarmingLevels_plusIPCC-Atlas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gwls-for-cordex-core">
+<h1><span class="section-number">1.9. </span>GWLs for CORDEX-CORE<a class="headerlink" href="#gwls-for-cordex-core" title="Permalink to this heading">#</a></h1>
+<p>The names of the simulations in the CORDEX-CORE v1 dataset were simplified to reduce the number of members by not including the ensemble member and the version of the model. Thus, to facilitate the interaction between the CICA visor and the GWLs, we decided to create the following auxiliary file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CMIP5_CICA_Atlas_GWLs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;CMIP5_WarmingLevels_plusIPCC-Atlas.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">index_col</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">associate_core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">Dict</span><span class="o">=</span><span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_core</span><span class="p">()[</span><span class="s2">&quot;list_core_refact&quot;</span><span class="p">]:</span>
+        <span class="n">Dict</span><span class="p">[</span><span class="n">model</span><span class="p">]</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_r1i1p1_GERICS_REMO2015_v1&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_r1i1p1_ICTP_RegCM4-7_v0&quot;</span> <span class="p">,</span> <span class="s2">&quot;MOHC_HadGEM2-ES_r1i1p1_ICTP_RegCM4-4_v0&quot;</span> <span class="p">,</span> <span class="s2">&quot;MOHC_HadGEM2-ES_r1i1p1_ICTP_RegCM4-6_v1&quot;</span><span class="p">,</span><span class="s2">&quot;MOHC_HadGEM2-ES_r1i1p1_ISU_RegCM4_v4-4-rc8&quot;</span><span class="p">]</span>       
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_r1i1p1_GERICS_REMO2015_v1&quot;</span><span class="p">,</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_r3i1p1_GERICS_REMO2015_v1&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-MR_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-MR_r1i1p1_ICTP_RegCM4-7_v0&quot;</span><span class="p">,</span><span class="s2">&quot;MPI-M_MPI-ESM-MR_r1i1p1_ICTP_RegCM4-4_v0&quot;</span><span class="p">,</span><span class="s2">&quot;MPI-M_MPI-ESM-MR_r1i1p1_ORNL_RegCM4-7_v0&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_r1i1p1_GERICS_REMO2015_v1&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_r1i1p1_ICTP_RegCM4-7_v0&quot;</span><span class="p">,</span><span class="s2">&quot;NCC_NorESM1-M_r1i1p1_ICTP_RegCM4-4_v0&quot;</span><span class="p">,</span><span class="s2">&quot;NCC_NorESM1-M_r1i1p1_ICTP_RegCM4-6_v1&quot;</span><span class="p">,</span><span class="s2">&quot;NCC_NorESM1-M_r1i1p1_ORNL_RegCM4-7_v0&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NOAA-GFDL_GFDL-ESM2M_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NOAA-GFDL_GFDL-ESM2M_r1i1p1_ICTP_RegCM4-7_v0&quot;</span><span class="p">,</span><span class="s2">&quot;NOAA-GFDL_GFDL-ESM2M_r1i1p1_ISU_RegCM4_v4-4-rc8&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MIROC_MIROC5_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIROC_MIROC5_r1i1p1_ORNL-RegCM4-7_v0&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;models&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_r1i1p1_ICTP_RegCM4-6_v0&quot;</span><span class="p">,</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_r1i1p1_NCAR_RegCM4_v4-4-rc8&quot;</span><span class="p">,</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_r1i1p1_ICTP_RegCM4-6_v1&quot;</span><span class="p">]</span>
+
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MOHC_HadGEM2-ES_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-MR_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_REMO&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NCC_NorESM1-M_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AFR&quot;</span><span class="p">,</span><span class="s2">&quot;AUS&quot;</span><span class="p">,</span><span class="s2">&quot;EAS&quot;</span><span class="p">,</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;SAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;NOAA-GFDL_GFDL-ESM2M_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CAM&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">,</span><span class="s2">&quot;SEA&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MIROC_MIROC5_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;WAS&quot;</span><span class="p">]</span>
+    <span class="n">Dict</span><span class="p">[</span><span class="s2">&quot;MPI-M_MPI-ESM-LR_RegCM&quot;</span><span class="p">][</span><span class="s2">&quot;domains&quot;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;EUR&quot;</span><span class="p">,</span><span class="s2">&quot;NAM&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">Dict</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORE_GCMs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="s1">&#39;MOHC_HadGEM2-ES_REMO&#39;</span><span class="p">,</span> <span class="s1">&#39;MOHC_HadGEM2-ES_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;MOHC_HadGEM2-ES_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;MOHC_HadGEM2-ES_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;MPI-M_MPI-ESM-LR_REMO&#39;</span><span class="p">,</span> <span class="s1">&#39;MPI-M_MPI-ESM-LR_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;MPI-M_MPI-ESM-MR_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;MPI-M_MPI-ESM-MR_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;NCC_NorESM1-M_REMO&#39;</span><span class="p">,</span> <span class="s1">&#39;NCC_NorESM1-M_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;NCC_NorESM1-M_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;NCC_NorESM1-M_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;NOAA-GFDL_GFDL-ESM2M_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;NOAA-GFDL_GFDL-ESM2M_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;MIROC_MIROC5_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;MIROC_MIROC5_r1i1p1&#39;</span><span class="p">],</span>
+         <span class="p">[</span><span class="s1">&#39;MPI-M_MPI-ESM-LR_RegCM&#39;</span><span class="p">,</span> <span class="s1">&#39;MPI-M_MPI-ESM-LR_r1i1p1&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORE_GCMs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">CORE_GCMs</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CORDEX-CORE&#39;</span><span class="p">,</span> <span class="s1">&#39;GCMs&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORE_GCMs_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CORDEX-CORE</th>
+      <th>GCMs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MOHC_HadGEM2-ES_REMO</td>
+      <td>MOHC_HadGEM2-ES_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MOHC_HadGEM2-ES_RegCM</td>
+      <td>MOHC_HadGEM2-ES_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MPI-M_MPI-ESM-LR_REMO</td>
+      <td>MPI-M_MPI-ESM-LR_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MPI-M_MPI-ESM-MR_RegCM</td>
+      <td>MPI-M_MPI-ESM-MR_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NCC_NorESM1-M_REMO</td>
+      <td>NCC_NorESM1-M_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NCC_NorESM1-M_RegCM</td>
+      <td>NCC_NorESM1-M_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NOAA-GFDL_GFDL-ESM2M_RegCM</td>
+      <td>NOAA-GFDL_GFDL-ESM2M_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>MIROC_MIROC5_RegCM</td>
+      <td>MIROC_MIROC5_r1i1p1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>MPI-M_MPI-ESM-LR_RegCM</td>
+      <td>MPI-M_MPI-ESM-LR_r1i1p1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_CORE_GWLs</span> <span class="o">=</span> <span class="n">CMIP5_CICA_Atlas_GWLs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">CORE_GCMs_df</span><span class="p">[</span><span class="s1">&#39;GCMs&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_CORE_GWLs</span> <span class="o">=</span> <span class="n">CORDEX_CORE_GWLs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">CORE_GCMs_df</span><span class="p">[</span><span class="s1">&#39;CORDEX-CORE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_CORE_GWLs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>1.5</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>1.5</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>1.5</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>rcp26</th>
+      <th>rcp26</th>
+      <th>rcp26</th>
+      <th>rcp26</th>
+      <th>rcp45</th>
+      <th>rcp45</th>
+      <th>rcp45</th>
+      <th>rcp45</th>
+      <th>rcp85</th>
+      <th>rcp85</th>
+      <th>rcp85</th>
+      <th>rcp85</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MOHC_HadGEM2-ES_REMO</th>
+      <td>2015-2034</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-2039</td>
+      <td>2036-2055</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9999</td>
+      <td>9999</td>
+      <td>9999</td>
+      <td>9999</td>
+    </tr>
+    <tr>
+      <th>MOHC_HadGEM2-ES_RegCM</th>
+      <td>2015-2034</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2020-2039</td>
+      <td>2036-2055</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9999</td>
+      <td>9999</td>
+      <td>9999</td>
+      <td>9999</td>
+    </tr>
+    <tr>
+      <th>MPI-M_MPI-ESM-LR_REMO</th>
+      <td>2013-2032</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2013-2032</td>
+      <td>2035-2054</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2008-2027</td>
+      <td>2028-2047</td>
+      <td>2052-2071</td>
+      <td>2072-2091</td>
+    </tr>
+    <tr>
+      <th>MPI-M_MPI-ESM-MR_RegCM</th>
+      <td>2014-2033</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2014-2033</td>
+      <td>2036-2055</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2011-2030</td>
+      <td>2030-2049</td>
+      <td>2051-2070</td>
+      <td>2073-2092</td>
+    </tr>
+    <tr>
+      <th>NCC_NorESM1-M_REMO</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2030-2049</td>
+      <td>2064-2083</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2023-2042</td>
+      <td>2039-2058</td>
+      <td>2064-2083</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>NCC_NorESM1-M_RegCM</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2030-2049</td>
+      <td>2064-2083</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2023-2042</td>
+      <td>2039-2058</td>
+      <td>2064-2083</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>NOAA-GFDL_GFDL-ESM2M_RegCM</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2037-2056</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2027-2046</td>
+      <td>2042-2061</td>
+      <td>2073-2092</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MIROC_MIROC5_RegCM</th>
+      <td>2037-2056</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2030-2049</td>
+      <td>2062-2081</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2024-2043</td>
+      <td>2039-2058</td>
+      <td>2063-2082</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>MPI-M_MPI-ESM-LR_RegCM</th>
+      <td>2013-2032</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2013-2032</td>
+      <td>2035-2054</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2008-2027</td>
+      <td>2028-2047</td>
+      <td>2052-2071</td>
+      <td>2072-2091</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_CORE_GWLs</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;CORDEX-CORE_WarmingLevels_plusIPCC-Atlas.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seasonal_stripes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.6. </span>Seasonal stripes</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1.7. Global Warming Levels (GWLs)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages">1.7.1. Load Python packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test">1.7.2. Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-functions">1.7.3. Define functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.7.4. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data">Download data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-inputs">1.7.5. Define inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cmip6-and-cmip5">1.7.6. CMIP6 and CMIP5</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-example-cmip6-ssp370-gwl-2-degc">Plotting example: CMIP6 (ssp370) GWL +2 degC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ipcc-atlas-validation">IPCC Atlas validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-availability-of-all-driving-gcms-cmip5-for-the-cordex-dataset-in-the-cds-c3s">Verifying the availability of all driving GCMs (CMIP5) for the CORDEX dataset in the CDS-C3S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-the-gwls-calculated-with-the-cmip5-datasets-available-on-the-c3s-cds-using-the-ipcc-atlas">1.8. Complete the GWLs calculated with the CMIP5 datasets available on the C3S-CDS using the IPCC-Atlas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gwls-for-cordex-core">1.9. GWLs for CORDEX-CORE</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

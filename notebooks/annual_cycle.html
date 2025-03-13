@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.4. Annual Cycle &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/annual_cycle';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Climate Stripes" href="climate_stripes.html" />
+    <link rel="prev" title="1.3. Time Series" href="time_series.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas dataset</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.4. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbaisimip.html">1.6. Monthly mean of daily accumulated precipitation of liquid water equivalent from all phasess (rbaisimip)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas products</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter02.html">1. Reproducibility of the C3S Atlas visual products</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">1.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_map.html">1.2. Spatial map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">1.3. Time series</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">1.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">1.6. Seasonal stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GWLs.html">1.7. Global Warming Levels (GWLs)</a></li>
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/annual_cycle.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/annual_cycle.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Annual Cycle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.4.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.4.2. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-historical-data">Download historical data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-historical-and-ssp-scenarios">Concatenate historical and SSP scenarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-attributes">Define attributes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-region">Select Region</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-and-change">1.4.3. Climatology and change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-climatology">a) Climatology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-absolute-change">b) Absolute change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-relative-change">c) Relative change</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-warning-levels">1.4.4. Global warning Levels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-and-plot">Analysis and plot</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="annual-cycle">
+<h1><span class="section-number">1.4. </span>Annual Cycle<a class="headerlink" href="#annual-cycle" title="Permalink to this heading">#</a></h1>
+<p>This Jupyter Notebook reproduces the annual cycle product from the C3S Atlas.</p>
+<p>The annual cycle plot displays the regionally aggregated monthly climatologies for the selected variable and period. For climate <strong>projections</strong> it displays the regionally aggregated monthly climatologies of the selected period for the raw values or the changes (anomalies relative to the selected baseline in this case) for all the simulations forming the ensemble, as well as the ensemble median. Detailed (percentile) information is provided by hovering the pointer over the individual months.</p>
+<p>The figure below represents the annual cycle of precipitation for CMIP6 projections. It can be visualize in the C3S Atlas using the following <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/FtQzDDjK">Permalink</a></p>
+<p><img alt="annual_cycle" src="../_images/annual_cycle.png" /></p>
+<section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
+<h2><span class="section-number">1.4.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Permalink to this heading">#</a></h2>
+<p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">C3S-atlas</a> repository and install them (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
+<p>Further details on how to clone and install the repository are available in the <a class="reference external" href="http://localhost:8889/lab/tree/book/_build/html/intro.html">requirements section</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="kn">from</span> <span class="nn">c3s_atlas.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">season_get_name</span><span class="p">,</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.customized_regions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Mask</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.analysis</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">monthly_weighted_average</span><span class="p">,</span> 
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.products</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">annual_cycle</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.GWLs</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_GWLs</span><span class="p">,</span>
+    <span class="n">select_member_GWLs</span><span class="p">,</span>
+    <span class="n">get_mean_data_by_months</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-climate-data-with-the-cds-api">
+<h2><span class="section-number">1.4.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
+<p>To reduce data size and download time, a geographical subset focusing on a specific area within the European region (Spain) is selected.</p>
+<ul class="simple">
+<li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Copernicus Interactive Climate Atlas: gridded monthly dataset</a></p></li>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="s2">&quot;ssp370&quot;</span>
+<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;pr&#39;</span>
+<span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CMIP6&#39;</span><span class="p">)</span> <span class="c1"># directory to download the files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-historical-data">
+<h3>Download historical data<a class="headerlink" href="#download-historical-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_historical_mon_185001-201412.zip&#39;</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_accumulated_precipitation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-ssp-scenario">
+<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_ssp370_mon_201501-210012.zip&#39;</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp3_7_0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_accumulated_precipitation&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="concatenate-historical-and-ssp-scenarios">
+<h3>Concatenate historical and SSP scenarios<a class="headerlink" href="#concatenate-historical-and-ssp-scenarios" title="Permalink to this heading">#</a></h3>
+<p>Note that the historical and SSP scenarios may have a different number of members. Here, common members from the historical and SSP scenarios are concatenated into a single <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html">xarray.Dataset</a> to facilitate their use going forward.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;pr_CMIP6_historical_mon_185001-201412.nc&quot;</span><span class="p">)</span>
+<span class="n">ds_sce</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;pr_CMIP6_ssp370_mon_201501-210012.nc&quot;</span><span class="p">)</span>
+<span class="n">mem_inters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">mem_inters</span><span class="p">))</span>
+<span class="n">ds_sce</span> <span class="o">=</span> <span class="n">ds_sce</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">mem_inters</span><span class="p">))</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_hist</span><span class="p">,</span> <span class="n">ds_sce</span><span class="p">],</span> <span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="define-attributes">
+<h4>Define attributes<a class="headerlink" href="#define-attributes" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actual_year</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+<span class="n">unit</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
+
+<span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;project&quot;</span> <span class="p">:</span> <span class="n">project</span><span class="p">,</span>
+    <span class="s2">&quot;scenario&quot;</span><span class="p">:</span> <span class="n">scenario</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="n">var</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span> <span class="p">:</span> <span class="n">unit</span>    
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="select-region">
+<h3>Select Region<a class="headerlink" href="#select-region" title="Permalink to this heading">#</a></h3>
+<p>The Spanish region is used as an example from the predefined European countries regions to visualize the products. See <a class="reference internal" href="customized_regions.html"><span class="doc std std-doc">customized_regions.ipynb</span></a> for more options and information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">Mask</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="o">.</span><span class="n">European_contries</span><span class="p">([</span><span class="s1">&#39;ESP&#39;</span><span class="p">])</span>
+<span class="n">filtered_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean spatial map for one member</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>  <span class="c1"># Use PlateCarree for lat/lon projections</span>
+<span class="n">filtered_ds</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ccf3eb5c2c9652fa002d44ef7b1da921ab7fb303d36a0f25fa6fada0fa9fa25d.png" src="../_images/ccf3eb5c2c9652fa002d44ef7b1da921ab7fb303d36a0f25fa6fada0fa9fa25d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="climatology-and-change">
+<h2><span class="section-number">1.4.3. </span>Climatology and change<a class="headerlink" href="#climatology-and-change" title="Permalink to this heading">#</a></h2>
+<p>The <strong>monthly_weighted_average</strong> function calculates the monthly spatial mean of a dataset, weighted by the cosine of the latitude. This is a common approach to account for the varying size of grid cells at different latitudes, as areas near the poles have smaller grid cells than those near the equator. By applying this weighting, the function ensures that each grid cell contributes appropriately to the overall average, regardless of its geographical location.</p>
+<section id="a-climatology">
+<h3>a) Climatology<a class="headerlink" href="#a-climatology" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate annual cycle (climatology)</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;climatology&#39;</span>
+<span class="n">period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/2081&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2100&#39;</span><span class="p">)</span>
+<span class="n">annual_cycle_ds</span> <span class="o">=</span> <span class="n">monthly_weighted_average</span><span class="p">(</span><span class="n">filtered_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_plot</span> <span class="o">=</span> <span class="n">annual_cycle</span><span class="p">(</span><span class="n">annual_cycle_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7063736bc687289aa274df8284f31d08fcaeb90ec08f3a7b744ceecf8c845662.png" src="../_images/7063736bc687289aa274df8284f31d08fcaeb90ec08f3a7b744ceecf8c845662.png" />
+</div>
+</div>
+</section>
+<section id="b-absolute-change">
+<h3>b) Absolute change<a class="headerlink" href="#b-absolute-change" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate annual cycle (abs)</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;change&#39;</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="s1">&#39;abs&#39;</span>
+<span class="n">period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/2081&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2100&#39;</span><span class="p">)</span>
+<span class="n">baseline_period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/1981&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2010&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_abs_ds</span> <span class="o">=</span> <span class="n">monthly_weighted_average</span><span class="p">(</span><span class="n">filtered_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span>
+                                               <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_plot</span> <span class="o">=</span> <span class="n">annual_cycle</span><span class="p">(</span><span class="n">annual_cycle_abs_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> 
+                                 <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span> 
+                                 <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8b30e6dc3ff422c2989fe75b9554a82a6c8a7791d01d75e50525ae0e0343ad06.png" src="../_images/8b30e6dc3ff422c2989fe75b9554a82a6c8a7791d01d75e50525ae0e0343ad06.png" />
+</div>
+</div>
+</section>
+<section id="c-relative-change">
+<h3>c) Relative change<a class="headerlink" href="#c-relative-change" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate annual cycle (rel)</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;change&#39;</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="s1">&#39;rel&#39;</span>
+<span class="n">period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/2081&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2100&#39;</span><span class="p">)</span>
+<span class="n">baseline_period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/1981&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2010&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_rel_ds</span> <span class="o">=</span> <span class="n">monthly_weighted_average</span><span class="p">(</span><span class="n">filtered_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span>
+                                               <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_plot</span> <span class="o">=</span> <span class="n">annual_cycle</span><span class="p">(</span><span class="n">annual_cycle_rel_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> 
+                                 <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span> 
+                                 <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="n">period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d291f15e65725fa09aca41b8a7ce83223c2cee536425f6ed00ebaa5b8dbbb58d.png" src="../_images/d291f15e65725fa09aca41b8a7ce83223c2cee536425f6ed00ebaa5b8dbbb58d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="global-warning-levels">
+<h2><span class="section-number">1.4.4. </span>Global warning Levels<a class="headerlink" href="#global-warning-levels" title="Permalink to this heading">#</a></h2>
+<p>Here, the annual cycle is displayed for a specific Global Warming Level (GWL). To achieve this, the 20-year period in which each ensemble member reaches the chosen GWL is selected. The annual cycle is then shown, representing either climatology or change for this specific period and region (Spain in this notebook).</p>
+<p>These periods are calculated in the notebook <a class="reference internal" href="GWLs.html"><span class="doc std std-doc">GWLs.ipynb</span></a> for CMIP5 and CMIP6. For CORDEX, the results from the driving CMIP5 models are used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GWL</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span>
+<span class="n">baseline_period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1/1/1981&#39;</span><span class="p">,</span><span class="s1">&#39;31/12/2010&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load the data and get the intersection of the members</span>
+<span class="n">GWLs_ds</span> <span class="o">=</span> <span class="n">load_GWLs</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+<span class="n">GWLs_members_with_period</span> <span class="o">=</span> <span class="n">select_member_GWLs</span><span class="p">(</span><span class="n">filtered_ds</span><span class="p">,</span> <span class="n">GWLs_ds</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">GWL</span><span class="p">)</span>
+<span class="p">[</span><span class="n">GWL_data</span><span class="p">,</span> <span class="n">filtered_GWLs_ds</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_mean_data_by_months</span><span class="p">(</span><span class="n">filtered_ds</span><span class="p">,</span> <span class="n">GWLs_members_with_period</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="analysis-and-plot">
+<h3>Analysis and plot<a class="headerlink" href="#analysis-and-plot" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;change&#39;</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="s1">&#39;abs&#39;</span>
+<span class="n">annual_cycle_GWLs</span> <span class="o">=</span> <span class="n">monthly_weighted_average</span><span class="p">(</span><span class="n">filtered_GWLs_ds</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span> 
+                                             <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">ds_GWLs</span> <span class="o">=</span> <span class="n">GWL_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">annual_cycle_plot</span> <span class="o">=</span> <span class="n">annual_cycle</span><span class="p">(</span><span class="n">annual_cycle_GWLs</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">,</span> 
+                                 <span class="n">baseline_period</span> <span class="o">=</span> <span class="n">baseline_period</span><span class="p">,</span> <span class="n">GWLs</span> <span class="o">=</span> <span class="n">GWL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/295c10dafb0590d044d1f2a08b10c5756e206846fcbe3fc34523b0e93b9b77ef.png" src="../_images/295c10dafb0590d044d1f2a08b10c5756e206846fcbe3fc34523b0e93b9b77ef.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="time_series.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Time Series</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="climate_stripes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Climate Stripes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.4.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.4.2. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-historical-data">Download historical data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-historical-and-ssp-scenarios">Concatenate historical and SSP scenarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-attributes">Define attributes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-region">Select Region</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-and-change">1.4.3. Climatology and change</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-climatology">a) Climatology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-absolute-change">b) Absolute change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-relative-change">c) Relative change</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-warning-levels">1.4.4. Global warning Levels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-and-plot">Analysis and plot</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

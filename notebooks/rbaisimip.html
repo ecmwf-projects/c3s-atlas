@@ -1,0 +1,1312 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.6. Calculate rbaisimip for CMIP6 &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/rbaisimip';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Reproducibility of the C3S Atlas Application visual products" href="../chapter02.html" />
+    <link rel="prev" title="1.5. Calculate tx35bals for CMIP6" href="tx35bals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas dataset</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.4. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Monthly mean of daily accumulated precipitation of liquid water equivalent from all phasess (rbaisimip)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas products</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02.html">1. Reproducibility of the C3S Atlas visual products</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">1.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_map.html">1.2. Spatial map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">1.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annual_cycle.html">1.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">1.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">1.6. Seasonal stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GWLs.html">1.7. Global Warming Levels (GWLs)</a></li>
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/rbaisimip.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/rbaisimip.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Calculate rbaisimip for CMIP6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.6.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.6.2. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cmip6-data">Download CMIP6 data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-wfde5-data">Download WFDE5 data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.6.3. Load files with xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-downloaded-datasets">Visualize downloaded datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.6.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-a-common-and-regular-grid-using-xesmf">1.6.5. Interpolate to a common and regular grid using xESMF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-small-area">Crop Small area</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-adjusted-using-ibicus">1.6.6. Bias adjusted using ibicus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-adjust-only-one-year-from-the-future-period-to-reduce-computational-time">We adjust only one year from the future period to reduce computational time.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-intensity">Rainfall Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dry-days">Dry days (%)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#we-adjust-the-reference-period">1.6.7. We adjust the reference period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rainfall Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dry days (%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r20">R20</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="calculate-rbaisimip-for-cmip6">
+<h1><span class="section-number">1.6. </span>Calculate rbaisimip for CMIP6<a class="headerlink" href="#calculate-rbaisimip-for-cmip6" title="Permalink to this heading">#</a></h1>
+<p>This Jupyter Notebook calculates the variable <strong>r</strong> (Monthly mean of daily accumulated precipitation of liquid water equivalent from all phases) with bias adjusted (ba) using the ISIMIP trend preserving method based on (<a class="reference external" href="https://doi.org/10.5194/gmd-12-3055-2019">Lange 2019</a>) (<strong>rbaismip</strong>) for the CMIP6-CMCC_ESM2 model. <strong>WFDE5</strong> is used as reference dataset for the “ba”.</p>
+<p>To limit the time spent, only one year from the future period (the year 2080) is bias-adjusted for a specific region (Spain)</p>
+<p>This notebook demostrates that the ISMIP method is capable to adjusting not only precipitation intensity but also occurrence.</p>
+<p><strong><span style="color:red">Please be advised that downloading the required data for this script may take several minutes.</span></strong></p>
+<section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
+<h2><span class="section-number">1.6.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Permalink to this heading">#</a></h2>
+<p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">C3S-atlas</a> repository and install them (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
+<p>Further details on how to clone and install the repository are available in the <a class="reference external" href="http://localhost:8889/lab/tree/book/_build/html/intro.html">requirements section</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">xclim</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">ibicus.debias</span> <span class="kn">import</span> <span class="n">ISIMIP</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">c3s_atlas.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">,</span>
+    <span class="n">get_ds_to_fill</span><span class="p">,</span>
+    <span class="n">plot_month</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">c3s_atlas.fixers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">apply_fixers</span>
+<span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">c3s_atlas.interpolation</span> <span class="k">as</span> <span class="nn">xesmfCICA</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-climate-data-with-the-cds-api">
+<h2><span class="section-number">1.6.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
+<p>To reduce data size and download time, a geographical subset focusing on a specific area within the European region (Spain) is selected.</p>
+<p>Catalogues:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview">CMIP6 climate projections</a></p></li>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/datasets/derived-near-surface-meteorological-variables?tab=overview">WFDE5</a>: Note that for WFDE5, the subsetting function is not available on the CDS side. To limit the saved data, the entire global dataset is downloaded and then cropped to the Spanish area.</p></li>
+</ul>
+<p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some global attributes for the CDS-API</span>
+<span class="n">CMIP6_years</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;historical&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">2006</span><span class="p">)],</span>
+    <span class="s2">&quot;ssp5_8_5&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2080&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="c1"># variables</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pr&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1"># directory to download the files</span>
+<span class="n">file_dest_CMIP6</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CMIP6&#39;</span><span class="p">)</span>
+<span class="n">file_dest_WFDE5</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/WFDE5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span>
+<span class="p">]</span>
+        
+<span class="n">days</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;25&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;29&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;31&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-cmip6-data">
+<h3>Download CMIP6 data<a class="headerlink" href="#download-cmip6-data" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Year 2080 for the ssp5_8_5 scenario</p></li>
+<li><p>Period 1980-2006 for the historical scenario.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_dest_CMIP6</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">CMIP6_years</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">CMIP6_years</span><span class="p">[</span><span class="n">experiment</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">path_zip</span> <span class="o">=</span> <span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;CMIP6_</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+                <span class="s1">&#39;projections-cmip6&#39;</span><span class="p">,</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;zip&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;temporal_resolution&#39;</span><span class="p">:</span> <span class="s1">&#39;daily&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="n">variables</span><span class="p">[</span><span class="n">var</span><span class="p">],</span>
+                    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="n">experiment</span><span class="p">,</span>
+                    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;cmcc_esm2&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">year</span><span class="p">],</span>
+                    <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="n">months</span><span class="p">,</span>
+                    <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="n">days</span><span class="p">,</span>
+                    <span class="s1">&#39;area&#39;</span><span class="p">:[</span><span class="mf">45.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="o">-</span><span class="mf">11.5</span><span class="p">],</span> <span class="c1"># crop area for Spain</span>
+                <span class="p">})</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">path_zip</span><span class="p">)</span>
+            <span class="c1"># Extract zip file into the specified directory and remove zip</span>
+            <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">path_zip</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-wfde5-data">
+<h3>Download WFDE5 data<a class="headerlink" href="#download-wfde5-data" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Period 1980-2006</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># variables</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pr&#39;</span><span class="p">:</span> <span class="s1">&#39;rainfall_flux&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_dest_WFDE5</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">CMIP6_years</span><span class="p">[</span><span class="s1">&#39;historical&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">path_zip</span> <span class="o">=</span> <span class="n">file_dest_WFDE5</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;WFDE5_</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">_globe.zip&quot;</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+                <span class="s1">&#39;derived-near-surface-meteorological-variables&#39;</span><span class="p">,</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;2_1&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="n">month</span><span class="p">,</span>
+                    <span class="s1">&#39;reference_dataset&#39;</span><span class="p">:</span> <span class="s1">&#39;cru&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="n">variables</span><span class="p">[</span><span class="n">var</span><span class="p">],</span>
+                    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">year</span><span class="p">,</span>
+                <span class="p">})</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">path_zip</span><span class="p">)</span>
+            <span class="c1"># Extract zip file into the specified directory and remove zip</span>
+            <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">path_zip</span><span class="p">)</span>
+            <span class="c1"># Crop area an save</span>
+            <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_zip</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.nc&quot;</span><span class="p">))</span>
+            <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mf">45.5</span><span class="p">),</span> <span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">11.5</span> <span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+            <span class="n">file</span> <span class="o">=</span> <span class="n">file_dest_WFDE5</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;WFDE5_</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+            <span class="n">ds</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path_zip</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.nc&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="load-files-with-xarray">
+<h2><span class="section-number">1.6.3. </span>Load files with xarray<a class="headerlink" href="#load-files-with-xarray" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.xarray.dev/en/stable/">https://docs.xarray.dev/en/stable/</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load CMIP6 files</span>
+<span class="n">ds_CMIP6_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="s2">&quot;*pr_historical*.nc&quot;</span><span class="p">))),</span> 
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span>
+<span class="p">)</span>
+
+<span class="n">ds_CMIP6_ssp585</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="s2">&quot;*pr_ssp5_8_5*.nc&quot;</span><span class="p">))),</span> 
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span>
+<span class="p">)</span>
+<span class="c1"># load WFDE5 files</span>
+<span class="n">ds_WFDE5_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file_dest_WFDE5</span> <span class="o">/</span> <span class="s2">&quot;*WFDE5_pr*.nc&quot;</span><span class="p">))),</span> 
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualize-downloaded-datasets">
+<h3>Visualize downloaded datasets<a class="headerlink" href="#visualize-downloaded-datasets" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                        <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">data_cmip6</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">data_wfde5</span> <span class="o">=</span> <span class="n">ds_WFDE5_hist</span><span class="p">[</span><span class="s1">&#39;Rainf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">vmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data_cmip6</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data_wfde5</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">values</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">data_cmip6</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">data_wfde5</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">data_cmip6</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CMIP6&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">data_wfde5</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Precipitation (kg.m/s²)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a3c17b5411d739cc3e6a33fefd3176bb25f90fc082ccce4d72617c5fa1f00fd0.png" src="../_images/a3c17b5411d739cc3e6a33fefd3176bb25f90fc082ccce4d72617c5fa1f00fd0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="homogenization">
+<h2><span class="section-number">1.6.4. </span>Homogenization<a class="headerlink" href="#homogenization" title="Permalink to this heading">#</a></h2>
+<p>Once the data is downloaded from the CDS it undergoes a process of homogenization:</p>
+<ul class="simple">
+<li><p>The metadata of the <strong>spatial coordinates</strong> is homogenised to use standard names, in particular [lon, lat].</p></li>
+<li><p>Fix any non-standard <strong>calendars</strong> used in the data. This typically involves converting the calendars to the CF standard calendar (Mixed Gregorian/Julian) commonly used in climate data.</p></li>
+<li><p>Convert the <strong>units</strong> of the data to a common format (e.g. Celsius for temperature). This prevents us from working with the same variables in different units, for example.</p></li>
+<li><p>Convert the <strong>longitude</strong> values from the [0, 360] format to the [-180, 180] one. This is done to ensure that the longitude variable is common between the different datasets.</p></li>
+<li><p><strong>Aggregated to the required temporal resolution</strong>. For example, hourly datasets (such as ERA5, ERA5-Land, WFDE5, etc.) will be resampled to daily resolution. This involves using a temporal aggregation method, such as taking the maximum or minimum value for a given variable. As part of this last step, some variable transformations are necessarily applied. For instance, fluxes variables in ERA5 are accumulated, and therefore, the last hour of the day represent daily accumulations. To mention another case, the surface wind is computed as a combination of both the u- and v-components.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_id</span> <span class="o">=</span> <span class="s2">&quot;cmip6&quot;</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;pr&#39;</span>
+<span class="n">var_mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset_variable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;pr&quot;</span><span class="p">:</span> <span class="s2">&quot;pr&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;aggregation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;pr&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+<span class="n">ds_CMIP6_hist</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_CMIP6_hist</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+<span class="n">ds_CMIP6_ssp585</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_CMIP6_ssp585</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-12-05 11:13:18,633 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2024-12-05 11:13:18,795 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 11MB
+Dimensions:    (time: 9490, bnds: 2, lat: 12, lon: 14)
+Coordinates:
+  * time       (time) object 76kB 1980-01-01 12:00:00 ... 2005-12-31 12:00:00
+  * lat        (lat) float64 96B 34.4 35.34 36.28 37.23 ... 42.88 43.82 44.76
+  * lon        (lon) float64 112B -11.25 -10.0 -8.75 -7.5 ... 1.25 2.5 3.75 5.0
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 152kB dask.array&lt;chunksize=(1, 2), meta=np.ndarray&gt;
+    lat_bnds   (time, lat, bnds) float64 2MB dask.array&lt;chunksize=(365, 12, 2), meta=np.ndarray&gt;
+    lon_bnds   (time, lon, bnds) float64 2MB dask.array&lt;chunksize=(365, 14, 2), meta=np.ndarray&gt;
+    pr         (time, lat, lon) float32 6MB dask.array&lt;chunksize=(1, 12, 14), meta=np.ndarray&gt;
+Attributes: (12/48)
+    Conventions:            CF-1.7 CMIP-6.2
+    activity_id:            CMIP
+    branch_method:          standard
+    branch_time_in_child:   0.0
+    branch_time_in_parent:  0.0
+    comment:                none
+    ...                     ...
+    title:                  CMCC-ESM2 output prepared for CMIP6
+    variable_id:            pr
+    variant_label:          r1i1p1f1
+    license:                CMIP6 model data produced by CMCC is licensed und...
+    cmor_version:           3.6.0
+    tracking_id:            hdl:21.14100/9c81777c-32b6-4da9-bb1d-5f82f76f0354
+2024-12-05 11:13:19,550 — UNITS_TRANSFORM — INFO — The dataset pr units are not in the correct magnitude. A conversion from kg m-2 s-1 to mm will be performed.
+2024-12-05 11:13:19,571 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+2024-12-05 11:13:19,574 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2024-12-05 11:13:19,581 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 406kB
+Dimensions:    (time: 365, bnds: 2, lat: 12, lon: 14)
+Coordinates:
+  * time       (time) object 3kB 2080-01-01 12:00:00 ... 2080-12-31 12:00:00
+  * lat        (lat) float64 96B 34.4 35.34 36.28 37.23 ... 42.88 43.82 44.76
+  * lon        (lon) float64 112B -11.25 -10.0 -8.75 -7.5 ... 1.25 2.5 3.75 5.0
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 6kB dask.array&lt;chunksize=(1, 2), meta=np.ndarray&gt;
+    lat_bnds   (time, lat, bnds) float64 70kB dask.array&lt;chunksize=(365, 12, 2), meta=np.ndarray&gt;
+    lon_bnds   (time, lon, bnds) float64 82kB dask.array&lt;chunksize=(365, 14, 2), meta=np.ndarray&gt;
+    pr         (time, lat, lon) float32 245kB dask.array&lt;chunksize=(1, 12, 14), meta=np.ndarray&gt;
+Attributes: (12/48)
+    Conventions:            CF-1.7 CMIP-6.2
+    activity_id:            ScenarioMIP
+    branch_method:          standard
+    branch_time_in_child:   60225.0
+    branch_time_in_parent:  60225.0
+    comment:                none
+    ...                     ...
+    title:                  CMCC-ESM2 output prepared for CMIP6
+    variable_id:            pr
+    variant_label:          r1i1p1f1
+    license:                CMIP6 model data produced by CMCC is licensed und...
+    cmor_version:           3.6.0
+    tracking_id:            hdl:21.14100/6f1ccef8-fcb3-4d4e-ba3c-cdd26502ce44
+2024-12-05 11:13:19,610 — UNITS_TRANSFORM — INFO — The dataset pr units are not in the correct magnitude. A conversion from kg m-2 s-1 to mm will be performed.
+2024-12-05 11:13:19,622 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_id</span> <span class="o">=</span> <span class="s2">&quot;WFDE5&quot;</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;pr&#39;</span>
+<span class="n">var_mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset_variable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;pr&quot;</span><span class="p">:</span> <span class="s2">&quot;Rainf&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;aggregation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;pr&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+<span class="n">ds_WFDE5_hist</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_WFDE5_hist</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-12-05 11:13:19,627 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2024-12-05 11:13:19,756 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 715MB
+Dimensions:  (time: 227928, lat: 23, lon: 34)
+Coordinates:
+  * lat      (lat) float64 184B 34.25 34.75 35.25 35.75 ... 44.25 44.75 45.25
+  * lon      (lon) float64 272B -11.25 -10.75 -10.25 -9.75 ... 4.25 4.75 5.25
+  * time     (time) datetime64[ns] 2MB 1980-01-01 ... 2005-12-31T23:00:00
+Data variables:
+    Rainf    (time, lat, lon) float32 713MB dask.array&lt;chunksize=(744, 23, 34), meta=np.ndarray&gt;
+Attributes:
+    title:        WATCH Forcing Data methodology applied to ERA5 data
+    institution:  Copernicus Climate Change Service
+    contact:      http://copernicus-support.ecmwf.int
+    comment:      Methodology implementation for ERA5 and dataset production ...
+    Conventions:  CF-1.7
+    summary:      ERA5 data regridded to half degree regular lat-lon; Genuine...
+    reference:    Cucchi et al., 2020, Earth Syst. Sci. Data, 12(3), 2097–212...
+    licence:      The dataset is distributed under the Licence to Use Coperni...
+2024-12-05 11:13:19,801 — UNITS_TRANSFORM — INFO — The dataset pr units are not in the correct magnitude. A conversion from kg m-2 s-1 to mm will be performed.
+2024-12-05 11:13:19,824 — Homogenization-fixers — INFO — The dataset is in hourly resolution, we need to resample it to daily resolution
+2024-12-05 11:13:58,920 — Homogenization-fixers — INFO — Dataset resampled to daily resolution
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpolate-to-a-common-and-regular-grid-using-xesmf">
+<h2><span class="section-number">1.6.5. </span>Interpolate to a common and regular grid using xESMF<a class="headerlink" href="#interpolate-to-a-common-and-regular-grid-using-xesmf" title="Permalink to this heading">#</a></h2>
+<p>A wrapper for the <a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a> Python package was developed within the framework of the C3S Atlas project to extend its functionalities to all datasets (regular, curvilinear, etc.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate data</span>
+<span class="n">int_attr</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;interpolation_method&#39;</span> <span class="p">:</span> <span class="s1">&#39;conservative_normed&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;lats&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">34.5</span><span class="p">,</span> <span class="mf">46.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;lons&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">11.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;var_name&#39;</span> <span class="p">:</span> <span class="s1">&#39;pr&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">INTER</span> <span class="o">=</span> <span class="n">xesmfCICA</span><span class="o">.</span><span class="n">Interpolator</span><span class="p">(</span><span class="n">int_attr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_CMIP6_hist_i</span> <span class="o">=</span> <span class="n">INTER</span><span class="p">(</span><span class="n">ds_CMIP6_hist</span><span class="p">)</span>
+<span class="n">ds_CMIP6_ssp585_i</span> <span class="o">=</span> <span class="n">INTER</span><span class="p">(</span><span class="n">ds_CMIP6_ssp585</span><span class="p">)</span>
+<span class="n">ds_WFDE5_hist_i</span> <span class="o">=</span> <span class="n">INTER</span><span class="p">(</span><span class="n">ds_WFDE5_hist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="crop-small-area">
+<h3>Crop Small area<a class="headerlink" href="#crop-small-area" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_CMIP6_hist_i</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">46</span><span class="p">))</span>
+<span class="n">ds_CMIP6_ssp585_i</span> <span class="o">=</span> <span class="n">ds_CMIP6_ssp585_i</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">46</span><span class="p">))</span>
+<span class="n">ds_WFDE5_hist_i</span> <span class="o">=</span> <span class="n">ds_WFDE5_hist_i</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lon</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">lat</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">46</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f6881e46360&gt;
+</pre></div>
+</div>
+<img alt="../_images/06064c37eef874d5b11926807c318cd8a42de2eb82cdeb2fea5cce2dc7b29b45.png" src="../_images/06064c37eef874d5b11926807c318cd8a42de2eb82cdeb2fea5cce2dc7b29b45.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="bias-adjusted-using-ibicus">
+<h2><span class="section-number">1.6.6. </span>Bias adjusted using ibicus<a class="headerlink" href="#bias-adjusted-using-ibicus" title="Permalink to this heading">#</a></h2>
+<p>Two methods of <strong>ba</strong> are applied in the C3S Atlas: the <a class="reference external" href="https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.LinearScaling">LinearScaling</a> (<a class="reference external" href="https://doi.org/10.1007/s40641-016-0050-x">Douglas Maraun 2016</a>) and the <a class="reference external" href="https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.ISIMIP">ISIMIP</a> (<a class="reference external" href="https://doi.org/10.5194/gmd-12-3055-2019">Lange 2019</a>). Here, for simplicity, we applied the linear scaling one.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/ibicus/">https://pypi.org/project/ibicus/</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;lower_bound&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;lower_threshold&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;upper_bound&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="s2">&quot;upper_threshold&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+    <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span>
+    <span class="s2">&quot;trend_preservation_method&quot;</span><span class="p">:</span> <span class="s2">&quot;mixed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;running_window_mode&quot;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">debiaser_obj</span> <span class="o">=</span> <span class="n">ISIMIP</span><span class="o">.</span><span class="n">from_variable</span><span class="p">(</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;pr&#39;</span><span class="p">,</span> 
+    <span class="o">**</span><span class="n">args</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="we-adjust-only-one-year-from-the-future-period-to-reduce-computational-time">
+<h3>We adjust only one year from the future period to reduce computational time.<a class="headerlink" href="#we-adjust-only-one-year-from-the-future-period-to-reduce-computational-time" title="Permalink to this heading">#</a></h3>
+<p>In the sections below, we apply the bias adjustment method to a specific year in the climate projection and demonstrate that it effectively adjusts not only the intensity but also the frequency (dry days) of precipitation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ba_data</span> <span class="o">=</span> <span class="n">debiaser_obj</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">cm_hist</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">cm_future</span> <span class="o">=</span> <span class="n">ds_CMIP6_ssp585_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_bias</span> <span class="o">=</span> <span class="n">get_ds_to_fill</span><span class="p">(</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">ds_CMIP6_ssp585_i</span><span class="p">,</span> <span class="n">reference</span> <span class="o">=</span> <span class="n">ds_CMIP6_ssp585_i</span><span class="p">)</span>
+<span class="n">ds_bias</span> <span class="o">=</span> <span class="n">ds_bias</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">)</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">ba_data</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mm/day&quot;</span> <span class="c1"># xclim needs the atrribute units</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rainfall-intensity">
+<h3>Rainfall Intensity<a class="headerlink" href="#rainfall-intensity" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="n">ds_CMIP6_ssp585_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_ssp585_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ssp5_8_5 2080 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP ssp5_8_5 2080 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f6887833080&gt;
+</pre></div>
+</div>
+<img alt="../_images/94ac58e37fa04a0a2d1186dec588118f4e3e2d6016c0f601d175019530c90985.png" src="../_images/94ac58e37fa04a0a2d1186dec588118f4e3e2d6016c0f601d175019530c90985.png" />
+</div>
+</div>
+</section>
+<section id="dry-days">
+<h3>Dry days (%)<a class="headerlink" href="#dry-days" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_CMIP6_ssp585_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_ssp585_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ssp5_8_5 2080 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP ssp5_8_5 2080 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f6881aa5df0&gt;
+</pre></div>
+</div>
+<img alt="../_images/610d789e546433098fc31e03479deae7d2f11e615f6616ded2aa05566f2683a5.png" src="../_images/610d789e546433098fc31e03479deae7d2f11e615f6616ded2aa05566f2683a5.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="we-adjust-the-reference-period">
+<h2><span class="section-number">1.6.7. </span>We adjust the reference period<a class="headerlink" href="#we-adjust-the-reference-period" title="Permalink to this heading">#</a></h2>
+<p>Below, we demonstrate that the ISIMIP method effectively preserves the intensity and frequency of precipitation. To illustrate this, the ISIMIP method is implemented using the historical projections for both <strong>cm_hist</strong> (the modeled climate for the historical period) and <strong>cm_future</strong> (the modeled climate for future scenarios). Therefore, since no climate change is detected, the method should adjust the historical projections to be similar to the reference ones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ba_data</span> <span class="o">=</span> <span class="n">debiaser_obj</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">cm_hist</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">cm_future</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_bias</span> <span class="o">=</span> <span class="n">get_ds_to_fill</span><span class="p">(</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="p">,</span> <span class="n">reference</span> <span class="o">=</span> <span class="n">ds_CMIP6_hist_i</span><span class="p">)</span>
+<span class="n">ds_bias</span> <span class="o">=</span> <span class="n">ds_bias</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">)</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">ba_data</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s2">&quot;prbaisimip&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mm/day&quot;</span> <span class="c1"># xclim needs the atrribute units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Rainfall Intensity<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f6885885760&gt;
+</pre></div>
+</div>
+<img alt="../_images/55afad3ea986667ac660ada9a6b246962d9579e53fe9bf39cc39622a376c2420.png" src="../_images/55afad3ea986667ac660ada9a6b246962d9579e53fe9bf39cc39622a376c2420.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Dry days (%)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f68868d2ab0&gt;
+</pre></div>
+</div>
+<img alt="../_images/3e1239c59f2d8488a158ec27acf5e04c770982755bc3e2620877e7167102a620.png" src="../_images/3e1239c59f2d8488a158ec27acf5e04c770982755bc3e2620877e7167102a620.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f6884ce0e60&gt;
+</pre></div>
+</div>
+<img alt="../_images/3e1239c59f2d8488a158ec27acf5e04c770982755bc3e2620877e7167102a620.png" src="../_images/3e1239c59f2d8488a158ec27acf5e04c770982755bc3e2620877e7167102a620.png" />
+</div>
+</div>
+</section>
+<section id="r20">
+<h3>R20<a class="headerlink" href="#r20" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_WFDE5_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;WFDE5 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_CMIP6_hist_i</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="c1">##</span>
+<span class="p">((</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;prbaisimip&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">ds_bias</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">month</span><span class="p">))</span><span class="o">.</span>\
+<span class="n">mean</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;cmcc_esm2 ba ISMIP hist 1980-2006 (August)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f6885e35d60&gt;
+</pre></div>
+</div>
+<img alt="../_images/622a091511e142d7036a8dd8ca08485e42996791183c7c490030072cecd0231b.png" src="../_images/622a091511e142d7036a8dd8ca08485e42996791183c7c490030072cecd0231b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tx35bals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Calculate tx35bals for CMIP6</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Reproducibility of the C3S Atlas Application visual products</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.6.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.6.2. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cmip6-data">Download CMIP6 data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-wfde5-data">Download WFDE5 data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.6.3. Load files with xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-downloaded-datasets">Visualize downloaded datasets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.6.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-a-common-and-regular-grid-using-xesmf">1.6.5. Interpolate to a common and regular grid using xESMF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crop-small-area">Crop Small area</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-adjusted-using-ibicus">1.6.6. Bias adjusted using ibicus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-adjust-only-one-year-from-the-future-period-to-reduce-computational-time">We adjust only one year from the future period to reduce computational time.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-intensity">Rainfall Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dry-days">Dry days (%)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#we-adjust-the-reference-period">1.6.7. We adjust the reference period</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rainfall Intensity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Dry days (%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r20">R20</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

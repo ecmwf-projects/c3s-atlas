@@ -1,0 +1,1011 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.4. Calculate cd for CMIP6 &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/cd';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. Calculate tx35bals for CMIP6" href="tx35bals.html" />
+    <link rel="prev" title="1.3. Calculate tx35 for CMIP6" href="tx35.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas dataset</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbaisimip.html">1.6. Monthly mean of daily accumulated precipitation of liquid water equivalent from all phasess (rbaisimip)</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas products</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02.html">1. Reproducibility of the C3S Atlas visual products</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">1.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_map.html">1.2. Spatial map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">1.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annual_cycle.html">1.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">1.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">1.6. Seasonal stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GWLs.html">1.7. Global Warming Levels (GWLs)</a></li>
+
+
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/cd.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/cd.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Calculate cd for CMIP6</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.4.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.4.2. Download climate data with the CDS API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.4.3. Load files with xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.4.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-cd-and-accumulate-to-annual-ys-temporal-resolution-using-using-in-house-functions-indexes">1.4.5. Calculate cd and accumulate to annual (YS) temporal resolution using using in-house functions indexes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-a-common-and-regular-grid-using-xesmf">1.4.6. Interpolate to a common and regular grid using xESMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.4.7. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="calculate-cd-for-cmip6">
+<h1><span class="section-number">1.4. </span>Calculate cd for CMIP6<a class="headerlink" href="#calculate-cd-for-cmip6" title="Permalink to this heading">#</a></h1>
+<p>This Jupyter Notebook calculates the index <strong>cd</strong> (cooling_degree_days) for the CMIP6-CMCC_ESM2 model.</p>
+<p>To limit the time spent, only one year from the future period (the year 2080) is calculated for a specific region (Spain)</p>
+<p>First, the raw CMIP6 model is downloaded from the CDS, then the index is calculated, and the results are compared with the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">“Copernicus Interactive Climate Atlas: gridded monthly dataset”</a>, also downloaded from the CDS.</p>
+<section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
+<h2><span class="section-number">1.4.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Permalink to this heading">#</a></h2>
+<p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">C3S-atlas</a> repository and install them (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
+<p>Further details on how to clone and install the repository are available in the <a class="reference external" href="http://localhost:8889/lab/tree/book/_build/html/intro.html">requirements section</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">xclim</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+
+<span class="kn">from</span> <span class="nn">c3s_atlas.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">,</span>
+    <span class="n">plot_month</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.fixers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">apply_fixers</span><span class="p">,</span>
+    <span class="n">standard_names</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">c3s_atlas.indexes</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">heating_degree_days</span><span class="p">,</span>
+    <span class="n">cooling_degree_days</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">c3s_atlas.interpolation</span> <span class="k">as</span> <span class="nn">xesmfCICA</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-climate-data-with-the-cds-api">
+<h2><span class="section-number">1.4.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Catalogue:</p>
+<ul>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview">CMIP6 climate projections</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some global attributes for the CDS-API</span>
+<span class="n">CMIP6_years</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ssp5_8_5&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2080&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="c1"># variables</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="s1">&#39;near_surface_air_temperature&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;tx&#39;</span><span class="p">:</span> <span class="s1">&#39;daily_maximum_near_surface_air_temperature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tn&#39;</span><span class="p">:</span> <span class="s1">&#39;daily_minimum_near_surface_air_temperature&#39;</span>
+<span class="p">}</span>
+<span class="c1"># directory to download the files</span>
+<span class="n">file_dest_CMIP6</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CMIP6&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span>
+<span class="p">]</span>
+        
+<span class="n">days</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span> <span class="s1">&#39;15&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;16&#39;</span><span class="p">,</span> <span class="s1">&#39;17&#39;</span><span class="p">,</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;19&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;24&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;25&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;29&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;31&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_dest_CMIP6</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">CMIP6_years</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">CMIP6_years</span><span class="p">[</span><span class="n">experiment</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">path_zip</span> <span class="o">=</span> <span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;CMIP6_</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">experiment</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+                <span class="s1">&#39;projections-cmip6&#39;</span><span class="p">,</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;zip&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;temporal_resolution&#39;</span><span class="p">:</span> <span class="s1">&#39;daily&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="n">variables</span><span class="p">[</span><span class="n">var</span><span class="p">],</span>
+                    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="n">experiment</span><span class="p">,</span>
+                    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;cmcc_esm2&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="n">year</span><span class="p">,</span>
+                    <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="n">months</span><span class="p">,</span>
+                    <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="n">days</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="n">path_zip</span><span class="p">)</span>
+            <span class="c1"># Extract zip file into the specified directory and remove zip</span>
+            <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">path_zip</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-files-with-xarray">
+<h2><span class="section-number">1.4.3. </span>Load files with xarray<a class="headerlink" href="#load-files-with-xarray" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.xarray.dev/en/stable/">https://docs.xarray.dev/en/stable/</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load files</span>
+<span class="n">ds_t</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="s2">&quot;CMIP6_t_ssp5_8_5_2080.nc&quot;</span><span class="p">)</span>
+<span class="n">ds_tx</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="s2">&quot;CMIP6_tx_ssp5_8_5_2080.nc&quot;</span><span class="p">)</span>
+<span class="n">ds_tn</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_dest_CMIP6</span> <span class="o">/</span> <span class="s2">&quot;CMIP6_tn_ssp5_8_5_2080.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="homogenization">
+<h2><span class="section-number">1.4.4. </span>Homogenization<a class="headerlink" href="#homogenization" title="Permalink to this heading">#</a></h2>
+<p>Once the data is downloaded from the CDS it undergoes a process of homogenization:</p>
+<ul class="simple">
+<li><p>The metadata of the <strong>spatial coordinates</strong> is homogenised to use standard names, in particular [lon, lat].</p></li>
+<li><p>Fix any non-standard <strong>calendars</strong> used in the data. This typically involves converting the calendars to the CF standard calendar (Mixed Gregorian/Julian) commonly used in climate data.</p></li>
+<li><p>Convert the <strong>units</strong> of the data to a common format (e.g. Celsius for temperature). This prevents us from working with the same variables in different units, for example.</p></li>
+<li><p>Convert the <strong>longitude</strong> values from the [0, 360] format to the [-180, 180] one. This is done to ensure that the longitude variable is common between the different datasets.</p></li>
+<li><p><strong>Aggregated to the required temporal resolution</strong>. For example, hourly datasets (such as ERA5, ERA5-Land, WFDE5, etc.) will be resampled to daily resolution. This involves using a temporal aggregation method, such as taking the maximum or minimum value for a given variable. As part of this last step, some variable transformations are necessarily applied. For instance, fluxes variables in ERA5 are accumulated, and therefore, the last hour of the day represent daily accumulations. To mention another case, the surface wind is computed as a combination of both the u- and v-components.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_id</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;tas&#39;</span>
+<span class="n">var_mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset_variable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tas&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;aggregation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+<span class="n">ds_t</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_t</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-05 16:23:41,532 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-03-05 16:23:41,540 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 81MB
+Dimensions:    (time: 365, bnds: 2, lat: 192, lon: 288)
+Coordinates:
+  * time       (time) object 3kB 2080-01-01 12:00:00 ... 2080-12-31 12:00:00
+  * lat        (lat) float64 2kB -90.0 -89.06 -88.12 -87.17 ... 88.12 89.06 90.0
+  * lon        (lon) float64 2kB 0.0 1.25 2.5 3.75 ... 355.0 356.2 357.5 358.8
+    height     float64 8B ...
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 6kB ...
+    lat_bnds   (lat, bnds) float64 3kB ...
+    lon_bnds   (lon, bnds) float64 5kB ...
+    tas        (time, lat, lon) float32 81MB ...
+Attributes: (12/48)
+    Conventions:            CF-1.7 CMIP-6.2
+    activity_id:            ScenarioMIP
+    branch_method:          standard
+    branch_time_in_child:   60225.0
+    branch_time_in_parent:  60225.0
+    comment:                none
+    ...                     ...
+    title:                  CMCC-ESM2 output prepared for CMIP6
+    variable_id:            tas
+    variant_label:          r1i1p1f1
+    license:                CMIP6 model data produced by CMCC is licensed und...
+    cmor_version:           3.6.0
+    tracking_id:            hdl:21.14100/25c823a7-e043-463c-a6b7-4a6f067f78a4
+2025-03-05 16:23:41,893 — UNITS_TRANSFORM — INFO — The dataset tas units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-03-05 16:23:42,230 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_id</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;tasmax&#39;</span>
+<span class="n">var_mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset_variable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tasmax&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;aggregation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+<span class="n">ds_tx</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_tx</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-05 16:23:42,234 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-03-05 16:23:42,239 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 81MB
+Dimensions:    (time: 365, bnds: 2, lat: 192, lon: 288)
+Coordinates:
+  * time       (time) object 3kB 2080-01-01 12:00:00 ... 2080-12-31 12:00:00
+  * lat        (lat) float64 2kB -90.0 -89.06 -88.12 -87.17 ... 88.12 89.06 90.0
+  * lon        (lon) float64 2kB 0.0 1.25 2.5 3.75 ... 355.0 356.2 357.5 358.8
+    height     float64 8B ...
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 6kB ...
+    lat_bnds   (lat, bnds) float64 3kB ...
+    lon_bnds   (lon, bnds) float64 5kB ...
+    tasmax     (time, lat, lon) float32 81MB ...
+Attributes: (12/48)
+    Conventions:            CF-1.7 CMIP-6.2
+    activity_id:            ScenarioMIP
+    branch_method:          standard
+    branch_time_in_child:   60225.0
+    branch_time_in_parent:  60225.0
+    comment:                none
+    ...                     ...
+    title:                  CMCC-ESM2 output prepared for CMIP6
+    variable_id:            tasmax
+    variant_label:          r1i1p1f1
+    license:                CMIP6 model data produced by CMCC is licensed und...
+    cmor_version:           3.6.0
+    tracking_id:            hdl:21.14100/ba2e335b-8bac-45ec-abbe-f1f16299d2d4
+2025-03-05 16:23:42,544 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-03-05 16:23:42,898 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_id</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
+<span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;tasmin&#39;</span>
+<span class="n">var_mapping</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dataset_variable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tasmin&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;aggregation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span><span class="p">},</span>
+        <span class="p">}</span>
+<span class="n">ds_tn</span> <span class="o">=</span> <span class="n">apply_fixers</span><span class="p">(</span><span class="n">ds_tn</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">var_mapping</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-05 16:23:42,902 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-03-05 16:23:42,907 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 81MB
+Dimensions:    (time: 365, bnds: 2, lat: 192, lon: 288)
+Coordinates:
+  * time       (time) object 3kB 2080-01-01 12:00:00 ... 2080-12-31 12:00:00
+  * lat        (lat) float64 2kB -90.0 -89.06 -88.12 -87.17 ... 88.12 89.06 90.0
+  * lon        (lon) float64 2kB 0.0 1.25 2.5 3.75 ... 355.0 356.2 357.5 358.8
+    height     float64 8B ...
+Dimensions without coordinates: bnds
+Data variables:
+    time_bnds  (time, bnds) object 6kB ...
+    lat_bnds   (lat, bnds) float64 3kB ...
+    lon_bnds   (lon, bnds) float64 5kB ...
+    tasmin     (time, lat, lon) float32 81MB ...
+Attributes: (12/48)
+    Conventions:            CF-1.7 CMIP-6.2
+    activity_id:            ScenarioMIP
+    branch_method:          standard
+    branch_time_in_child:   60225.0
+    branch_time_in_parent:  60225.0
+    comment:                none
+    ...                     ...
+    title:                  CMCC-ESM2 output prepared for CMIP6
+    variable_id:            tasmin
+    variant_label:          r1i1p1f1
+    license:                CMIP6 model data produced by CMCC is licensed und...
+    cmor_version:           3.6.0
+    tracking_id:            hdl:21.14100/395924ab-4d70-4565-a80a-ebc9df881942
+2025-03-05 16:23:43,204 — UNITS_TRANSFORM — INFO — The dataset tasmin units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-03-05 16:23:43,530 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-cd-and-accumulate-to-annual-ys-temporal-resolution-using-using-in-house-functions-indexes">
+<h2><span class="section-number">1.4.5. </span>Calculate cd and accumulate to annual (YS) temporal resolution using using in-house functions indexes.<a class="headerlink" href="#calculate-cd-and-accumulate-to-annual-ys-temporal-resolution-using-using-in-house-functions-indexes" title="Permalink to this heading">#</a></h2>
+<p>Some indices are not implemented in open-source Python libraries or require custom (<a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/c3s_atlas/software/indexes.py">in-house</a>) implementations to enhance operability for large-scale index calculations.</p>
+<ul class="simple">
+<li><p>See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects">pandas timeseries</a> for more resampling options (‘YS’)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_cd</span> <span class="o">=</span> <span class="n">cooling_degree_days</span><span class="p">(</span><span class="n">tas</span> <span class="o">=</span> <span class="n">ds_t</span><span class="p">[</span><span class="s1">&#39;tas&#39;</span><span class="p">],</span> 
+                            <span class="n">tasmax</span> <span class="o">=</span> <span class="n">ds_tx</span><span class="p">[</span><span class="s1">&#39;tasmax&#39;</span><span class="p">],</span> 
+                            <span class="n">tasmin</span> <span class="o">=</span> <span class="n">ds_tn</span><span class="p">[</span><span class="s1">&#39;tasmin&#39;</span><span class="p">],</span>
+                            <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;YS&#39;</span><span class="p">,</span>
+                            <span class="n">thresh</span> <span class="o">=</span> <span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert DataArray to Dataset with specified variable name</span>
+<span class="n">ds_cd</span> <span class="o">=</span> <span class="n">ds_cd</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cd&#39;</span><span class="p">)</span>
+<span class="n">ds_cd</span> <span class="o">=</span> <span class="n">standard_names</span><span class="p">(</span><span class="n">ds_cd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpolate-to-a-common-and-regular-grid-using-xesmf">
+<h2><span class="section-number">1.4.6. </span>Interpolate to a common and regular grid using xESMF<a class="headerlink" href="#interpolate-to-a-common-and-regular-grid-using-xesmf" title="Permalink to this heading">#</a></h2>
+<p>A wrapper for the <a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a> Python package was developed within the framework of the C3S Atlas project to extend its functionalities to all datasets (regular, curvilinear, etc.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># interpolate data</span>
+<span class="n">int_attr</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;interpolation_method&#39;</span> <span class="p">:</span> <span class="s1">&#39;conservative_normed&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;lats&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">89.5</span><span class="p">,</span> <span class="mf">90.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;lons&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">179.5</span><span class="p">,</span> <span class="mf">180.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;var_name&#39;</span> <span class="p">:</span> <span class="s1">&#39;cd&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">INTER</span> <span class="o">=</span> <span class="n">xesmfCICA</span><span class="o">.</span><span class="n">Interpolator</span><span class="p">(</span><span class="n">int_attr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_cd_i</span> <span class="o">=</span> <span class="n">INTER</span><span class="p">(</span><span class="n">ds_cd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">1.4.7. </span>Download climate data with the CDS API<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Copernicus Interactive Climate Atlas: gridded monthly dataset</a></p></li>
+<li><p>[How to use the CDS API](<a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">https://cds.climate.copernicus.eu/api-how-to</a>](<a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">https://cds.climate.copernicus.eu/api-how-to</a>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="s2">&quot;ss585&quot;</span>
+<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;cd&#39;</span>
+<span class="c1"># directory to download the files</span>
+<span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CMIP6&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-ssp-scenario">
+<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;cd_CMIP6_ss585_yr_201501-210012.zip&#39;</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp5_8_5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;annual_cooling_degree_days&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data with xarray</span>
+<span class="n">ds_cd_C3S_Atlas</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span><span class="s2">&quot;cd_CMIP6_ss585_yr_201501-210012.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select member (note than member names in the &quot;Copernicus Interactive Climate Atlas: gridded monthly dataset&quot; </span>
+<span class="c1"># are remappend to follow the DRS as much as possible)</span>
+<span class="n">select_member</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">str</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">mem</span> <span class="ow">in</span> <span class="n">ds_cd_C3S_Atlas</span><span class="o">.</span><span class="n">member_id</span> <span class="k">if</span> <span class="s2">&quot;cmcc-esm2&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">select_member</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CMCC_CMCC-ESM2_r1i1p1f1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_cd_C3S_Atlas_member_year</span> <span class="o">=</span> <span class="n">ds_cd_C3S_Atlas</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_cd_C3S_Atlas</span><span class="o">.</span><span class="n">member_id</span> <span class="o">==</span> <span class="n">select_member</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> 
+    <span class="n">time</span> <span class="o">=</span> <span class="s2">&quot;2080&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-results">
+<h3>Plot results<a class="headerlink" href="#plot-results" title="Permalink to this heading">#</a></h3>
+<p>Comparison of the results obtained with current jupyter-notebook with the reference <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a> underpinning the C3S Atlas. A geographical subset focusing on Spain is selected to show the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zoomin_extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">44.5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zoom for Spain</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">proj</span><span class="p">},</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ds_cd_i</span><span class="p">[</span><span class="s1">&#39;cd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Jupyter-book result&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">zoomin_extent</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">ds_cd_C3S_Atlas_member_year</span><span class="p">[</span><span class="s1">&#39;cd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Reds&#39;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;C3S Atlas Dataset&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">zoomin_extent</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b8e15ba95f089cb12089b6f20c11005427ffc5e11ec079eb7edc3c9b273e377d.png" src="../_images/b8e15ba95f089cb12089b6f20c11005427ffc5e11ec079eb7edc3c9b273e377d.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tx35.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Calculate tx35 for CMIP6</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tx35bals.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Calculate tx35bals for CMIP6</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.4.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.4.2. Download climate data with the CDS API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.4.3. Load files with xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.4.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-cd-and-accumulate-to-annual-ys-temporal-resolution-using-using-in-house-functions-indexes">1.4.5. Calculate cd and accumulate to annual (YS) temporal resolution using using in-house functions indexes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolate-to-a-common-and-regular-grid-using-xesmf">1.4.6. Interpolate to a common and regular grid using xESMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.4.7. Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results">Plot results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
