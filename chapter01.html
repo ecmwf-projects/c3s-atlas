@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Reproducibility of the C3S Atlas Dataset &#8212; C3S Atlas jupyter-book</title>
   
@@ -15,57 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter01';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.3. Calculate tx35 for CMIP6" href="notebooks/tx35.html" />
+    <link rel="next" title="1.3. Monthly count of days with maximum near-surface air temperature above 35 degC" href="notebooks/tx35.html" />
     <link rel="prev" title="User-tools for the C3S Atlas" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -76,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,17 +110,22 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
+</aside>
 
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -146,6 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -164,7 +161,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,30 +182,28 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas dataset</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Dataset</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Reproducibility of the C3S Atlas dataset</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Reproducibility of the C3S Atlas dataset</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/cd.html">1.4. Cooling Degree Days (CD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/rbaisimip.html">1.6. Monthly mean of daily accumulated precipitation of liquid water equivalent from all phasess (rbaisimip)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/cddbaisimip.html">1.6. Consecutive Dry Days with bias adjusted precipitation</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas products</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Application</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="chapter02.html">1. Reproducibility of the C3S Atlas visual products</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/customized_regions.html">1.1. Customized regions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/spatial_map.html">1.2. Spatial map</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/time_series.html">1.3. Time series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/annual_cycle.html">1.4. Annual cycle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/climate_stripes.html">1.5. Climate stripes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/seasonal_stripes.html">1.6. Seasonal stripes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/GWLs.html">1.7. Global Warming Levels (GWLs)</a></li>
-
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/customized_regions.html">2.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/geographic_map.html">2.2. Geographic map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/time_series.html">2.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/annual_cycle.html">2.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/climate_stripes.html">2.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/seasonal_stripes.html">2.6. Seasonal stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/GWLs.html">2.7. Global Warming Levels (GWLs)</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -213,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -222,14 +228,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -354,10 +360,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -365,14 +371,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -407,11 +413,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <p><img alt="logo" src="_images/LogoLine_horizon_C3S.png" /></p>
 <section class="tex2jax_ignore mathjax_ignore" id="reproducibility-of-the-c3s-atlas-dataset">
-<h1><span class="section-number">1. </span>Reproducibility of the C3S Atlas Dataset<a class="headerlink" href="#reproducibility-of-the-c3s-atlas-dataset" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Reproducibility of the C3S Atlas Dataset<a class="headerlink" href="#reproducibility-of-the-c3s-atlas-dataset" title="Link to this heading">#</a></h1>
 <p>This initial chapter provides several notebooks designed to reproduce the calculation of gridded data (variables and indices, see Table 3) included in the <a class="reference external" href="https://doi.org/10.24381/cds.h35hb680">C3S Atlas Dataset</a>. These notebooks promote reusability and enable rapid development of customized products tailored to specific applications. <strong>Note, however, that the notebook examples cover only specific regions and subsets and cannot be used directly to replicate the entire dataset, as it requires an optimized workflow executed on HPC infrastructure.</strong></p>
 <p>Figure 1 provides a schematic representation of the data production workflow, emphasizing the following processing steps:</p>
 <ul class="simple">
@@ -426,10 +432,10 @@ document.write(`
 <p><img alt="Schematic diagram of the C3S Atlas data production workflow" src="_images/workflow.png" /></p>
 <p><strong>Figure 1.</strong> Schematic diagram of the C3S Atlas data production workflow.</p>
 <p>Table 1 lists the notebooks included in this chapter, describing the application of the workflow in cases with different complexity (e.g. with and without bias adjustment).</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Directory</p></th>
-<th class="text-left head"><p>Contents</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Directory</p></th>
+<th class="head text-left"><p>Contents</p></th>
 </tr>
 </thead>
 <tbody>
@@ -442,16 +448,17 @@ document.write(`
 <tr class="row-even"><td class="text-left"><p><a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cd.ipynb">cd.ipynb</a></p></td>
 <td class="text-left"><p>Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using in-house index funtions.</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/rbaisimip.ipynb">rbaisimip.ipynb</a></p></td>
-<td class="text-left"><p>Jupyter Notebook for calculating the “bias-adjusted (ISIMIP) precipitation” (CD) index using xclim and ibicus funtions.</p></td>
+<tr class="row-odd"><td class="text-left"><p><a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cddbaisimip.ipynb">cddbaisimip.ipynb</a></p></td>
+<td class="text-left"><p>Jupyter Notebook for calculating the bias-adjusted (ISIMIP) precipitation “Consecutive Dry Days (CDD)” index with bias-adjusted (ISIMIP) precipitation using xclim and ibicus funtions.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Table 1.</strong> Notebooks included as example to reproduce the C3S Atlas data production workflow.</p>
 <section id="open-python-libraries">
-<h2><span class="section-number">1.1. </span>Open Python libraries<a class="headerlink" href="#open-python-libraries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Open Python libraries<a class="headerlink" href="#open-python-libraries" title="Link to this heading">#</a></h2>
 <p>Table 2 displays the list of Python libraries used for the implementation of the workflow for index calculation.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Library</p></th>
 <th class="head"><p>Description</p></th>
@@ -470,17 +477,18 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a></p></td>
 <td><p>Regridding library for geospatial data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">cdsapi</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">cdsapi</a></p></td>
 <td><p>The Climate Data Store (CDS) Application Program Interface (API) is a service providing programmatic access to CDS data</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Table 2</strong>. List of Python libraries used in the C3S Atlas workflow.</p>
 </section>
 <section id="list-of-indices">
-<h2><span class="section-number">1.2. </span>List of indices<a class="headerlink" href="#list-of-indices" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>List of indices<a class="headerlink" href="#list-of-indices" title="Link to this heading">#</a></h2>
 <p>Table 3 shows the climate variables and indices included in the C3S Atlas dataset (v2).</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Code</p></th>
 <th class="head"><p>Name Data</p></th>
@@ -623,58 +631,58 @@ document.write(`
 <td><p>xclim.indices.standardized_precipitation_evapotranspiration_index(wb, wb_cal, freq=”MS”, window=6, dist=”fisk”, method=”ML”, offset = abs(np.min(wb)))</p></td>
 </tr>
 <tr class="row-even"><td><p>pet</p></td>
-<td><p>Monthly Standardised Precipitation-Evapotranspiration Index (SPEI) for 6 months cumulation period</p></td>
-<td><p>1</p></td>
-<td><p>Monthly index that compares accumulated precipitation for 6 months with the long-term precipitation distribution for the same location and accumulation period, as the number of standard deviations from the mean. The reference period corresponds to 1971-2010 for observations, reanalysis, and historical projections, and to 1971-2100 for the future scenario projections</p></td>
-<td><p>xclim.indices.standardized_precipitation_evapotranspiration_index(wb, wb_cal, freq=”MS”, window=6, dist=”fisk”, method=”ML”, offset = abs(np.min(wb)))</p></td>
-</tr>
-<tr class="row-odd"><td><p>huss</p></td>
 <td><p>Monthly mean of daily accumulated potential evapotranspiration</p></td>
 <td><p>mm</p></td>
 <td><p>Potential evapotranspiration (Hargreaves 1985, 1994) is the rate at which evapotranspiration would occur under ambient conditions from a uniformly vegetated area when the water supply is not limiting</p></td>
 <td><p>xclim.indices.potential_evapotranspiration(tn, tx, method=’HG85’)</p></td>
 </tr>
-<tr class="row-even"><td><p>evspsbl</p></td>
+<tr class="row-odd"><td><p>huss</p></td>
 <td><p>Monthly mean near surface specific humidity</p></td>
 <td><p>gr kg-1</p></td>
 <td><p>Monthly amount of moisture in the air near the surface (2-metre) divided by amount of air plus moisture</p></td>
 <td><p>huss.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-odd"><td><p>mrsos</p></td>
+<tr class="row-even"><td><p>evspsbl</p></td>
 <td><p>Monthly mean of daily accumulated evaporation (including sublimation and transpiration)</p></td>
 <td><p>mm</p></td>
 <td><p>Monthly mean of daily amount of water in the atmosphere due to conversion of both liquid and solid phases to vapor (from underlying surface and vegetation)</p></td>
 <td><p>evspsbl.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-even"><td><p>mrro</p></td>
+<tr class="row-odd"><td><p>mrsos</p></td>
 <td><p>Monthly mean of daily accumulated soil moisture in upper soil portion</p></td>
 <td><p>kg m-2</p></td>
 <td><p>Monthly soil shallow moisture content, as the vertical sum per unit area of water in all phases contained in the upper soil portion to a depth of 7 to 10 cm (depending on the dataset)</p></td>
 <td><p>mrsos.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-odd"><td><p>prsn</p></td>
+<tr class="row-even"><td><p>mrro</p></td>
 <td><p>Monthly mean of daily accumulated runoff</p></td>
 <td><p>mm</p></td>
 <td><p>Monthly mean of daily amount per unit area of surface and subsurface liquid water which drains from land</p></td>
 <td><p>mrro.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-even"><td><p>siconc</p></td>
+<tr class="row-odd"><td><p>prsn</p></td>
 <td><p>Monthly mean of daily accumulated snowfall precipitation</p></td>
 <td><p>mm</p></td>
 <td><p>Monthly mean of daily accumulated liquid water equivalent thickness snowfall</p></td>
 <td><p>prsn.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-odd"><td><p>sfcwind</p></td>
+<tr class="row-even"><td><p>siconc</p></td>
 <td><p>Monthly mean of sea-ice area percentage</p></td>
 <td><p>percent</p></td>
 <td><p>Monthly mean fraction (%) of sea grid cell area covered by ice</p></td>
 <td><p>siconc.resample(time=’MS’).mean()</p></td>
 </tr>
-<tr class="row-even"><td><p>clt</p></td>
+<tr class="row-odd"><td><p>sfcwind</p></td>
 <td><p>Monthly mean of daily mean wind speed</p></td>
 <td><p>m s-1</p></td>
 <td><p>Monthly mean of daily mean near-surface (10-metre) wind speed</p></td>
 <td><p>sfcwind.resample(time=’MS’).mean()</p></td>
+</tr>
+<tr class="row-even"><td><p>clt</p></td>
+<td><p>Monthly mean cloud cover area percentage</p></td>
+<td><p>%</p></td>
+<td><p>Monthly mean fraction (%) of the sky covered by clouds</p></td>
+<td><p>clt.resample(time=’MS’).mean()</p></td>
 </tr>
 <tr class="row-odd"><td><p>rsds</p></td>
 <td><p>Monthly mean of surface solar radiation downwards</p></td>
@@ -702,11 +710,12 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Table 3</strong>. Description of the climate variables and indices included in the second version of the C3S Atlas. The first four columns indicate the code, name, units, and description of the indices. The last column includes the Python command used to compute the C3S Atlas indices from daily data, either using xarray, xclim or <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas">in-house</a>. Input variables used to compute each index are defined with its code name (e.g. t for daily mean air temperature) functions.</p>
 <section id="bias-corrected-indices">
-<h3><span class="section-number">1.2.1. </span>Bias corrected indices<a class="headerlink" href="#bias-corrected-indices" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>Bias corrected indices<a class="headerlink" href="#bias-corrected-indices" title="Link to this heading">#</a></h3>
 <p>For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods (simple linear scaling and a the more advanced trend preserving method ISIMIP3).</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Ibiscu Method</p></th>
 <th class="head"><p>Function</p></th>
@@ -732,6 +741,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Table 4.</strong> Specific functions and parameters of the Python <a class="reference external" href="https://ibicus.readthedocs.io">Ibicus package</a> used in the C3S Atlas for bias-adjusted variables.</p>
 </section>
 </section>
@@ -766,7 +776,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -783,7 +793,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Calculate tx35 for CMIP6</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Monthly count of days with maximum near-surface air temperature above 35 degC</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -795,6 +805,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -855,8 +866,8 @@ By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Cen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

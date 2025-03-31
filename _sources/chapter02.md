@@ -10,7 +10,7 @@ Table 1 lists the notebooks included in this chapter, which build upon the [C3S 
 
 | Directory | Contents |
 | :-------- | :------- |
-|  [spatial_map.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/spatial_map.ipynb) | Jupyter Notebook for reproducing spatial maps of climatologies or changes for recent and future periods across emission scenarios or for different Global Warming Levels (GWL), including the calculation and display of robustness following the IPCC AR6 WGI methodology.
+|  [geographic_map.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/geographic_map.ipynb) | Jupyter Notebook for reproducing spatial maps of climatologies or changes for recent and future periods across emission scenarios or for different Global Warming Levels (GWL), including the calculation and display of robustness following the IPCC AR6 WGI methodology.
 |  [time_series.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/time_series.ipynb) | Jupyter Notebook for reproducing regional time series for pre-defined regions.
 |  [climate_stripe.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/climate_stripes.ipynb) | Jupyter Notebook for reproducing regional climate stripes for pre-defined regions.
 |  [seasonal_stripe.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/seasonal_stripes.ipynb) | Jupyter Notebook for reproducing regional seasonal stripes for pre-defined regions.
