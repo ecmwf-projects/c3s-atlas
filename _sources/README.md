@@ -1,6 +1,5 @@
 ![logo](./notebooks/figures/LogoLine_horizon_C3S.png)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ecmwf-projects/c3s-atlas/main?urlpath=%2Fdoc%2Ftree%2Fbook%2Fnotebooks%2Ftx35.ipynb)
 
 # Jupyter (note)books
 

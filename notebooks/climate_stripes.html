@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -16,34 +16,37 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=2b91c5f0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -55,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/climate_stripes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -64,6 +65,7 @@
     <link rel="prev" title="2.4. Annual Cycle" href="annual_cycle.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +81,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +90,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +97,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +114,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +145,17 @@
     
     
     <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
-    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark pst-js-only" alt="C3S Atlas jupyter-book - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -181,17 +168,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Dataset</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tx35.html">1.3. Monthly count of days above 35 degC (tx35)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cd.html">1.4. Cooling Degree Days (CD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cddbaisimip.html">1.6. Consecutive Dry Days with bias adjusted precipitation</a></li>
-</ul>
+</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Application</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="customized_regions.html">2.1. Customized regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geographic_map.html">2.2. Geographic map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="time_series.html">2.3. Time series</a></li>
@@ -199,7 +186,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Climate stripes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">2.6. Seasonal stripes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GWLs.html">2.7. Global Warming Levels (GWLs)</a></li>
-</ul>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
 </details></li>
 </ul>
 
@@ -209,9 +196,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -355,24 +347,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -432,14 +416,14 @@ document.write(`
                   
   <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
 <section class="tex2jax_ignore mathjax_ignore" id="climate-stripes">
-<h1><span class="section-number">2.5. </span>Climate Stripes<a class="headerlink" href="#climate-stripes" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.5. </span>Climate Stripes<a class="headerlink" href="#climate-stripes" title="Permalink to this heading">#</a></h1>
 <p>This Jupyter Notebook reproduces the climate stripes product from the C3S Atlas.</p>
 <p>The climate stripes project is inspired by the “warming stripes” graphics (introduced by Ed Hawkins, <a class="reference external" href="https://www.ShowYourStripes.info">https://www.ShowYourStripes.info</a>), which are simple and compelling visual representations of the change in temperature using a series of coloured stripes chronologically ordered; stripes reflect a minimalist style, conceived to use colour alone to avoid technical distractions when conveying information to non-scientists. Climate stripes are implemented in the C3S Atlas using chronologically ordered vertical bars along the period (spanning historical and projected simulations) to represent annual/seasonal raw values or changes (anomalies relative to the selected baseline in this case) of the selected variable and scenario. The stripes are divided vertically to represent each of the simulations/models forming the ensemble (with the ensemble median at the top). Colors blue/brown to red/green indicate negative to positive changes (or minimum to maximum values).</p>
 <p>Note that climate stripes can be used for variables other than temperature to detect climate signals in the ensemble over time. In the case of the current notebook, precipitation is used</p>
 <p>The figure below represents the climate stripe of precipitation for CMIP6 projections. It can be visualized in the C3S Atlas using the following <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/KlG1w3e0">Permalink</a></p>
 <p><img alt="stripe" src="../_images/pr-CMIP6_stripes.png" /></p>
 <section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
-<h2><span class="section-number">2.5.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Permalink to this heading">#</a></h2>
 <p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">c3s-atlas</a> repository and install them (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
 <p>Further details on how to clone and install the repository are available in the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas?tab=readme-ov-file#requirements">requirements section</a></p>
 <div class="cell docutils container">
@@ -478,7 +462,7 @@ document.write(`
 </div>
 </section>
 <section id="download-climate-data-with-the-cds-api">
-<h2><span class="section-number">2.5.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
 <p>To reduce data size and download time, a geographical subset focusing on a specific area within the European region (Spain) is selected.</p>
 <ul class="simple">
 <li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Gridded dataset underpinning the Copernicus Interactive Climate Atlas</a></p></li>
@@ -497,7 +481,7 @@ document.write(`
 </div>
 </div>
 <section id="download-historical-data">
-<h3>Download historical data<a class="headerlink" href="#download-historical-data" title="Link to this heading">#</a></h3>
+<h3>Download historical data<a class="headerlink" href="#download-historical-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_historical_mon_185001-201412.zip&#39;</span>
@@ -519,7 +503,7 @@ document.write(`
 </div>
 </section>
 <section id="download-ssp-scenario">
-<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Link to this heading">#</a></h3>
+<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_ssp370_mon_201501-210012.zip&#39;</span>
@@ -541,7 +525,7 @@ document.write(`
 </div>
 </section>
 <section id="concatenate-historical-and-ssp-scenarios">
-<h3>Concatenate historical and SSP scenarios<a class="headerlink" href="#concatenate-historical-and-ssp-scenarios" title="Link to this heading">#</a></h3>
+<h3>Concatenate historical and SSP scenarios<a class="headerlink" href="#concatenate-historical-and-ssp-scenarios" title="Permalink to this heading">#</a></h3>
 <p>Note that the historical and SSP scenarios may have a different number of members. Here, common members from the historical and SSP scenarios are concatenated into a single <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html">xarray.Dataset</a> to facilitate their use going forward.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,7 +540,7 @@ document.write(`
 </div>
 </div>
 <section id="define-season">
-<h4>Define season<a class="headerlink" href="#define-season" title="Link to this heading">#</a></h4>
+<h4>Define season<a class="headerlink" href="#define-season" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">season</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c1"># Months</span>
@@ -582,7 +566,7 @@ document.write(`
 </section>
 </section>
 <section id="select-region">
-<h3>Select Region<a class="headerlink" href="#select-region" title="Link to this heading">#</a></h3>
+<h3>Select Region<a class="headerlink" href="#select-region" title="Permalink to this heading">#</a></h3>
 <p>The Spanish region is used as an example from the predefined European countries regions to visualize the products. See <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/customized_regions.ipynb">customized_regions.ipynb</a> notebook for more options and information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -609,7 +593,7 @@ document.write(`
 </section>
 </section>
 <section id="analysis-for-the-product">
-<h2><span class="section-number">2.5.3. </span>Analysis for the product<a class="headerlink" href="#analysis-for-the-product" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.3. </span>Analysis for the product<a class="headerlink" href="#analysis-for-the-product" title="Permalink to this heading">#</a></h2>
 <p>The <strong>annual_weighted_average</strong> function calculates the yearly spatial mean of a dataset, weighted by the cosine of the latitude. This is a common approach to account for the varying size of grid cells at different latitudes, as areas near the poles have smaller grid cells than those near the equator. By applying this weighting, the function ensures that each grid cell contributes appropriately to the overall average, regardless of its geographical location.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -620,10 +604,10 @@ document.write(`
 </div>
 </section>
 <section id="plot">
-<h2><span class="section-number">2.5.4. </span>Plot<a class="headerlink" href="#plot" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.4. </span>Plot<a class="headerlink" href="#plot" title="Permalink to this heading">#</a></h2>
 <p>The <strong>climate_stripe_plot</strong> function lets you select the colorbar (cmap) used to represent the stripes. <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#perceptually-uniform-palettes">Sequential</a> colorbars are recommended for displaying absolute values, while <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html#diverging-color-palettes">diverging</a> colorbars are better suited for visualizing changes or differences, as they effectively highlight variations around a central value.</p>
 <section id="a-climatology">
-<h3>a) Climatology<a class="headerlink" href="#a-climatology" title="Link to this heading">#</a></h3>
+<h3>a) Climatology<a class="headerlink" href="#a-climatology" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;climatology&#39;</span>
@@ -646,7 +630,7 @@ document.write(`
 </div>
 </section>
 <section id="b-absolute-change">
-<h3>b) Absolute change<a class="headerlink" href="#b-absolute-change" title="Link to this heading">#</a></h3>
+<h3>b) Absolute change<a class="headerlink" href="#b-absolute-change" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1850</span><span class="p">,</span><span class="mi">2010</span><span class="p">)</span>
@@ -671,7 +655,7 @@ document.write(`
 </div>
 </section>
 <section id="c-relative-change">
-<h3>c) Relative change<a class="headerlink" href="#c-relative-change" title="Link to this heading">#</a></h3>
+<h3>c) Relative change<a class="headerlink" href="#c-relative-change" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">1850</span><span class="p">,</span><span class="mi">2010</span><span class="p">)</span>
@@ -697,7 +681,7 @@ document.write(`
 </section>
 </section>
 <section id="global-warming-levels">
-<h2><span class="section-number">2.5.5. </span>Global Warming Levels<a class="headerlink" href="#global-warming-levels" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5.5. </span>Global Warming Levels<a class="headerlink" href="#global-warming-levels" title="Permalink to this heading">#</a></h2>
 <p>Here, the climate stripe is displayed for a specific Global Warming Level (GWL). To achieve this, the 20-year period in which each ensemble member reaches the chosen GWL is selected. The climate stripe is then shown, representing either climatology or change for this specific period and region (Spain in this notebook).</p>
 <p>These periods are calculated in the notebook <a class="reference internal" href="GWLs.html"><span class="std std-doc">GWLs.ipynb</span></a> for CMIP5 and CMIP6. For CORDEX, the results from the driving CMIP5 models are used.</p>
 <div class="cell docutils container">
@@ -724,7 +708,7 @@ document.write(`
 </div>
 </div>
 <section id="analysis">
-<h3>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h3>
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">climate_stripe_GWL_ds</span> <span class="o">=</span> <span class="n">annual_weighted_average</span><span class="p">(</span><span class="n">ds_filtered_GWL</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">season</span><span class="p">)</span> 
@@ -734,7 +718,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h3>Plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>Plot<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;change&#39;</span>
@@ -815,7 +799,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -895,8 +880,8 @@ By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Cen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
