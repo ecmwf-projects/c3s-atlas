@@ -31,7 +31,7 @@ Table 1 lists the notebooks included in this chapter, describing the application
 **Table 1.** Notebooks included as example to reproduce the C3S Atlas data production workflow.
 
 
-## Open Python libraries
+**Open Python libraries**
 
 Table 2 displays the list of Python libraries used for the implementation of the workflow for index calculation.
 
@@ -45,7 +45,7 @@ Table 2 displays the list of Python libraries used for the implementation of the
 
 **Table 2**. List of Python libraries used in the C3S Atlas workflow.
 
-## List of indices
+**List of indices**
 
 Table 3 shows the climate variables and indices included in the C3S Atlas dataset (v2).
 
@@ -91,7 +91,7 @@ Table 3 shows the climate variables and indices included in the C3S Atlas datase
 
 **Table 3**. Description of the climate variables and indices included in the second version of the C3S Atlas. The first four columns indicate the code, name, units, and description of the indices. The last column includes the Python command used to compute the C3S Atlas indices from daily data, either using xarray, xclim or [in-house](https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas). Input variables used to compute each index are defined with its code name (e.g. t for daily mean air temperature) functions. 
 
-### Bias corrected indices
+**Bias corrected indices**
 
 For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods: the simple [LinearScaling](https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.LinearScaling) ([Douglas Maraun 2016](https://doi.org/10.1007/s40641-016-0050-x)) and more advanced trend preserving method [ISIMIP](https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.ISIMIP) ([Lange 2019](https://doi.org/10.5194/gmd-12-3055-2019)).
 

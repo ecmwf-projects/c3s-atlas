@@ -2,70 +2,68 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.3. Monthly count of days with maximum near-surface air temperature above 35 degC &#8212; C3S Atlas jupyter-book</title>
+    <title>1.1. Monthly count of days with maximum near-surface air temperature above 35 degC &#8212; C3S Atlas jupyter-book</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=2b91c5f0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/tx35';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.4. Cooling Degree Days" href="cd.html" />
+    <link rel="next" title="1.2. Cooling Degree Days" href="cd.html" />
     <link rel="prev" title="1. Reproducibility of the C3S Atlas Dataset" href="../chapter01.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -73,16 +71,31 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -90,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -97,15 +111,10 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
+</form></div>
+  </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -114,8 +123,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -130,8 +138,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -145,17 +151,21 @@
     
     
     <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
-    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark pst-js-only" alt="C3S Atlas jupyter-book - Home"/>
+    <script>document.write(`<img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark" alt="C3S Atlas jupyter-book - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -168,17 +178,17 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Dataset</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Monthly count of days above 35 degC (tx35)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cd.html">1.4. Cooling Degree Days (CD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.5. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cddbaisimip.html">1.6. Consecutive Dry Days with bias adjusted precipitation</a></li>
-</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
-</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.1. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.2. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.3. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cddbaisimip.html">1.4. Consecutive Dry Days with bias adjusted precipitation</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Application</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="customized_regions.html">2.1. Customized regions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geographic_map.html">2.2. Geographic map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="time_series.html">2.3. Time series</a></li>
@@ -186,8 +196,8 @@
 <li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">2.5. Climate stripes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">2.6. Seasonal stripes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GWLs.html">2.7. Global Warming Levels (GWLs)</a></li>
-</ul><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
-</details></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -196,19 +206,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -217,14 +222,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -347,19 +352,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -380,13 +393,13 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.3.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.3.2. Download climate data with the CDS API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.3.3. Load files with xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.3.4. Homogenization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim">1.3.5. Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-to-a-common-and-regular-grid-using-xesmf">1.3.6. Interpolation to a common and regular grid using xESMF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas">1.3.7. Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.1.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.1.2. Download climate data with the CDS API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.1.3. Load files with xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.1.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim">1.1.5. Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-to-a-common-and-regular-grid-using-xesmf">1.1.6. Interpolation to a common and regular grid using xESMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas">1.1.7. Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results-for-one-month">Plot results for one month</a></li>
 </ul>
@@ -404,12 +417,12 @@
                   
   <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
 <section class="tex2jax_ignore mathjax_ignore" id="monthly-count-of-days-with-maximum-near-surface-air-temperature-above-35-degc">
-<h1><span class="section-number">1.3. </span>Monthly count of days with maximum near-surface air temperature above 35 degC<a class="headerlink" href="#monthly-count-of-days-with-maximum-near-surface-air-temperature-above-35-degc" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.1. </span>Monthly count of days with maximum near-surface air temperature above 35 degC<a class="headerlink" href="#monthly-count-of-days-with-maximum-near-surface-air-temperature-above-35-degc" title="Link to this heading">#</a></h1>
 <p>This Jupyter Notebook calculates the index <strong>tx35</strong> (Monthly count of days with maximum near-surface (2-metre) air temperature above 35 degC) for the CMIP6-CMCC_ESM2 model.</p>
 <p>For quick demonstration purposes, only one year from the future period (the year 2080) is calculated for a specific region (Spain).</p>
 <p>First, the raw CMIP6 model is downloaded from the CDS, then the index is calculated, and the results are compared with the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">“Gridded dataset underpinning the Copernicus Interactive Climate Atlas”</a>, also downloaded from the CDS.</p>
 <section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
-<h2><span class="section-number">1.3.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.1. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Link to this heading">#</a></h2>
 <p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">c3s-atlas</a> repository and install them (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
 <p>Further details on how to clone and install the repository are available in the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas?tab=readme-ov-file#requirements">requirements section</a></p>
 <div class="cell docutils container">
@@ -439,7 +452,7 @@
 </div>
 </section>
 <section id="download-climate-data-with-the-cds-api">
-<h2><span class="section-number">1.3.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.2. </span>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Link to this heading">#</a></h2>
 <p>To reduce data size and download time, a geographical subset focusing on a apecific area within the European region (Spain) is selected.</p>
 <ul class="simple">
 <li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview">CMIP6 climate projections</a></p></li>
@@ -522,7 +535,7 @@
 </div>
 </section>
 <section id="load-files-with-xarray">
-<h2><span class="section-number">1.3.3. </span>Load files with xarray<a class="headerlink" href="#load-files-with-xarray" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.3. </span>Load files with xarray<a class="headerlink" href="#load-files-with-xarray" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.xarray.dev/en/stable/">https://docs.xarray.dev/en/stable/</a></p></li>
 </ul>
@@ -536,7 +549,7 @@
 </div>
 </section>
 <section id="homogenization">
-<h2><span class="section-number">1.3.4. </span>Homogenization<a class="headerlink" href="#homogenization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.4. </span>Homogenization<a class="headerlink" href="#homogenization" title="Link to this heading">#</a></h2>
 <p>Once the data is downloaded from the CDS it undergoes a process of homogenization:</p>
 <ul class="simple">
 <li><p>The metadata of the <strong>spatial coordinates</strong> is homogenised to use standard names, in particular [lon, lat].</p></li>
@@ -600,7 +613,7 @@ Attributes: (12/48)
 </div>
 </section>
 <section id="calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim">
-<h2><span class="section-number">1.3.5. </span>Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim<a class="headerlink" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.5. </span>Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim<a class="headerlink" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://xclim.readthedocs.io/en/stable/">xclim</a> is an operational Python library for climate services, providing a framework for constructing custom climate indicators and indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -621,7 +634,7 @@ Attributes: (12/48)
 </div>
 </section>
 <section id="interpolation-to-a-common-and-regular-grid-using-xesmf">
-<h2><span class="section-number">1.3.6. </span>Interpolation to a common and regular grid using <a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a><a class="headerlink" href="#interpolation-to-a-common-and-regular-grid-using-xesmf" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.6. </span>Interpolation to a common and regular grid using <a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a><a class="headerlink" href="#interpolation-to-a-common-and-regular-grid-using-xesmf" title="Link to this heading">#</a></h2>
 <p>A wrapper for the <a class="reference external" href="https://xesmf.readthedocs.io/en/stable/">xESMF</a> Python package was developed within the framework of the C3S Atlas project to extend its functionalities to all datasets (regular, curvilinear, etc.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,7 +664,7 @@ Attributes: (12/48)
 </div>
 </section>
 <section id="compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas">
-<h2><span class="section-number">1.3.7. </span>Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”<a class="headerlink" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1.7. </span>Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”<a class="headerlink" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Gridded dataset underpinning the Copernicus Interactive Climate Atlas</a></p></li>
 </ul>
@@ -668,7 +681,7 @@ Attributes: (12/48)
 </div>
 </div>
 <section id="download-ssp-scenario">
-<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Permalink to this heading">#</a></h3>
+<h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tx35_CMIP6_historical_mon_185001-201412.zip&#39;</span>
@@ -724,7 +737,7 @@ Attributes: (12/48)
 </div>
 </section>
 <section id="plot-results-for-one-month">
-<h3>Plot results for one month<a class="headerlink" href="#plot-results-for-one-month" title="Permalink to this heading">#</a></h3>
+<h3>Plot results for one month<a class="headerlink" href="#plot-results-for-one-month" title="Link to this heading">#</a></h3>
 <p>Comparison of the results obtained with present Jupyter notebook and the reference <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a> underpinning the C3S Atlas. A geographical subset focusing on Spain is selected to show the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +796,7 @@ Attributes: (12/48)
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -800,7 +813,7 @@ Attributes: (12/48)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Cooling Degree Days</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Cooling Degree Days</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -811,8 +824,7 @@ Attributes: (12/48)
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -821,13 +833,13 @@ Attributes: (12/48)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.3.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.3.2. Download climate data with the CDS API</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.3.3. Load files with xarray</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.3.4. Homogenization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim">1.3.5. Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-to-a-common-and-regular-grid-using-xesmf">1.3.6. Interpolation to a common and regular grid using xESMF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas">1.3.7. Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">1.1.1. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">1.1.2. Download climate data with the CDS API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-files-with-xarray">1.1.3. Load files with xarray</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogenization">1.1.4. Homogenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-index-tx35-and-aggregate-to-monthly-ms-temporal-resolution-using-xclim">1.1.5. Calculate index (tx35) and aggregate to monthly (MS) temporal resolution using xclim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-to-a-common-and-regular-grid-using-xesmf">1.1.6. Interpolation to a common and regular grid using xESMF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-results-with-the-gridded-dataset-underpinning-the-copernicus-interactive-climate-atlas">1.1.7. Compare the results with the “Gridded dataset underpinning the Copernicus Interactive Climate Atlas”</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-ssp-scenario">Download SSP scenario</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results-for-one-month">Plot results for one month</a></li>
 </ul>
@@ -880,8 +892,8 @@ By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Cen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
