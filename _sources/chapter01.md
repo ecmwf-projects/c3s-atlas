@@ -25,7 +25,7 @@ Table 1 lists the notebooks included in this chapter, describing the application
 | :-------- | :------- |
 | [tx35.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/tx35.ipynb) | Jupyter Notebook for calculating the “number of days with maximum temperature over 35°C” (TX35) index using xclim library. | 
 | [tx35bals.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/tx35bals.ipynb) | Jupyter Notebook for calculating “number of days with bias-adjusted maximum temperature over 35°C” (TX35bals) index using xclim and ibicus libraries. |
-| [cd.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cd.ipynb) | Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using in-house index funtions. |
+| [cd.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cd.ipynb) | Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using [in-house](https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas#c3s_atlasin-house-python-functions) index funtions. |
 | [cddbaisimip.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cddbaisimip.ipynb) | Jupyter Notebook for calculating the bias-adjusted (ISIMIP) precipitation "Consecutive Dry Days (CDD)" index with bias-adjusted (ISIMIP) precipitation using xclim and ibicus funtions. |
 
 **Table 1.** Notebooks included as example to reproduce the C3S Atlas data production workflow.
@@ -93,13 +93,13 @@ Table 3 shows the climate variables and indices included in the C3S Atlas datase
 
 ### Bias corrected indices
 
-For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods (simple linear scaling and a the more advanced trend preserving method ISIMIP3). 
+For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods: the simple [LinearScaling](https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.LinearScaling) ([Douglas Maraun 2016](https://doi.org/10.1007/s40641-016-0050-x)) and more advanced trend preserving method [ISIMIP](https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.ISIMIP) ([Lange 2019](https://doi.org/10.5194/gmd-12-3055-2019)).
 
 | Ibiscu Method  | Function                | Parameters  | Description  |
 |---------------|------------------------|-------------|-------------|
-| LinearScaling | LinearScaling          | "running_window_mode": True, "running_window_length": 30, "running_window_step_length": 30 | Linear scaling method based on Douglas Maraun 2016. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land) |
-| ISIMIP        | ISIMIP (temperature)    | "running_window_mode": False | ISIMIP trend preserving method based on Lange 2021. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land) |
-| ISIMIP | ISIMIP (pr)             | "lower_bound": 0, "lower_threshold": 0.1, "upper_bound": np.inf, "upper_threshold": np.inf, "distribution": scipy.stats.gamma, "trend_preservation_method": "mixed", "running_window_mode": False |  |
+| LinearScaling | LinearScaling (daily temperature, t)         | "running_window_mode": True, "running_window_length": 30, "running_window_step_length": 30 | Linear scaling method based on Douglas Maraun 2016. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land) |
+| ISIMIP        | ISIMIP (daily temperature, t)    | "running_window_mode": False | ISIMIP trend preserving method based on Lange 2021. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land) |
+| ISIMIP | ISIMIP (daily precipitation; r)             | "lower_bound": 0, "lower_threshold": 0.1, "upper_bound": np.inf, "upper_threshold": np.inf, "distribution": scipy.stats.gamma, "trend_preservation_method": "mixed", "running_window_mode": False |  |
 
 **Table 4.** Specific functions and parameters of the Python [Ibicus package](https://ibicus.readthedocs.io) used in the C3S Atlas for bias-adjusted variables. 
 

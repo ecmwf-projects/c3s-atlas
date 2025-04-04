@@ -113,9 +113,6 @@
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">⚠️This is under development!⚠️</div>
-</aside>
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
@@ -446,7 +443,7 @@ document.write(`
 <td class="text-left"><p>Jupyter Notebook for calculating “number of days with bias-adjusted maximum temperature over 35°C” (TX35bals) index using xclim and ibicus libraries.</p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p><a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cd.ipynb">cd.ipynb</a></p></td>
-<td class="text-left"><p>Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using in-house index funtions.</p></td>
+<td class="text-left"><p>Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas#c3s_atlasin-house-python-functions">in-house</a> index funtions.</p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cddbaisimip.ipynb">cddbaisimip.ipynb</a></p></td>
 <td class="text-left"><p>Jupyter Notebook for calculating the bias-adjusted (ISIMIP) precipitation “Consecutive Dry Days (CDD)” index with bias-adjusted (ISIMIP) precipitation using xclim and ibicus funtions.</p></td>
@@ -714,7 +711,7 @@ document.write(`
 <p><strong>Table 3</strong>. Description of the climate variables and indices included in the second version of the C3S Atlas. The first four columns indicate the code, name, units, and description of the indices. The last column includes the Python command used to compute the C3S Atlas indices from daily data, either using xarray, xclim or <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas">in-house</a>. Input variables used to compute each index are defined with its code name (e.g. t for daily mean air temperature) functions.</p>
 <section id="bias-corrected-indices">
 <h3><span class="section-number">1.2.1. </span>Bias corrected indices<a class="headerlink" href="#bias-corrected-indices" title="Link to this heading">#</a></h3>
-<p>For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods (simple linear scaling and a the more advanced trend preserving method ISIMIP3).</p>
+<p>For threshold-dependent indices the C3S Atlas includes both raw and bias-adjusted information, using two alternative methods: the simple <a class="reference external" href="https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.LinearScaling">LinearScaling</a> (<a class="reference external" href="https://doi.org/10.1007/s40641-016-0050-x">Douglas Maraun 2016</a>) and more advanced trend preserving method <a class="reference external" href="https://ibicus.readthedocs.io/en/latest/reference/debias.html#ibicus.debias.ISIMIP">ISIMIP</a> (<a class="reference external" href="https://doi.org/10.5194/gmd-12-3055-2019">Lange 2019</a>).</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Ibiscu Method</p></th>
@@ -725,17 +722,17 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td><p>LinearScaling</p></td>
-<td><p>LinearScaling</p></td>
+<td><p>LinearScaling (daily temperature, t)</p></td>
 <td><p>“running_window_mode”: True, “running_window_length”: 30, “running_window_step_length”: 30</p></td>
 <td><p>Linear scaling method based on Douglas Maraun 2016. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land)</p></td>
 </tr>
 <tr class="row-odd"><td><p>ISIMIP</p></td>
-<td><p>ISIMIP (temperature)</p></td>
+<td><p>ISIMIP (daily temperature, t)</p></td>
 <td><p>“running_window_mode”: False</p></td>
 <td><p>ISIMIP trend preserving method based on Lange 2021. Reference period used for BA: 1980-2005 (CMIP5/6 using WFDE5) and 1970-2005 (CORDEX-EUR-11 using E-OBS and CORDEX-CORE using ERA5-Land)</p></td>
 </tr>
 <tr class="row-even"><td><p>ISIMIP</p></td>
-<td><p>ISIMIP (pr)</p></td>
+<td><p>ISIMIP (daily precipitation; r)</p></td>
 <td><p>“lower_bound”: 0, “lower_threshold”: 0.1, “upper_bound”: np.inf, “upper_threshold”: np.inf, “distribution”: scipy.stats.gamma, “trend_preservation_method”: “mixed”, “running_window_mode”: False</p></td>
 <td><p></p></td>
 </tr>
