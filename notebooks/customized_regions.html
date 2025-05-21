@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -475,8 +475,28 @@ document.write(`
 <p>To reduce data size and download time, a geographical subset focusing on the European region is selected.</p>
 <ul class="simple">
 <li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Gridded dataset underpinning the Copernicus Interactive Climate Atlas</a></p></li>
-<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdsapi_url</span><span class="o">=</span> <span class="s2">&quot;https://cds.climate.copernicus.eu/api&quot;</span>
+<span class="n">cdsapi_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">cdsapi_url</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cdsapi_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>⚠️ <strong>Warning: Exposed API Credentials</strong></p>
+<p>For security reasons, it is not recommended to hardcode your Copernicus Climate Data Store (CDS) API credentials — such as <code class="docutils literal notranslate"><span class="pre">cdsapi_url</span></code> and <code class="docutils literal notranslate"><span class="pre">cdsapi_key</span></code> — directly in notebooks.</p>
+<p>Instead, it is best to store them securely in a <code class="docutils literal notranslate"><span class="pre">.cdsapirc</span></code> file located in your home directory.</p>
+<p>📄 More info: <a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">CDS API - How to use the API</a></p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;ERA5&quot;</span>
@@ -500,14 +520,15 @@ document.write(`
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;era5&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_mean_temperature&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;era5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;1940-2024&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_temperature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span><span class="p">,</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span> <span class="c1"># Europe</span>
 <span class="p">}</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
 <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -529,7 +550,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x712a61f2cc20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baeead22300&gt;
 </pre></div>
 </div>
 <img alt="../_images/701011b597fd8b958678c1797412d7e470c608395e52617225cef2e27625dcf9.png" src="../_images/701011b597fd8b958678c1797412d7e470c608395e52617225cef2e27625dcf9.png" />
@@ -552,7 +573,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x712a4c30d130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed89cb980&gt;
 </pre></div>
 </div>
 <img alt="../_images/6f24c6c141e31e79c438222b87034f6a46a7ddccb2f4118aa6a92c5d0fb62ae1.png" src="../_images/6f24c6c141e31e79c438222b87034f6a46a7ddccb2f4118aa6a92c5d0fb62ae1.png" />
@@ -574,7 +595,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x712a39ee5130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed87697f0&gt;
 </pre></div>
 </div>
 <img alt="../_images/cf32aaac5e5fb4f01858a170f35c8972d7be2fc07e8aa4ccc6a459c55bddea06.png" src="../_images/cf32aaac5e5fb4f01858a170f35c8972d7be2fc07e8aa4ccc6a459c55bddea06.png" />
@@ -590,7 +611,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x712a39c6b6e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed8668290&gt;
 </pre></div>
 </div>
 <img alt="../_images/91bf963d44402ec2a1854565612fa94ce1c5c6f4036682e95ccf9135eff4b61a.png" src="../_images/91bf963d44402ec2a1854565612fa94ce1c5c6f4036682e95ccf9135eff4b61a.png" />
@@ -618,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x723921575490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed862b3b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/15384767b489d08a05b2e3b025a39c66783a49ca3cf3f2db8069848301a620d4.png" src="../_images/15384767b489d08a05b2e3b025a39c66783a49ca3cf3f2db8069848301a620d4.png" />
@@ -634,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x72392144fec0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed82f2d20&gt;
 </pre></div>
 </div>
 <img alt="../_images/ebb0c9bc7d6504dddb16b4277fd7effd386ad6223800f790f1eb688f9bb334cd.png" src="../_images/ebb0c9bc7d6504dddb16b4277fd7effd386ad6223800f790f1eb688f9bb334cd.png" />
@@ -662,7 +683,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x72392144dd00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed8781cd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/5cbc9897e11031b02497cea72ff43f0af86f0005d7fa196f01509bff582a80cb.png" src="../_images/5cbc9897e11031b02497cea72ff43f0af86f0005d7fa196f01509bff582a80cb.png" />
@@ -678,7 +699,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x72392139d880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed7a5d0a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/6c7dbd34189172345def3a0ab0cd8f615852fa093a063cabcd5de5083d33680f.png" src="../_images/6c7dbd34189172345def3a0ab0cd8f615852fa093a063cabcd5de5083d33680f.png" />
@@ -706,7 +727,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x723920d9d640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed7b0c290&gt;
 </pre></div>
 </div>
 <img alt="../_images/1516b9ea8104c5115b6da04581e3726d5fac527b0b713315a51eb5e4f28748ab.png" src="../_images/1516b9ea8104c5115b6da04581e3726d5fac527b0b713315a51eb5e4f28748ab.png" />
@@ -722,7 +743,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x723920e87a70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed825f530&gt;
 </pre></div>
 </div>
 <img alt="../_images/2b586ba32c30eeab71cadfb3ed75aa700030a7224b6a9e78a077772318c0d0f1.png" src="../_images/2b586ba32c30eeab71cadfb3ed75aa700030a7224b6a9e78a077772318c0d0f1.png" />
@@ -759,14 +780,16 @@ document.write(`
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;era5&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_mean_temperature&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;era5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;1940-2024&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_temperature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span><span class="p">,</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">67</span><span class="p">],</span> <span class="c1"># USA</span>
+
 <span class="p">}</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
 <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -788,7 +811,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x72392117a150&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed7bbf4d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/77635fdfc3eb3821238a66c1737ee0a0d626ab0286afebeb0e7b8f57b48abdf6.png" src="../_images/77635fdfc3eb3821238a66c1737ee0a0d626ab0286afebeb0e7b8f57b48abdf6.png" />
@@ -827,7 +850,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7239210577d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7baed7f8f4d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/bdee6d02b7b6111d833f50449277950fb4df9890d0edea0dcf7f7989244588bd.png" src="../_images/bdee6d02b7b6111d833f50449277950fb4df9890d0edea0dcf7f7989244588bd.png" />

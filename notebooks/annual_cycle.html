@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -479,13 +479,33 @@ document.write(`
 <p>To reduce data size and download time, a geographical subset focusing on a specific area within the European region (Spain) is selected.</p>
 <ul class="simple">
 <li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Gridded dataset underpinning the Copernicus Interactive Climate Atlas</a></p></li>
-<li><p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdsapi_url</span><span class="o">=</span> <span class="s2">&quot;https://cds.climate.copernicus.eu/api&quot;</span>
+<span class="n">cdsapi_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">cdsapi_url</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cdsapi_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>⚠️ <strong>Warning: Exposed API Credentials</strong></p>
+<p>For security reasons, it is not recommended to hardcode your Copernicus Climate Data Store (CDS) API credentials — such as <code class="docutils literal notranslate"><span class="pre">cdsapi_url</span></code> and <code class="docutils literal notranslate"><span class="pre">cdsapi_key</span></code> — directly in notebooks.</p>
+<p>Instead, it is best to store them securely in a <code class="docutils literal notranslate"><span class="pre">.cdsapirc</span></code> file located in your home directory.</p>
+<p>📄 More info: <a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">CDS API - How to use the API</a></p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;CMIP6&quot;</span>
 <span class="n">scenario</span> <span class="o">=</span> <span class="s2">&quot;ssp370&quot;</span>
-<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;pr&#39;</span>
+<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
 <span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CMIP6&#39;</span><span class="p">)</span> <span class="c1"># directory to download the files</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -496,18 +516,18 @@ document.write(`
 <h3>Download historical data<a class="headerlink" href="#download-historical-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_historical_mon_185001-201412.zip&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;r_CMIP6_historical_mon_185001-201412.zip&#39;</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;historical&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_accumulated_precipitation&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;1850-2014&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_precipitation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span><span class="p">,</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
 <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -518,18 +538,18 @@ document.write(`
 <h3>Download SSP scenario<a class="headerlink" href="#download-ssp-scenario" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;pr_CMIP6_ssp370_mon_201501-210012.zip&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;r_CMIP6_ssp370_mon_201501-210012.zip&#39;</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp3_7_0&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean_of_daily_accumulated_precipitation&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;ssp3_7_0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-2100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_precipitation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span><span class="p">,</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
 <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -541,8 +561,8 @@ document.write(`
 <p>Note that the historical and SSP scenarios may have a different number of members. Here, common members from the historical and SSP scenarios are concatenated into a single <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.html">xarray.Dataset</a> to facilitate their use going forward.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;pr_CMIP6_historical_mon_185001-201412.nc&quot;</span><span class="p">)</span>
-<span class="n">ds_sce</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;pr_CMIP6_ssp370_mon_201501-210012.nc&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;r_CMIP6_historical_mon_185001-201412.nc&quot;</span><span class="p">)</span>
+<span class="n">ds_sce</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="s2">&quot;r_CMIP6_ssp370_mon_201501-210012.nc&quot;</span><span class="p">)</span>
 <span class="n">mem_inters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">mem_inters</span><span class="p">))</span>
 <span class="n">ds_sce</span> <span class="o">=</span> <span class="n">ds_sce</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ds_sce</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">mem_inters</span><span class="p">))</span>
@@ -585,14 +605,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean spatial map for one member</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>  <span class="c1"># Use PlateCarree for lat/lon projections</span>
-<span class="n">filtered_ds</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="n">filtered_ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ccf3eb5c2c9652fa002d44ef7b1da921ab7fb303d36a0f25fa6fada0fa9fa25d.png" src="../_images/ccf3eb5c2c9652fa002d44ef7b1da921ab7fb303d36a0f25fa6fada0fa9fa25d.png" />
+<img alt="../_images/fc582a82a4c488687186881255ff58bc57c0f8f2c856101263e22bebfc677a0e.png" src="../_images/fc582a82a4c488687186881255ff58bc57c0f8f2c856101263e22bebfc677a0e.png" />
 </div>
 </div>
 </section>
@@ -619,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7063736bc687289aa274df8284f31d08fcaeb90ec08f3a7b744ceecf8c845662.png" src="../_images/7063736bc687289aa274df8284f31d08fcaeb90ec08f3a7b744ceecf8c845662.png" />
+<img alt="../_images/f5ecff34db039e279df65ed65eab597a311ce032fbe8a2b25bd627e932ab96f6.png" src="../_images/f5ecff34db039e279df65ed65eab597a311ce032fbe8a2b25bd627e932ab96f6.png" />
 </div>
 </div>
 </section>
@@ -653,7 +673,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8b30e6dc3ff422c2989fe75b9554a82a6c8a7791d01d75e50525ae0e0343ad06.png" src="../_images/8b30e6dc3ff422c2989fe75b9554a82a6c8a7791d01d75e50525ae0e0343ad06.png" />
+<img alt="../_images/bfcd1ef5fe922b9bbe91ec0596aa7ab4a9bc92ef11332e0d9d90613880a2cd26.png" src="../_images/bfcd1ef5fe922b9bbe91ec0596aa7ab4a9bc92ef11332e0d9d90613880a2cd26.png" />
 </div>
 </div>
 </section>
@@ -687,7 +707,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d291f15e65725fa09aca41b8a7ce83223c2cee536425f6ed00ebaa5b8dbbb58d.png" src="../_images/d291f15e65725fa09aca41b8a7ce83223c2cee536425f6ed00ebaa5b8dbbb58d.png" />
+<img alt="../_images/8821e97a45874921b08d3a656bd057700c44c247b72556f1ae7034cf75829d19.png" src="../_images/8821e97a45874921b08d3a656bd057700c44c247b72556f1ae7034cf75829d19.png" />
 </div>
 </div>
 </section>
@@ -734,7 +754,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/295c10dafb0590d044d1f2a08b10c5756e206846fcbe3fc34523b0e93b9b77ef.png" src="../_images/295c10dafb0590d044d1f2a08b10c5756e206846fcbe3fc34523b0e93b9b77ef.png" />
+<img alt="../_images/bf1cbb994cdd4261dba692e3c1598153856697cf19e596df1c52c71e0c3e4a60.png" src="../_images/bf1cbb994cdd4261dba692e3c1598153856697cf19e596df1c52c71e0c3e4a60.png" />
 </div>
 </div>
 </section>

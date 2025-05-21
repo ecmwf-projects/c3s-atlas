@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -476,7 +476,27 @@ Catalogues:</p>
 <li><p><a class="reference external" href="https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview">CMIP6 climate projections</a></p></li>
 <li><p><a class="reference external" href="https://cds.climate.copernicus.eu/datasets/derived-near-surface-meteorological-variables?tab=overview">WFDE5</a>: Note that for WFDE5, the subsetting function is not available on the CDS side. To limit the saved data, the entire global dataset is downloaded and then cropped to the Spanish area.</p></li>
 </ul>
-<p><a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">How to use the CDS API</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdsapi_url</span><span class="o">=</span> <span class="s2">&quot;https://cds.climate.copernicus.eu/api&quot;</span>
+<span class="n">cdsapi_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">cdsapi_url</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cdsapi_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>⚠️ <strong>Warning: Exposed API Credentials</strong></p>
+<p>For security reasons, it is not recommended to hardcode your Copernicus Climate Data Store (CDS) API credentials — such as <code class="docutils literal notranslate"><span class="pre">cdsapi_url</span></code> and <code class="docutils literal notranslate"><span class="pre">cdsapi_key</span></code> — directly in notebooks.</p>
+<p>Instead, it is best to store them securely in a <code class="docutils literal notranslate"><span class="pre">.cdsapirc</span></code> file located in your home directory.</p>
+<p>📄 More info: <a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">CDS API - How to use the API</a></p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define some global attributes for the CDS-API</span>
@@ -516,13 +536,6 @@ Catalogues:</p>
     <span class="s1">&#39;25&#39;</span><span class="p">,</span> <span class="s1">&#39;26&#39;</span><span class="p">,</span> <span class="s1">&#39;27&#39;</span><span class="p">,</span>
     <span class="s1">&#39;28&#39;</span><span class="p">,</span> <span class="s1">&#39;29&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;31&#39;</span>
 <span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -663,8 +676,8 @@ Catalogues:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-31 11:14:30,556 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
-2025-03-31 11:14:30,612 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 11MB
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-05-14 14:31:48,465 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-05-14 14:31:48,515 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 11MB
 Dimensions:    (time: 9490, bnds: 2, lat: 12, lon: 14)
 Coordinates:
   * time       (time) object 76kB 1980-01-01 12:00:00 ... 2005-12-31 12:00:00
@@ -691,10 +704,10 @@ Attributes: (12/48)
     license:                CMIP6 model data produced by CMCC is licensed und...
     cmor_version:           3.6.0
     tracking_id:            hdl:21.14100/2efee083-6db2-43be-8d07-f197a5055a90
-2025-03-31 11:14:30,987 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
-2025-03-31 11:14:31,002 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
-2025-03-31 11:14:31,005 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
-2025-03-31 11:14:31,010 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 406kB
+2025-05-14 14:31:48,874 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-05-14 14:31:48,891 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+2025-05-14 14:31:48,894 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-05-14 14:31:48,899 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 406kB
 Dimensions:    (time: 365, bnds: 2, lat: 12, lon: 14)
 Coordinates:
   * time       (time) object 3kB 2080-01-01 12:00:00 ... 2080-12-31 12:00:00
@@ -721,8 +734,8 @@ Attributes: (12/48)
     license:                CMIP6 model data produced by CMCC is licensed und...
     cmor_version:           3.6.0
     tracking_id:            hdl:21.14100/ba2e335b-8bac-45ec-abbe-f1f16299d2d4
-2025-03-31 11:14:31,034 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
-2025-03-31 11:14:31,042 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
+2025-05-14 14:31:48,919 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-05-14 14:31:48,930 — Homogenization-fixers — INFO — The dataset is in daily or monthly resolution, we don&#39;t need to resample it from hourly frequency
 </pre></div>
 </div>
 </div>
@@ -740,8 +753,8 @@ Attributes: (12/48)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-03-31 11:14:31,048 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
-2025-03-31 11:14:31,122 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 715MB
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-05-14 14:31:49,228 — Homogenization-fixers — INFO — Dataset has already the correct names for its coordinates
+2025-05-14 14:31:49,313 — Homogenization-fixers — INFO — Fixing calendar for &lt;xarray.Dataset&gt; Size: 715MB
 Dimensions:  (time: 227928, lat: 23, lon: 34)
 Coordinates:
   * time     (time) datetime64[ns] 2MB 1980-01-01 ... 2005-12-31T23:00:00
@@ -758,9 +771,9 @@ Attributes:
     summary:      ERA5 data regridded to half degree regular lat-lon; Genuine...
     reference:    Cucchi et al., 2020, Earth Syst. Sci. Data, 12(3), 2097–212...
     licence:      The dataset is distributed under the Licence to Use Coperni...
-2025-03-31 11:14:31,151 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
-2025-03-31 11:14:31,168 — Homogenization-fixers — INFO — The dataset is in hourly resolution, we need to resample it to daily resolution
-2025-03-31 11:14:46,914 — Homogenization-fixers — INFO — Dataset resampled to daily resolution
+2025-05-14 14:31:49,339 — UNITS_TRANSFORM — INFO — The dataset tasmax units are not in the correct magnitude. A conversion from K to Celsius will be performed.
+2025-05-14 14:31:49,357 — Homogenization-fixers — INFO — The dataset is in hourly resolution, we need to resample it to daily resolution
+2025-05-14 14:32:05,066 — Homogenization-fixers — INFO — Dataset resampled to daily resolution
 </pre></div>
 </div>
 </div>
@@ -943,15 +956,16 @@ Attributes:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tx35bals_CMIP6_ssp585_mon_201501-210012.zip&#39;</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span>
 <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;origin&#39;</span><span class="p">:</span> <span class="s1">&#39;cmip6&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiment&#39;</span><span class="p">:</span> <span class="s1">&#39;ssp5_8_5&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_count_of_days_with_bias_adjusted_maximum_temperature_above_35_c&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;ssp5_8_5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-2100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_extreme_hot_days&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;linear_scaling&quot;</span><span class="p">,</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">44.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">35.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span>
 <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">dest</span> <span class="o">/</span> <span class="n">filename</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -1018,7 +1032,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6fbeedaf372ddc3bb27421e506dcf36e5c2e11e40816b7d61fb986ee28635bda.png" src="../_images/6fbeedaf372ddc3bb27421e506dcf36e5c2e11e40816b7d61fb986ee28635bda.png" />
+<img alt="../_images/f9e3528b86fd82959fc90a4f95b177fc3f3cbd1ab1d119c85edcd830a81b21ea.png" src="../_images/f9e3528b86fd82959fc90a4f95b177fc3f3cbd1ab1d119c85edcd830a81b21ea.png" />
 </div>
 </div>
 </section>
