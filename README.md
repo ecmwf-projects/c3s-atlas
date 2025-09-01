@@ -12,7 +12,6 @@ The [C3S Atlas](http://atlas.climate.copernicus.eu) is an application of the  Co
 
 A brief description of the C3S Atlas is available in the ECMWF Newsletter 181 ([Gutiérrez et al. 2024](https://doi.org/10.21957/ah52ufc369), [online document](https://www.ecmwf.int/en/newsletter/181/earth-system-science/copernicus-interactive-climate-atlas-tool-explore-regional)).
 
-
 ## The C3S Atlas GitHub repository
 
 The table below shows the structure of the [c3s-atlas GitHub repository](https://github.com/ecmwf-projects/c3s-atlas).
@@ -22,7 +21,6 @@ The table below shows the structure of the [c3s-atlas GitHub repository](https:/
 |  [auxiliar](https://github.com/ecmwf-projects/c3s-atlas/tree/main/auxiliar) | Auxiliary information and datasets, including GeoJSONs for pre-defined regions, spatial masks, etc.
 |  [c3s_atlas](https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas) | Python functions and wrappers to reproduce the workflow for data production of the C3S Atlas.
 |  [book](https://github.com/ecmwf-projects/c3s-atlas/tree/main/book) | Jupyter notebooks building on the sofware and auxiliary information to illustrate the calculation of indices of the dataset and visual products of the application.
-
 
 ## Requirements
 
