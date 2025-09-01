@@ -6,6 +6,7 @@ dependencies:
   - cf_xarray
   - cftime
   - dask
+  - esmf
   - geopandas
   - hdf5
   - jupyterlab
@@ -18,7 +19,7 @@ dependencies:
   - scikit-learn
   - scipy
   - shapely
-  - xclim
+  - xclim=0.47.0=py38h578d9bd_0
   - xesmf
   - yaml
   - regionmask
