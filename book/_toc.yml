@@ -13,12 +13,16 @@ parts:
     sections:
       - file: notebooks/tx35
         title: Monthly count of days above 35 degC (tx35)
-      - file: notebooks/cd
-        title: Cooling Degree Days (CD)
       - file: notebooks/tx35bals
         title: Monthly count of days above 35 degC with bias adjusting (tx35bals)
+      - file: notebooks/cd
+        title: Cooling Degree Days (CD)
       - file: notebooks/cddbaisimip
         title: Consecutive Dry Days with bias adjusted precipitation
+      - file: notebooks/pet
+        title: Monthly mean of daily accumulated potential evapotranspiration
+      - file: notebooks/spei6
+        title: Monthly Standardised Precipitation-Evapotranspiration Index (SPEI) for 6 months cumulation period
 
 - caption: ➡️ C3S Atlas Application
   numbered: 3
@@ -38,6 +42,8 @@ parts:
         title: Climate stripes
       - file: notebooks/seasonal_stripes
         title: Seasonal stripes
+      - file: notebooks/UHI
+        title: Urban climate
       - file: notebooks/GWLs
         title: Global Warming Levels (GWLs)
 

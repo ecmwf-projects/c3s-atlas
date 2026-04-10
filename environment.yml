@@ -11,6 +11,7 @@ dependencies:
   - hdf5
   - jupyterlab
   - matplotlib
+  - scikit-image
   - netcdf4
   - numpy
   - pandas
@@ -29,3 +30,5 @@ dependencies:
       - ibicus
       - seaborn
       - tqdm
+      - icecream
+      - urclimask==0.1

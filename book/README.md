@@ -20,18 +20,21 @@ These notebooks are divided in two main groups:
 | [tx35.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/tx35.ipynb) | Jupyter Notebook for calculating the “number of days with maximum temperature over 35°C” (TX35) index using xclim library. | 
 | [tx35bals.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/tx35bals.ipynb) | Jupyter Notebook for calculating “number of days with bias-adjusted maximum temperature over 35°C” (TX35bals) index using xclim and ibicus libraries. |
 | [cd.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cd.ipynb) | Jupyter Notebook for calculating the “Cooling Degree-Days” (CD) index using in-house index funtions. |
-| [rbaisimip.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/rbaisimip.ipynb) | Jupyter Notebook for calculating the “bias-adjusted (ISIMIP) precipitation” (CD) index using xclim and ibicus funtions. |
+| [cddbaisimip.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/cddbaisimip.ipynb) | Jupyter Notebook for calculating the "Annual maximum consecutive dry days -below 1 mm" (CDD) with “bias-adjusted precipitation” (cddbaismip) index using the ISIMIP trend preserving method based on [Lange 2019](https://gmd.copernicus.org/articles/12/3055/2019/). |
+| [pet.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/pet.ipynb) | Jupyter Notebook for calculating the “Monthly mean of daily accumulated potential evapotranspiration” (PET) index using the method described in [Hargreaves, G. H., and Samani, Z. A. (1985)](https://elibrary.asabe.org/abstract.asp??JID=3&AID=26773&CID=aeaj1985&v=1&i=2&T=1) using xclim library.|
+| [spei6.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/spei6.ipynb) | Jupyter Notebook for calculating the “Monthly Standardised Precipitation-Evapotranspiration Index (SPEI) for 6 months cumulation period” (SPEI-6) index using xclim library.|
 
 **Table 1.** Notebooks included as example to reproduce the C3S Atlas data production workflow.
 
 | Directory | Contents |
 | :-------- | :------- |
-|  [spatial_map.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/spatial_map.ipynb) | Jupyter Notebook for reproducing spatial maps of climatologies or changes for recent and future periods across emission scenarios or for different Global Warming Levels (GWL), including the calculation and display of robustness following the IPCC AR6 WGI methodology.
+|  [customized_regions.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/customized_regions.ipynb) | Jupyter Auxiliary notebook with examples of how to produce regional results for customized regions defined in machine-readable formats (e.g. geojson).
+|  [geographic_map.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/geographic_map.ipynb) | Jupyter Notebook for reproducing spatial maps of climatologies or changes for recent and future periods across emission scenarios or for different Global Warming Levels (GWL), including the calculation and display of robustness following the IPCC AR6 WGI methodology.
 |  [time_series.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/time_series.ipynb) | Jupyter Notebook for reproducing regional time series for pre-defined regions.
+|  [annual_cycle.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/annual_cycle.ipynb) | Jupyter Notebook for reproducing regional annual cycles for pre-defined regions.
 |  [climate_stripe.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/climate_stripes.ipynb) | Jupyter Notebook for reproducing regional climate stripes for pre-defined regions.
 |  [seasonal_stripe.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/seasonal_stripes.ipynb) | Jupyter Notebook for reproducing regional seasonal stripes for pre-defined regions.
-|  [annual_cycle.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/annual_cycle.ipynb) | Jupyter Notebook for reproducing regional annual cycles for pre-defined regions.
-|  [customized_regions.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/customized_regions.ipynb) | Jupyter Auxiliary notebook with examples of how to produce regional results for customized regions defined in machine-readable formats (e.g. geojson).
+|  [UHI.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/UHI.ipynb) | Jupyter Notebook to reproduce the Urban Climate analysis shown in the C3S Atlas.
 |  [GWLs.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/GWLs.ipynb) | Auxiliary Jupyter Notebook illustrating the calculation of Global Warming Levels (GWLs), following the IPCC AR6 WGI methodology. This is used by the previous notebooks for calculating changes for different warming levels.
 
 **Table 2.** Notebooks included as example to reproduce the C3S Atlas Application visual products.
