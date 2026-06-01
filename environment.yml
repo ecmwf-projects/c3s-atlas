@@ -6,7 +6,7 @@ dependencies:
   - cf_xarray
   - cftime
   - dask
-  - esmf=8.2.0=mpi_mpich_h5a1934d_102
+  - esmf
   - geopandas
   - hdf5
   - jupyterlab
@@ -20,8 +20,8 @@ dependencies:
   - scikit-learn
   - scipy
   - shapely
-  - xclim=0.47.0=py38h578d9bd_0
-  - xesmf=0.6.3=pyhd8ed1ab_1
+  - xclim
+  - xesmf
   - yaml
   - regionmask
   - pip:
@@ -31,4 +31,4 @@ dependencies:
       - seaborn
       - tqdm
       - icecream
-      - urclimask==0.1
+      - git+https://github.com/FPS-URB-RCC/urclimask.git

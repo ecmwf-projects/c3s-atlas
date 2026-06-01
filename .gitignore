@@ -4,3 +4,4 @@ book/notebooks/geojsons/*
 __pycache__
 *.nc
 *.egg-info
+!auxiliar/reference-grids/sftimf_EUR-11_ICTP_RegCM4-6_v1_fx.nc
