@@ -47,3 +47,14 @@ parts:
       - file: notebooks/GWLs
         title: Global Warming Levels (GWLs)
 
+- caption: ➡️ C3S Atlas Training
+  numbered: 3
+  chapters:
+  - file: chapter03.md
+    title: C3S Atlas training materials
+    sections:
+      - file: notebooks/climate_stripes_training
+        title: Climate stripes
+      - file: notebooks/precipitation_uncertainty_training
+        title: Precipitation uncertainty
+

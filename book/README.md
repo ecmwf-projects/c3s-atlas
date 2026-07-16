@@ -13,6 +13,7 @@ Several Jupyter notebooks have been developed to explain how to reproduce the di
 These notebooks are divided in two main groups: 
  - C3S Atlas Dataset (see Table 1): These notebooks focus on the end-to-end processing used to compute the different indices forming the ["gridded dataset underpinning the Copernicus Interactive Climate Atlas""](https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview). They describe and illustrate examples of indices with differetn requirements included in the C3S Atlas. These notebooks build on the Python function package included in the repository to facilitate the different processing steps: harmonization, aggregation, interpolation, etc.
  - C3S Atlas Application (see Table 2): These notebooks focus on the products visualized in the C3S Atlas (maps, time series, climatic stripes, etc.). They describe how to reproduce these products, as well as the auxiliary elements required, such as the calculation of Global Warming Levels (GWLs), the calculation of robustness/uncertainty layers, etc.
+ - C3S Atlas Training (see Table 3): These notebooks provide training materials designed to introduce users to key aspects of climate change analysis, including the calculation and visualization of climate stripes and the assessment and interpretation of uncertainty in climate change projections.
 
 
 | Directory | Contents |
@@ -39,7 +40,12 @@ These notebooks are divided in two main groups:
 
 **Table 2.** Notebooks included as example to reproduce the C3S Atlas Application visual products.
 
+| Directory | Contents |
+| :-------- | :------- |
+|  [customized_regions.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/climate_stripes_training.ipynb) | Jupyter training notebook for calculating and visualizing climate stripes over the Mediterranean region using ERA5 reanalysis data and CMIP6 global climate model simulations.
+|  [geographic_map.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/precipitation_uncertainty_training.ipynb) | Jupyter training notebook for calculating long-term regional precipitation projections under the SSP5-8.5 scenario and assessing their associated uncertainty using a CMIP6 multi-model ensemble. The notebook reproduces selected results from the regional component of the C3S Atlas and compares precipitation changes and uncertainty across the Mediterranean and Western Africa regions.
 
+**Table 3.** Notebooks including training materials for the C3S Atlas.
 
 
 
