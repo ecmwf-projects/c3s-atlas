@@ -177,5 +177,5 @@ def count_years(period):
 
 def plot_month(ax, ds, var, month, title, cmap, vmin = None, vmax = None):
     ds[var].sel(time=(ds['time.month'] == month)).plot(ax=ax, cmap = cmap, vmin = vmin, vmax = vmax)
-    ax.set_title(title)
+    ax.set_title(title, fontsize = 16)
     ax.coastlines()

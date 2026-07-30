@@ -22,7 +22,15 @@ Table 1 provides descriptions of the main files in the repository, outlining the
 
 Table 1. In-house functions for the [C3S Atlas](https://atlas.climate.copernicus.eu/atlas).
 
+## Homogenization
 
+For consistency, the C3S Atlas undergoes a process of homogenization and standardization to merge different sources from reanalysis, observations, and projections.
+
+- The metadata of the spatial coordinates is homogenised to use standard names, in particular [lon, lat].
+- Fix any non-standard calendars used in the data. This typically involves converting the calendars to the CF standard calendar (Mixed Gregorian/Julian) commonly used in climate data.
+- Convert the units of the data to a common format (e.g. Celsius for temperature). This prevents us from working with the same variables in different units, for example.
+- Convert the longitude values from the [0, 360] format to the [-180, 180] one. This is done to ensure that the longitude variable is common between the different datasets.
+- Aggregated to the required temporal resolution. For example, hourly datasets (such as ERA5, ERA5-Land, WFDE5, etc.) will be resampled to daily resolution. This involves using a temporal aggregation method, such as taking the maximum or minimum value for a given variable. As part of this last step, some variable transformations are necessarily applied. For instance, fluxes variables in ERA5 are accumulated, and therefore, the last hour of the day represent daily accumulations. To mention another case, the surface wind is computed as a combination of both the u- and v-components.
 
 
 
