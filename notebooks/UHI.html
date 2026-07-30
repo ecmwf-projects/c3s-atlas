@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.7. Urban Heat Island analysis for Paris using C3S Atlas/CORDEX data &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/UHI';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.8. Global Warming Levels" href="GWLs.html" />
+    <link rel="prev" title="2.6. Seasonal stripes" href="seasonal_stripes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark pst-js-only" alt="C3S Atlas jupyter-book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Dataset</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.1. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.2. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.3. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cddbaisimip.html">1.4. Consecutive Dry Days with bias adjusted precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pet.html">1.5. Monthly mean of daily accumulated potential evapotranspiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spei6.html">1.6. Monthly Standardised Precipitation-Evapotranspiration Index (SPEI) for 6 months cumulation period</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Application</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">2.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geographic_map.html">2.2. Geographic map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">2.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annual_cycle.html">2.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">2.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">2.6. Seasonal stripes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Urban climate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GWLs.html">2.8. Global Warming Levels (GWLs)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Training</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter03.html">3. C3S Atlas training materials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes_training.html">3.1. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precipitation_uncertainty_training.html">3.2. Precipitation uncertainty</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/UHI.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/UHI.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Urban Heat Island analysis for Paris using C3S Atlas/CORDEX data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supporting-papers">2.7.1. Supporting Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-urban-rural-dataset">1. Global Urban-Rural Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-urban-areas-in-regional-climate-models">2. Representation of Urban Areas in Regional Climate Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">2.7.2. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-fixed-variables-orography-land-area-fraction-and-urban-fraction-required-to-delineate-urban-and-rural-areas">Download fixed variables (orography, land area fraction, and urban fraction) required to delineate urban and rural areas.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-urban-and-rural-surrounding-areas">2.7.3. Define urban and rural surrounding areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-minimum-temperature-to-compute-uhi-intensity">Download minimum temperature to compute UHI intensity</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-static-variables">Load static variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-urban-mask">Define the urban mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-rural-vicinity-areas">Define rural vicinity areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-static-variables-and-the-urban-and-rural-vicinity-mask">Plot the static variables and the urban and rural vicinity mask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-urban-heat-island-uhi">2.7.4. Calculate Urban Heat Island (UHI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-climate-variable">Load climate variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-heat-island-climatology-map">Urban Heat Island Climatology Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-heat-island-annual-cycle">Urban Heat Island Annual Cycle</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="urban-heat-island-analysis-for-paris-using-c3s-atlas-cordex-data">
+<h1><span class="section-number">2.7. </span>Urban Heat Island analysis for Paris using C3S Atlas/CORDEX data<a class="headerlink" href="#urban-heat-island-analysis-for-paris-using-c3s-atlas-cordex-data" title="Link to this heading">#</a></h1>
+<p>This Jupyter Notebook reproduces the <strong>Urban Climate product</strong> from the C3S Atlas. This product is only available for high-resolution datasets that incorporate some form of urban representation (bulk or urban canopy model), including <strong>CORDEX-CORE</strong>, <strong>CORDEX-EUR-11</strong>, and <strong>CERRA</strong>. The notebook illustrates the <strong>Urban Heat Island (UHI) intensity</strong>, or <strong>urban–rural contrast</strong>, calculated by subtracting rural area temperatures from those of the urban area, based on the model-specific urban mask within each dataset.</p>
+<ul class="simple">
+<li><p>Urban and rural surrounding areas are delineated using the static urban fraction variables available in <a class="reference external" href="https://doi.org/10.5281/zenodo.15691322">Langendijk, G. S. et al. (2026)</a>.</p></li>
+<li><p>The methodology and python package (<a class="reference external" href="https://github.com/FPS-URB-RCC/urclimask">URCLIMASK</a>) to delineate urban and rural areas is described in <a class="reference external" href="https://doi.org/10.1038/s41597-025-06257-1">Diez-Sierra, J. et al. (2025)</a>.</p></li>
+<li><p>The selection of cities available in the C3S Atlas is based on <a class="reference external" href="https://doi.org/10.1038/s42949-025-00325-6">Langendijk, G. S. et al. (2025)</a>.</p></li>
+</ul>
+<p><strong>This script can be used to extend C3S Atlas products to additional cities and variables.</strong></p>
+<p>The figure below shows the Annual cycle of the <strong>urban–rural temperature difference (Urban Heat Island, UHI)</strong> for mean temperature (°C) from CORDEX-EUR-11 under a 2 °C warming scenario. It can be visualized in the C3S Atlas using the following <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/58bOMS9e">Permalink</a>.</p>
+<p><img alt="t-CORDEX-EUR-11_city" src="../_images/tn-CORDEX-EUR-11_city.png" /></p>
+<section id="supporting-papers">
+<h2><span class="section-number">2.7.1. </span>Supporting Papers<a class="headerlink" href="#supporting-papers" title="Link to this heading">#</a></h2>
+<section id="global-urban-rural-dataset">
+<h3>1. Global Urban-Rural Dataset<a class="headerlink" href="#global-urban-rural-dataset" title="Link to this heading">#</a></h3>
+<p><strong>Diez-Sierra, J. et al. (2025)</strong>. A global CORDEX-based dataset delineating urban areas and their surroundings to assess climate change on megacities. (Scientific Data). <a class="reference external" href="https://doi.org/10.1038/s41597-025-06257-1">https://doi.org/10.1038/s41597-025-06257-1</a></p>
+<p>This work presents the first <strong>global RCM-based database</strong> of urban and rural areas. It uses model-specific urban fraction variables and static inputs from <strong>CORDEX-CORE</strong> (global) and <strong>EURO-CORDEX</strong> (Europe) simulations. Urban and surrounding rural areas are defined for a representative set of megacities at 25 km (global) and 12.5 km (Europe) resolutions.<br />
+The paper provides a Python workflow for extending the analysis to additional cities and models, as well as tools for evaluating the <strong>urban heat island (UHI)</strong> effect.</p>
+</section>
+<section id="representation-of-urban-areas-in-regional-climate-models">
+<h3>2. Representation of Urban Areas in Regional Climate Models<a class="headerlink" href="#representation-of-urban-areas-in-regional-climate-models" title="Link to this heading">#</a></h3>
+<p><strong>Langendijk, G. S. et al. (2025)</strong>. Representation of global megacities and their urban heat island in CORDEX-CORE regional climate model simulations. (Urban Sustainability). <a class="reference external" href="https://doi.org/10.1038/s42949-025-00325-6">https://doi.org/10.1038/s42949-025-00325-6</a>.</p>
+<p>This study evaluates how <strong>CORDEX-CORE</strong> models represent urban areas and the <strong>urban heat island effect</strong> globally. Despite the coarse resolution (~25 km), the models capture the thermal imprint of large cities, with <strong>RegCM</strong> reproducing nighttime UHI more accurately than <strong>REMO</strong>.<br />
+The study highlights limitations in urban land-surface representation and underestimation of impervious surfaces, providing guidance for improving urban parameterizations in regional climate modeling.<br />
+Paris is one of the set of <strong>selected cities</strong> in Langendijk, G. S. et al. (2025). This selection was used for the <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas">C3S Atlas</a>.</p>
+</section>
+</section>
+<section id="load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">
+<h2><span class="section-number">2.7.2. </span>Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects<a class="headerlink" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects" title="Link to this heading">#</a></h2>
+<p>Clone (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas">c3s-atlas</a> repository and install it (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code>).</p>
+<p>Further details on how to clone and install the repository are available in the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas?tab=readme-ov-file#requirements">requirements section</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cdsapi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ccrs</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">c3s_atlas.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">season_get_name</span><span class="p">,</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">c3s_atlas.customized_regions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Mask</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">c3s_atlas.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">monthly_weighted_average</span><span class="p">,</span> 
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">c3s_atlas.products</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">annual_cycle</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">c3s_atlas.GWLs</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_GWLs</span><span class="p">,</span>
+    <span class="n">select_member_GWLs</span><span class="p">,</span>
+    <span class="n">get_mean_data_by_months</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://github.com/FPS-URB-RCC/urclimask"><strong>URCLIMASK</strong></a> provides a reproducible and flexible workflow to delineate <strong>urban</strong> and <strong>rural</strong> masks from regional climate model simulations.<br />
+It enables consistent analysis of <strong>urban climate effects</strong> and can be easily extended to additional cities and datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">urclimask.urban_areas</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">UrbanVicinity</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urclimask.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">kelvin2degC</span><span class="p">,</span>
+    <span class="n">traverseDir</span><span class="p">,</span>
+    <span class="n">fix_360_longitudes</span><span class="p">,</span>
+    <span class="n">RCM_DICT</span><span class="p">,</span>
+    <span class="n">load_ucdb_city</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">urclimask.UHI_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">UrbanIsland</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-climate-data-with-the-cds-api">
+<h3>Download climate data with the CDS API<a class="headerlink" href="#download-climate-data-with-the-cds-api" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Catalogue: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">Gridded dataset underpinning the Copernicus Interactive Climate Atlas</a></p></li>
+</ul>
+<blockquote>
+<div><p>⚠️ <strong>Warning: Exposed API Credentials</strong></p>
+<p>For security reasons, it is not recommended to hardcode your Copernicus Climate Data Store (CDS) API credentials — such as <code class="docutils literal notranslate"><span class="pre">cdsapi_url</span></code> and <code class="docutils literal notranslate"><span class="pre">cdsapi_key</span></code> — directly in notebooks.</p>
+<p>Instead, it is best to store them securely in a <code class="docutils literal notranslate"><span class="pre">.cdsapirc</span></code> file located in your home directory.</p>
+<p>📄 More info: <a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">CDS API - How to use the API</a></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdsapi_url</span><span class="o">=</span> <span class="s2">&quot;https://cds.climate.copernicus.eu/api&quot;</span>
+<span class="n">cdsapi_key</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">cdsapi_url</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cdsapi_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the code blocks below will download the data from the CDS as specified by the following API keywords:</p>
+<p><strong>Variables:</strong> <code class="docutils literal notranslate"><span class="pre">Orography;</span> <span class="pre">Land</span> <span class="pre">Area</span> <span class="pre">Fraction</span></code><br />
+<strong>Domain:</strong> <code class="docutils literal notranslate"><span class="pre">Europe</span></code><br />
+<strong>Horizontal Resolution:</strong> <code class="docutils literal notranslate"><span class="pre">12.5</span> <span class="pre">km</span></code><br />
+<strong>Temporal Resolution:</strong> <code class="docutils literal notranslate"><span class="pre">Fixed</span></code><br />
+<strong>Global Climate Model (GCM):</strong> <code class="docutils literal notranslate"><span class="pre">CNRM-CERFACS-CM5</span></code><br />
+<strong>Regional Climate Model (RCM):</strong> <code class="docutils literal notranslate"><span class="pre">ICTP-RegCM4.6</span></code><br />
+<strong>Ensemble Member:</strong> <code class="docutils literal notranslate"><span class="pre">r1i1p1</span></code><br />
+<strong>Experiment:</strong> <code class="docutils literal notranslate"><span class="pre">Historical</span></code></p>
+<section id="download-fixed-variables-orography-land-area-fraction-and-urban-fraction-required-to-delineate-urban-and-rural-areas">
+<h4>Download fixed variables (orography, land area fraction, and urban fraction) required to delineate urban and rural areas.<a class="headerlink" href="#download-fixed-variables-orography-land-area-fraction-and-urban-fraction-required-to-delineate-urban-and-rural-areas" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./data/CORDEX-EUR-11/&#39;</span><span class="p">)</span> <span class="c1"># directory to download the files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename_orog</span> <span class="o">=</span> <span class="s1">&#39;orog_EUR-11_CNRM-CERFACS-CNRM-CM5_historical_r1i1p1_ICTP-RegCM4-6_v2_fx&#39;</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;projections-cordex-domains-single-levels&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;europe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;horizontal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;0_11_degree_x_0_11_degree&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temporal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;orography&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;gcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;cnrm_cerfacs_cm5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;ictp_regcm4_6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ensemble_member&quot;</span><span class="p">:</span> <span class="s2">&quot;r1i1p1&quot;</span>
+<span class="p">}</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">zip_path</span> <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename_orog</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span>
+<span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename_sftlf</span> <span class="o">=</span> <span class="s1">&#39;sftlf_EUR-11_CNRM-CERFACS-CNRM-CM5_historical_r1i1p1_ICTP-RegCM4-6_v2_fx&#39;</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;projections-cordex-domains-single-levels&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;europe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;horizontal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;0_11_degree_x_0_11_degree&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temporal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;land_area_fraction&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;gcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;cnrm_cerfacs_cm5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;ictp_regcm4_6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ensemble_member&quot;</span><span class="p">:</span> <span class="s2">&quot;r1i1p1&quot;</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">zip_path</span> <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename_sftlf</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span>
+<span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>urban fraction variable</strong> used in this analysis was obtained from:  <strong>Langendijk, G. S. et al. (2025)</strong>. CORDEX-CORE urban and impervious surface area dataset (v1.0.0). Zenodo. <a class="reference external" href="https://doi.org/10.5281/zenodo.15700267">https://doi.org/10.5281/zenodo.15700267</a>. A example for ICTP-RegCM4.6 model is included in the <a class="reference external" href="https://github.com/ecmwf-projects/c3s-atlas/tree/main/auxiliar/reference-grids">reference-grids</a> folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename_sfturf</span> <span class="o">=</span> <span class="s2">&quot;sftimf_EUR-11_ICTP_RegCM4-6_v1_fx&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="define-urban-and-rural-surrounding-areas">
+<h2><span class="section-number">2.7.3. </span>Define urban and rural surrounding areas<a class="headerlink" href="#define-urban-and-rural-surrounding-areas" title="Link to this heading">#</a></h2>
+<p>The methodology proposed in this study relies on three static variables commonly available in most RCM outputs: urban fraction (sfturf or sftimf), orography (orog), and land area fraction (sftlf). The algorithm can be briefly described as follows. A minimum threshold for the UF determines the grid cells representing the city in the model. Potential rural surrounding areas are then determined based on three main criteria: (1) grid cells must have UF values below a specified threshold; (2) large water bodies (lakes, oceans, and rivers) are excluded via a minimum land area fraction threshold; and (3) grid cells with an elevation difference above a threshold with respect to the urban area are excluded to avoid the effect of altitude on temperature (i.e., adiabatic lapse rate). Grid cells complying with these criteria are selected as candidate rural surroundings areas. The final rural surrounding area is obtained from this candidate grid cells through an iterative morphological dilation process expanding outward from the urban cells. Iterations stop when the number of rural cells reaches a predefined ratio relative to the number of urban cells.</p>
+<p>A full description of the methodology can be found at <a class="reference external" href="https://doi.org/10.1038/s41597-025-06257-1">Diez-Sierra, J. et al. (2025)</a>.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>The parameters used to delineate urban areas and their rural surroundings are defined in <a class="reference external" href="https://doi.org/10.1038/s41597-025-06257-1">Diez-Sierra, J. et al. (2025)</a>.</p>
+<p>The following table describes the hyperparameters implemented in the algorithm.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hyperparameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lon_city</span></code> and <code class="docutils literal notranslate"><span class="pre">lat_city</span></code></p></td>
+<td><p>Longitude and latitude of the city center.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lon_lim</span></code> and <code class="docutils literal notranslate"><span class="pre">lat_lim</span></code></p></td>
+<td><p>Geographic boundaries of the study area (including city surroundings) relative to the city center (<code class="docutils literal notranslate"><span class="pre">lon_city</span></code> and <code class="docutils literal notranslate"><span class="pre">lat_city</span></code>). Grid cells outside these limits (<code class="docutils literal notranslate"><span class="pre">lon_city</span> <span class="pre">±</span> <span class="pre">lon_lim</span></code> and <code class="docutils literal notranslate"><span class="pre">lat_city</span> <span class="pre">±</span> <span class="pre">lat_lim</span></code>) are excluded from the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">urban_th</span></code></p></td>
+<td><p>Urban fraction threshold (%). Grid cells with urban fraction values above this threshold are classified as urban cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">urban_sur_th</span></code></p></td>
+<td><p>Urban surrounding threshold (%). Grid cells with urban fraction values below this threshold are candidates for rural surroundings. Defaults to <code class="docutils literal notranslate"><span class="pre">urban_th</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">orog_diff</span></code></p></td>
+<td><p>Maximum elevation difference (in meters) relative to the range (max–min) of urban cell elevations (<code class="docutils literal notranslate"><span class="pre">urban</span> <span class="pre">min</span> <span class="pre">elev</span> <span class="pre">-</span> <span class="pre">orog_diff</span> <span class="pre">&lt;</span> <span class="pre">rural</span> <span class="pre">elev</span> <span class="pre">&lt;</span> <span class="pre">urban</span> <span class="pre">max</span> <span class="pre">elev</span> <span class="pre">+</span> <span class="pre">orog_diff</span></code>). Pixels exceeding this difference are excluded.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sftlf_th</span></code></p></td>
+<td><p>Minimum land area fraction (%) required to include a grid cell in the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min_city_size</span></code></p></td>
+<td><p>Minimum size (in number of edge-connected cells) for urban clusters to be retained. Urban clusters are excluded, except for the main cluster nearest to <code class="docutils literal notranslate"><span class="pre">lon_city</span></code> and <code class="docutils literal notranslate"><span class="pre">lat_city</span></code>, which is always retained.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ratio_r2u</span></code></p></td>
+<td><p>Ratio of rural to urban grid cells. The iterative dilation process stops once this ratio is achieved.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Paris&#39;</span>
+<span class="n">lon_city</span> <span class="o">=</span> <span class="mf">2.35</span>
+<span class="n">lat_city</span> <span class="o">=</span> <span class="mf">48.85</span>
+
+<span class="n">domain</span> <span class="o">=</span> <span class="s1">&#39;EUR-11&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s1">&#39;RegCM&#39;</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="s2">&quot;evaluation&quot;</span>
+
+<span class="n">urban_var</span> <span class="o">=</span> <span class="s1">&#39;sftimf&#39;</span>
+
+<span class="n">urban_th</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">urban_sur_th</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">orog_diff</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sftlf_th</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">ratio_r2u</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">min_city_size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">lon_lim</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">lat_lim</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;CORDEX&quot;</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="s2">&quot;historical&quot;</span>
+<span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;tasmin&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Infer domain resolution in degrees and create filename</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">domain_resolution</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s1">_ECMWF-ERA5_</span><span class="si">{</span><span class="n">scenario</span><span class="si">}</span><span class="s1">_r1i1p1f1_</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="download-minimum-temperature-to-compute-uhi-intensity">
+<h4>Download minimum temperature to compute UHI intensity<a class="headerlink" href="#download-minimum-temperature-to-compute-uhi-intensity" title="Link to this heading">#</a></h4>
+<p>Running the code blocks below will download the data from the CDS as specified by the following API keywords:</p>
+<p><strong>Variables:</strong> <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">temperature</span></code><br />
+<strong>Domain:</strong> <code class="docutils literal notranslate"><span class="pre">Europe</span></code><br />
+<strong>Horizontal Resolution:</strong> <code class="docutils literal notranslate"><span class="pre">12.5</span> <span class="pre">km</span></code><br />
+<strong>Temporal Resolution:</strong> <code class="docutils literal notranslate"><span class="pre">daily</span></code><br />
+<strong>Global Climate Model (GCM):</strong> <code class="docutils literal notranslate"><span class="pre">CNRM-CERFACS-CM5</span></code><br />
+<strong>Regional Climate Model (RCM):</strong> <code class="docutils literal notranslate"><span class="pre">ICTP-RegCM4.6</span></code><br />
+<strong>Ensemble Member:</strong> <code class="docutils literal notranslate"><span class="pre">r1i1p1</span></code><br />
+<strong>Experiment:</strong> <code class="docutils literal notranslate"><span class="pre">Historical</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">start_year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1970</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">end_year</span> <span class="o">=</span> <span class="n">start_year</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_filename</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">start_year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">end_year</span><span class="si">}</span><span class="s2">.zip&quot;</span>
+    
+    <span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;europe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;horizontal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;0_11_degree_x_0_11_degree&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;temporal_resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;daily_mean&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;minimum_2m_temperature_in_the_last_24_hours&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;gcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;cnrm_cerfacs_cm5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rcm_model&quot;</span><span class="p">:</span> <span class="s2">&quot;ictp_regcm4_6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ensemble_member&quot;</span><span class="p">:</span> <span class="s2">&quot;r1i1p1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;start_year&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">start_year</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_year</span><span class="p">)],</span>
+        <span class="s2">&quot;end_year&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">start_year</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_year</span><span class="p">)],</span>
+    <span class="p">}</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading </span><span class="si">{</span><span class="n">start_year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">end_year</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    
+    <span class="c1"># Extraer y borrar ZIP</span>
+    <span class="n">extract_zip_and_delete</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="load-static-variables">
+<h3>Load static variables<a class="headerlink" href="#load-static-variables" title="Link to this heading">#</a></h3>
+<p>Load static variables, such as urban fraction (sfturf), terrain elevation (orography) or land-sea fraction (sftlf).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfturf_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../auxiliar/reference-grids/</span><span class="si">{</span><span class="n">filename_sfturf</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+<span class="n">orog_path</span>   <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename_orog</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+<span class="n">sftlf_path</span>  <span class="o">=</span> <span class="n">dest</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename_sftlf</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+
+<span class="n">ds_sfturf</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">sfturf_path</span><span class="p">)</span>
+<span class="n">ds_orog</span>   <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">orog_path</span><span class="p">)</span>
+<span class="n">ds_sftlf</span>  <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">sftlf_path</span><span class="p">)</span>
+
+<span class="n">ds_sfturf</span> <span class="o">=</span> <span class="n">fix_360_longitudes</span><span class="p">(</span><span class="n">ds_sfturf</span><span class="p">)</span>
+<span class="n">ds_orog</span>   <span class="o">=</span> <span class="n">fix_360_longitudes</span><span class="p">(</span><span class="n">ds_orog</span><span class="p">)</span>
+<span class="n">ds_sftlf</span>  <span class="o">=</span> <span class="n">fix_360_longitudes</span><span class="p">(</span><span class="n">ds_sftlf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add parameters to the function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URBAN</span> <span class="o">=</span> <span class="n">UrbanVicinity</span><span class="p">(</span>
+    <span class="n">urban_sur_th</span> <span class="o">=</span> <span class="n">urban_sur_th</span><span class="p">,</span>
+    <span class="n">orog_diff</span> <span class="o">=</span> <span class="n">orog_diff</span><span class="p">,</span>
+    <span class="n">sftlf_th</span> <span class="o">=</span> <span class="n">sftlf_th</span><span class="p">,</span>
+    <span class="n">ratio_r2u</span> <span class="o">=</span> <span class="n">ratio_r2u</span><span class="p">,</span>
+    <span class="n">min_city_size</span> <span class="o">=</span> <span class="n">min_city_size</span><span class="p">,</span>
+    <span class="n">lon_city</span> <span class="o">=</span> <span class="n">lon_city</span><span class="p">,</span>
+    <span class="n">lat_city</span> <span class="o">=</span> <span class="n">lat_city</span><span class="p">,</span>
+    <span class="n">lon_lim</span> <span class="o">=</span> <span class="n">lon_lim</span><span class="p">,</span>
+    <span class="n">lat_lim</span> <span class="o">=</span> <span class="n">lat_lim</span><span class="p">,</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="p">,</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">domain</span><span class="p">,</span>
+    <span class="n">urban_th</span> <span class="o">=</span> <span class="n">urban_th</span><span class="p">,</span>
+    <span class="n">urban_var</span> <span class="o">=</span> <span class="n">urban_var</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Crop area around the city</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_sfturf</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">crop_area_city</span><span class="p">(</span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds_sfturf</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">domain_resolution</span><span class="p">)</span>
+<span class="n">ds_orog</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">crop_area_city</span><span class="p">(</span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds_orog</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">domain_resolution</span><span class="p">)</span>
+<span class="n">ds_sftlf</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">crop_area_city</span><span class="p">(</span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds_sftlf</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">domain_resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-urban-mask">
+<h3>Define the urban mask<a class="headerlink" href="#define-the-urban-mask" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfturf_mask</span><span class="p">,</span> <span class="n">sfturf_sur_mask</span><span class="p">,</span> <span class="n">orog_mask</span><span class="p">,</span> <span class="n">sftlf_mask</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">define_masks</span><span class="p">(</span>
+    <span class="n">ds_sfturf</span> <span class="o">=</span> <span class="n">ds_sfturf</span><span class="p">,</span> 
+    <span class="n">ds_orog</span> <span class="o">=</span> <span class="n">ds_orog</span><span class="p">,</span> 
+    <span class="n">ds_sftlf</span> <span class="o">=</span> <span class="n">ds_sftlf</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-rural-vicinity-areas">
+<h3>Define rural vicinity areas<a class="headerlink" href="#define-rural-vicinity-areas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">urmask</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">select_urban_vicinity</span><span class="p">(</span>
+    <span class="n">sfturf_mask</span> <span class="o">=</span> <span class="n">sfturf_mask</span><span class="p">,</span> 
+    <span class="n">orog_mask</span> <span class="o">=</span> <span class="n">orog_mask</span><span class="p">,</span>
+    <span class="n">sftlf_mask</span> <span class="o">=</span> <span class="n">sftlf_mask</span><span class="p">,</span>
+    <span class="n">sfturf_sur_mask</span> <span class="o">=</span> <span class="n">sfturf_sur_mask</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot-the-static-variables-and-the-urban-and-rural-vicinity-mask">
+<h4>Plot the static variables and the urban and rural vicinity mask<a class="headerlink" href="#plot-the-static-variables-and-the-urban-and-rural-vicinity-mask" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">plot_static_variables</span><span class="p">(</span><span class="n">ds_sfturf</span> <span class="o">=</span> <span class="n">ds_sfturf</span><span class="p">,</span> 
+                                  <span class="n">ds_orog</span> <span class="o">=</span> <span class="n">ds_orog</span><span class="p">,</span> 
+                                  <span class="n">ds_sftlf</span> <span class="o">=</span> <span class="n">ds_sftlf</span><span class="p">,</span>
+                                  <span class="n">sfturf_mask</span> <span class="o">=</span> <span class="n">sfturf_mask</span><span class="p">,</span> 
+                                  <span class="n">orog_mask</span> <span class="o">=</span> <span class="n">orog_mask</span><span class="p">,</span> 
+                                  <span class="n">sftlf_mask</span> <span class="o">=</span> <span class="n">sftlf_mask</span><span class="p">,</span>
+                                  <span class="n">urban_areas</span> <span class="o">=</span> <span class="n">urmask</span><span class="p">,</span>
+                                 <span class="n">composite</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/267776d890621ea2346eab10ef11854924ffb6c3fd4cedd3963b53b2d75aec1b.png" src="../_images/267776d890621ea2346eab10ef11854924ffb6c3fd4cedd3963b53b2d75aec1b.png" />
+</div>
+</div>
+<p>Urban and rural areas correspond to the red and green polygons, respectively. The land–sea mask represents the percentage of land (i.e., non-water surface) within each grid cell. Orography and the land–sea mask are used to exclude rural cells with large elevation differences or a high percentage of water relative to the urban cells, ensuring consistency, as these factors can affect climate variables when comparing urban and rural areas.</p>
+</section>
+</section>
+</section>
+<section id="calculate-urban-heat-island-uhi">
+<h2><span class="section-number">2.7.4. </span>Calculate Urban Heat Island (UHI)<a class="headerlink" href="#calculate-urban-heat-island-uhi" title="Link to this heading">#</a></h2>
+<section id="load-climate-variable">
+<h3>Load climate variable<a class="headerlink" href="#load-climate-variable" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nc_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dest</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_filename</span><span class="si">}</span><span class="s2">*.nc&quot;</span><span class="p">))</span>
+
+<span class="n">ds_RCM</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="n">nc_files</span><span class="p">,</span>
+    <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;by_coords&quot;</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_RCM</span>  <span class="o">=</span> <span class="n">fix_360_longitudes</span><span class="p">(</span><span class="n">ds_RCM</span><span class="p">)</span>
+<span class="n">ds_RCM</span> <span class="o">=</span> <span class="n">kelvin2degC</span><span class="p">(</span><span class="n">ds_RCM</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+<span class="n">ds_RCM</span> <span class="o">=</span> <span class="n">fix_360_longitudes</span><span class="p">(</span><span class="n">ds_RCM</span><span class="p">)</span>
+<span class="n">ds_RCM</span> <span class="o">=</span> <span class="n">URBAN</span><span class="o">.</span><span class="n">crop_area_city</span><span class="p">(</span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds_RCM</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">domain_resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UHI</span> <span class="o">=</span> <span class="n">UrbanIsland</span><span class="p">(</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds_RCM</span><span class="p">[</span><span class="n">var</span><span class="p">],</span>
+    <span class="n">urban_vicinity</span> <span class="o">=</span> <span class="n">urmask</span><span class="p">,</span>
+    <span class="n">anomaly</span> <span class="o">=</span> <span class="s1">&#39;abs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="urban-heat-island-climatology-map">
+<h3>Urban Heat Island Climatology Map<a class="headerlink" href="#urban-heat-island-climatology-map" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">plot_UI_map</span></code> function computes the <strong>monthly mean</strong> of a given dataset.<br />
+It first calculates the average temperature for the <strong>rural cells</strong> selected in previous steps, and then subtracts this mean from all cells to obtain the spatial <strong>anomaly</strong> or <strong>urban-rural contrast</strong>.</p>
+<p><strong>Plot Interpretation</strong></p>
+<ul class="simple">
+<li><p>Urban–rural contrast of nocturnal (tasmin) temperature</p></li>
+<li><p><strong>Red polygon areas</strong>: Urban areas</p></li>
+<li><p><strong>Green polygon areas</strong>: Rural areas</p></li>
+</ul>
+<p>This visualization clearly highlights the Urban Heat Island intensity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">UHI</span><span class="o">.</span><span class="n">plot_UI_map</span><span class="p">(</span>
+    <span class="n">city_name</span> <span class="o">=</span> <span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6100a623e9aa22386133af3e570490ff57bb27234dd5f6fb86e3163455479c6f.png" src="../_images/6100a623e9aa22386133af3e570490ff57bb27234dd5f6fb86e3163455479c6f.png" />
+</div>
+</div>
+</section>
+<section id="urban-heat-island-annual-cycle">
+<h3>Urban Heat Island Annual Cycle<a class="headerlink" href="#urban-heat-island-annual-cycle" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">plot_UI_annual_cycle</span></code> function computes the <strong>monthly spatial mean</strong> of a given dataset.<br />
+It first calculates the average temperature for the <strong>rural cells</strong> selected in previous steps, and then subtracts this mean from all cells to obtain the <strong>anomaly</strong> or <strong>urban-rural contrast</strong>.</p>
+<p>Plot Interpretation</p>
+<ul class="simple">
+<li><p><strong>Red lines</strong>: Temperature anomaly in <strong>urban areas</strong> relative to the average of rural cells.</p></li>
+<li><p><strong>Green lines</strong>: Temperature anomaly in <strong>rural areas</strong> relative to the average of rural cells.</p></li>
+<li><p><strong>Thicker and dashed lines</strong>: Represent the <strong>average anomaly</strong> and the <strong>percentiles</strong> (10, 25, 75, and 90).</p></li>
+</ul>
+<p>This visualization clearly highlights the differences in annual cycles between <strong>urban</strong> and <strong>rural</strong> regions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">UHI</span><span class="o">.</span><span class="n">plot_UI_annual_cycle</span><span class="p">(</span>
+    <span class="n">percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="n">gridcell_series</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+    <span class="n">city_name</span> <span class="o">=</span> <span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3e2f7fd90b57a5e4a3e17a231fd4d0b997e8399edde8ac6877e6a6e206e8d0de.png" src="../_images/3e2f7fd90b57a5e4a3e17a231fd4d0b997e8399edde8ac6877e6a6e206e8d0de.png" />
+</div>
+</div>
+<p>In contrast to the results presented in the first figure of the script, which depict the full model ensemble, this figure shows results for a single model, illustrating the spatial variability of the Urban Heat Island effect as a function of the specific grid cell analyzed.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="seasonal_stripes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Seasonal stripes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GWLs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.8. </span>Global Warming Levels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supporting-papers">2.7.1. Supporting Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-urban-rural-dataset">1. Global Urban-Rural Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-urban-areas-in-regional-climate-models">2. Representation of Urban Areas in Regional Climate Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-python-packages-and-clone-and-install-the-c3s-atlas-github-repository-from-the-ecmwf-projects">2.7.2. Load Python packages and clone and install the c3s-atlas GitHub repository from the ecmwf-projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-climate-data-with-the-cds-api">Download climate data with the CDS API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-fixed-variables-orography-land-area-fraction-and-urban-fraction-required-to-delineate-urban-and-rural-areas">Download fixed variables (orography, land area fraction, and urban fraction) required to delineate urban and rural areas.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-urban-and-rural-surrounding-areas">2.7.3. Define urban and rural surrounding areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-minimum-temperature-to-compute-uhi-intensity">Download minimum temperature to compute UHI intensity</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-static-variables">Load static variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-urban-mask">Define the urban mask</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-rural-vicinity-areas">Define rural vicinity areas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-static-variables-and-the-urban-and-rural-vicinity-mask">Plot the static variables and the urban and rural vicinity mask</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-urban-heat-island-uhi">2.7.4. Calculate Urban Heat Island (UHI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-climate-variable">Load climate variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-heat-island-climatology-map">Urban Heat Island Climatology Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-heat-island-annual-cycle">Urban Heat Island Annual Cycle</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

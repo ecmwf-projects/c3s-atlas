@@ -1,0 +1,1208 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2. Tutorial on regional precipitation projections and their uncertainty &#8212; C3S Atlas jupyter-book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/precipitation_uncertainty_training';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3.1. Tutorial on climate stripes" href="climate_stripes_training.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-light" alt="C3S Atlas jupyter-book - Home"/>
+    <img src="../_static/C3S–POS–LINE.png" class="logo__image only-dark pst-js-only" alt="C3S Atlas jupyter-book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    User-tools for the C3S Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Dataset</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter01.html">1. Reproducibility of the C3S Atlas dataset</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tx35.html">1.1. Monthly count of days above 35 degC (tx35)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx35bals.html">1.2. Monthly count of days above 35 degC with bias adjusting (tx35bals)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cd.html">1.3. Cooling Degree Days (CD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cddbaisimip.html">1.4. Consecutive Dry Days with bias adjusted precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pet.html">1.5. Monthly mean of daily accumulated potential evapotranspiration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spei6.html">1.6. Monthly Standardised Precipitation-Evapotranspiration Index (SPEI) for 6 months cumulation period</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Application</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter02.html">2. Reproducibility of the C3S Atlas visual products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="customized_regions.html">2.1. Customized regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geographic_map.html">2.2. Geographic map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time_series.html">2.3. Time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annual_cycle.html">2.4. Annual cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes.html">2.5. Climate stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonal_stripes.html">2.6. Seasonal stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UHI.html">2.7. Urban climate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GWLs.html">2.8. Global Warming Levels (GWLs)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">➡️ C3S Atlas Training</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../chapter03.html">3. C3S Atlas training materials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="climate_stripes_training.html">3.1. Climate stripes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Precipitation uncertainty</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/c3s-atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/precipitation_uncertainty_training.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/precipitation_uncertainty_training.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tutorial on regional precipitation projections and their uncertainty</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">3.2.1. Data download and preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-cds-api">Install CDS API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-your-cds-api-key">Enter your CDS API key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-c3s-atlas-data">Download C3S Atlas data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">3.2.2. Data processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unzip-the-downloaded-data-files">Unzip the downloaded data files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-and-compute-climate-change-signals">3.2.3. Open data and compute climate change signals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-prepare-cmip6-data-for-all-experiments">Load and prepare CMIP6 data for all experiments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-sample">Select sample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-climate-change-signals">Compute climate change signals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-select-regions">3.2.4. Import and select regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-mean-projections">3.2.5. Regional mean projections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-model-agreement-and-comparison-to-natural-variability">Uncertainty: Model agreement and comparison to natural variability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-historical-standard-deviation">Compute the historical standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-projected-regional-mean">Plotting the projected regional mean</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projected-spatial-patterns">3.2.6. Projected spatial patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-the-uncertainty-in-maps">Representation of the Uncertainty in maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-projected-regional-multi-model-mean-change">Plotting the projected regional multi-model mean change</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="logo" src="../_images/LogoLine_horizon_C3S.png" /></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tutorial-on-regional-precipitation-projections-and-their-uncertainty">
+<h1><span class="section-number">3.2. </span>Tutorial on regional precipitation projections and their uncertainty<a class="headerlink" href="#tutorial-on-regional-precipitation-projections-and-their-uncertainty" title="Link to this heading">#</a></h1>
+<p>In this tutorial, we reproduce some of the results and figures presented in the regional component of the C3S Atlas (<a class="reference external" href="https://atlas.climate.copernicus.eu/">https://atlas.climate.copernicus.eu/</a>). In particular, we focus on computing long-term precipitation projection changes for two regions, together with an assessment of their associated uncertainty.</p>
+<p>In climate change studies, a key objective is to evaluate how climate variables are projected to evolve in the future under external forcing (e.g. different greenhouse gas emission scenarios). The changes in the variables are typically defined as the difference between certain periods of future projections and historical simulations. Depending on the selected future time period, changes can be classified as near-term, mid-term, or long-term. In this tutorial, we focus on long-term changes under the SSP5-8.5 scenario.</p>
+<p>To ensure a robust assessment of the climate change signal, a multi-model ensemble must be considered. Each model represents the climate system differently, due to variations in representation of physical process, parameterizations, and resolution, resulting in differences in their projections. Using a multi-model ensemble allows us to quantify the spread of results and to assess the confidence in the projected changes in a statistical framework. Here, the data of the climate model ensemble will be retrieved from the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a>.</p>
+<p>In <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas">C3S Atlas</a>, and hence in this notebook, the uncertainty is evaluated following the methodology described in Cross-Chapter Box Atlas 1: “Displaying Robustness and Uncertainty in Maps” from the IPCC AR6 WGI Atlas (<a class="reference external" href="https://doi.org/10.1017/9781009157896.021">https://doi.org/10.1017/9781009157896.021</a>; pp. 1945–1950), which is based on (1) multi-model agreement on the sign of the change (positive or negative), and (2) comparing the magnitude of the change with the internal variability estimated from the historical period (internal variability threshold). These concepts will be explained in detail later.</p>
+<p>The workflow of the notebook is as follows. First, the required climate projections from the <a class="reference external" href="https://wcrp-cmip.org/cmip-phases/cmip6/">CMIP6</a> project is downloaded from the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a> and the climate change signal is computed. Then, two regions (Mediterranean and Western-Africa) with robust and non-robust climate change signals are selected and compared. The comparison includes the uncertainty assessment, by analyzing both the inter-model spread and the multi-model mean.</p>
+<section id="data-download-and-preparation">
+<h2><span class="section-number">3.2.1. </span>Data download and preparation<a class="headerlink" href="#data-download-and-preparation" title="Link to this heading">#</a></h2>
+<p>Before starting, we need to prepare the environment. This includes two steps: 1) Installing the CDS API, 2) Importing the specific python libraries to be used.</p>
+<section id="install-cds-api">
+<h3>Install CDS API<a class="headerlink" href="#install-cds-api" title="Link to this heading">#</a></h3>
+<p>To download the required data we will use CDS API (Application Programming Interface). This allows users to automate downloads and data retrievals using Python scripts instead of manually browsing at the CDS website (<a class="reference external" href="https://cds.climate.copernicus.eu/">https://cds.climate.copernicus.eu/</a>). It lets you select specific data, variables, and time ranges to download efficiently huge volumes of climate information for research or analysis. To install the CDS API, run the following command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>cdsapi
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-libraries">
+<h3>Import libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h3>
+<p>Python libraries are collections of pre-written code (functions, modules, classes) that provide ready-to-use solutions for specific tasks without the need for writing everything from scratch.</p>
+<p>In climate science, we are generally working with data in <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> format. To best handle this data we will use libraries for working with labelled multi-dimensional arrays, in particular <code class="docutils literal notranslate"><span class="pre">Xarray</span></code>. In addition, it is also practical to use <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, which supports large multi-dimensional arrays, along with a large collection of high-level mathematical functions to operate on these arrays. For plotting and viewing data, we will use <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Cartopy</span></code>. Warnings related to data downloads via the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code> (e.g., server security, connection issues, download size, or data availability) are disabled using <code class="docutils literal notranslate"><span class="pre">urllib3</span></code>. Finally, the <code class="docutils literal notranslate"><span class="pre">glob</span></code> and <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> modules are imported to search for and extract files, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CDS API</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cdsapi</span>
+
+<span class="c1"># Libraries for working with multi-dimensional arrays</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="c1"># Libraries for plotting and visualising data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpath</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line2D</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ccrs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy.mpl.gridliner</span><span class="w"> </span><span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.feature</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cfeature</span>
+
+<span class="c1"># Disable warnings for data download via API</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib3</span> 
+<span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
+
+<span class="c1"># Search for files and directories using patterns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="kn">import</span> <span class="n">glob</span>
+
+<span class="c1"># Extract zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="enter-your-cds-api-key">
+<h3>Enter your CDS API key<a class="headerlink" href="#enter-your-cds-api-key" title="Link to this heading">#</a></h3>
+<p>We will request data from the CDS programmatically with the help of the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code>. To set up the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code> credentials, we need to define two variables: <code class="docutils literal notranslate"><span class="pre">URL</span></code> and <code class="docutils literal notranslate"><span class="pre">KEY</span></code>. These can be obtained by registering and login to the CDS (<a class="reference external" href="https://cds.climate.copernicus.eu">https://cds.climate.copernicus.eu</a>), and following the instructions in <a class="reference external" href="https://cds.climate.copernicus.eu/how-to-api">https://cds.climate.copernicus.eu/how-to-api</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://cds.climate.copernicus.eu/api&#39;</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we specify a data directory in which we will download our data and all output files that we will generate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATADIR</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-c3s-atlas-data">
+<h3>Download C3S Atlas data<a class="headerlink" href="#download-c3s-atlas-data" title="Link to this heading">#</a></h3>
+<p>To search for the C3S Atlas data, visit the CDS website: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=download">https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=download</a>. The C3S Atlas collects several databases including observations, reanalysis and climate change projections both at global and regional scales. In this notebook, we will focus on the CMIP6 global climate projection database, which corresponds to the 6th phase of the Coupled-Model Intercomparison Project.</p>
+<p>The data used to evaluate the precipitation projections is the global ‘Monthly Precipitation’ covering the period from 1850 to 2100. Although this full time span is not provided by a single CMIP6 experiment, it can be obtained by combining two experiments: historical and scenario (SSP5-8.5 in our case). The historical experiment simulates climate conditions from 1850 to 2014 and represents the recent past climate. To explore potential future climate changes, several long-term projection experiments simulate the evolution of the climate system from 2015 to 2100 under different (radiative forcing and socio-economic) assumptions. Among the available scenarios, we focus on SSP5-8.5, a high-emissions pathway that results in a pronounced anthropogenic climate change signal that clearly emerges from natural variability. To obtain the projected changes, consistency between datasets must be ensured, so the same models must be included in both the historical and scenario samples. This requirement will be highlighted later.</p>
+<p>After selecting the desired data request, click “Show API request” at the bottom of the download form. This will reveal a block of code, which you can simply copy and paste into a cell of your Jupyter Notebook. Running the cell will retrieve and download the data you requested into your local directory. The download may take a few minutes depending on the volume of the data. Note that, the terms and conditions of this particular dataset need to be accepted in the CDS. The option to view and accept these conditions is given just above the “Show API request” option.</p>
+<p>Running the code blocks below will download the data from the CDS as specified by the following API keywords:</p>
+<p><strong>Project:</strong> <code class="docutils literal notranslate"><span class="pre">C3S</span> <span class="pre">Atlas</span> <span class="pre">dataset</span></code><br />
+<strong>Origin:</strong> <code class="docutils literal notranslate"><span class="pre">CMIP6</span></code><br />
+<strong>Variables:</strong> <code class="docutils literal notranslate"><span class="pre">Monthly</span> <span class="pre">Precipitation</span></code><br />
+<strong>Experiment:</strong> <code class="docutils literal notranslate"><span class="pre">historical;</span> <span class="pre">SSP5-8.5</span></code><br />
+<strong>Year:</strong> <code class="docutils literal notranslate"><span class="pre">1850-2014;</span> <span class="pre">2015-2100</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download data for Historical Runs</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">&quot;multi-origin-c3s-atlas&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;1850-2014&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_precipitation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span>
+<span class="p">},</span>
+     <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">cmip6_monthly_1850-2014_historical.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download data for Future Scenario Runs</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="s2">&quot;multi-origin-c3s-atlas&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;ssp5_8_5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-2100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_precipitation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span>
+<span class="p">},</span>
+    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">cmip6_monthly_2015-2100_ssp585.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-processing">
+<h2><span class="section-number">3.2.2. </span>Data processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h2>
+<section id="unzip-the-downloaded-data-files">
+<h3>Unzip the downloaded data files<a class="headerlink" href="#unzip-the-downloaded-data-files" title="Link to this heading">#</a></h3>
+<p>From the CDS, CMIP6 data are available as <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> files compressed into zip archives. Therefore, before loading any data, we have to extract the files. After downloading the two experiments (historical and SSP5-8.5) as separate zip files, we can use the functions from the zipfile Python package to extract their contents. For each zip file, a <code class="docutils literal notranslate"><span class="pre">ZipFile()</span></code> object is generated and then, the content is extracted with the function <code class="docutils literal notranslate"><span class="pre">extractall()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract .zip files inside the folder</span>
+<span class="n">cmip6_zip_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">*.zip&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">cmip6_zip_paths</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+        <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="open-data-and-compute-climate-change-signals">
+<h2><span class="section-number">3.2.3. </span>Open data and compute climate change signals<a class="headerlink" href="#open-data-and-compute-climate-change-signals" title="Link to this heading">#</a></h2>
+<section id="load-and-prepare-cmip6-data-for-all-experiments">
+<h3>Load and prepare CMIP6 data for all experiments<a class="headerlink" href="#load-and-prepare-cmip6-data-for-all-experiments" title="Link to this heading">#</a></h3>
+<p>Now that we have downloaded and extracted the data, we can prepare it. These preparation steps include:</p>
+<ul class="simple">
+<li><p><strong>Temporal aggregation</strong>: The data are aggregated from monthly to annual values because the uncertainty analysis is performed at this temporal resolution. Note that if a specific season or month is to be analyzed, the corresponding temporal filter must be applied prior to calculating both the uncertainty analysis and the climate change signal.</p></li>
+<li><p><strong>Reference period selection</strong>: The climatologies are defined for 1971–2005 for the historical period and 2081–2100 for the long-term SSP5-8.5 scenario. Typically, the longest reference period is used to assess natural variability and evaluate the robustness of the climate signal; however, to ensure consistency between the CMIP6 and CORDEX projections used in the C3S Atlas, we adopt their longest common historical overlap period, 1971–2005, as the reference period for both datasets.</p></li>
+</ul>
+<p>As we are working with large volumes of data, we define ‘chunks’ in <code class="docutils literal notranslate"><span class="pre">xr.open_dataset()</span></code> to divide the dataset into smaller blocks. This enables more efficient processing without loading the entire dataset into memory. The compute() function is then used to trigger the actual computation and avoid slow execution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data, group by &#39;year&#39; and period selection</span>
+
+<span class="c1"># Historical</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">r_CMIP6_historical_mon_185001-201412_v02.nc&#39;</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">})</span>
+<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1971&quot;</span><span class="p">,</span> <span class="s2">&quot;2005&quot;</span><span class="p">))</span> <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">ds_hist_std</span> <span class="o">=</span> <span class="n">ds_hist</span> <span class="c1"># will be used later for computing the standard deviation</span>
+<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1986&quot;</span><span class="p">,</span> <span class="s2">&quot;2005&quot;</span><span class="p">))</span> 
+
+<span class="c1"># SSP5-8.5</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">r_CMIP6_ssp585_mon_201501-210012_v02.nc&#39;</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">})</span>
+<span class="n">ds_ssp</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;2081&quot;</span><span class="p">,</span> <span class="s2">&quot;2100&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data includes (<code class="docutils literal notranslate"><span class="pre">member</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">lat</span></code>, <code class="docutils literal notranslate"><span class="pre">lon</span></code>) dimensions. The <code class="docutils literal notranslate"><span class="pre">member</span></code> coordinate is a numerical index that indicates the number of models for the historical and SSP5-8.5 experiments. However, the dataset provides several alternative options to describe the ensemble members, depending on the intended analysis. These include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">member_id</span></code>: contains the full information about each model run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcm_institution</span></code>: indicates the originating institution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcm_model</span></code>: provides the model names.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcm_variant</span></code>: describes the specific experiment configuration.</p></li>
+</ul>
+<p>Since our goal is to compare the same models with the same configurations in both historical and scenario simulations, we focus on identifying the same members using the <code class="docutils literal notranslate"><span class="pre">member_id</span></code> variable.</p>
+</section>
+<section id="select-sample">
+<h3>Select sample<a class="headerlink" href="#select-sample" title="Link to this heading">#</a></h3>
+<p>As mentioned earlier, consistency across samples must be ensured, but sometimes different experiments are not available to the same samples of models. In this case, the historical experiments contain 30 models, while the SSP5-8.5 scenario has only 27. Since we are interested in long-term climate evolutions from 1850 to 2100, we keep only those models present in both historical and SSP5-8.5 experiments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify and select common models in both experiments</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="p">,</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">member_id</span><span class="p">)</span> <span class="c1"># identify</span>
+
+<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_hist_std</span> <span class="o">=</span> <span class="n">ds_hist_std</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist_std</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_ssp</span>  <span class="o">=</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_ssp</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-climate-change-signals">
+<h3>Compute climate change signals<a class="headerlink" href="#compute-climate-change-signals" title="Link to this heading">#</a></h3>
+<p>Once the data is prepared, we compute the future climate change signals. The latter are obtained as the difference between the climatological means of the future and the past periods corresponding to the SSP5-8.5 and historical simulations, respectively. The results are expressed using two metrics: (1) relative change with respect to the historical period [%], and (2) absolute change [mm day⁻¹].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Projections</span>
+<span class="c1"># (1) Relative change</span>
+<span class="n">proj_prct</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_ssp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">))</span> <span class="o">/</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span> <span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="c1"># (2) Absolute change</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_ssp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span> <span class="p">)</span>                                                
+    
+<span class="n">proj_prct_mean</span> <span class="o">=</span> <span class="n">proj_prct</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="import-and-select-regions">
+<h2><span class="section-number">3.2.4. </span>Import and select regions<a class="headerlink" href="#import-and-select-regions" title="Link to this heading">#</a></h2>
+<p>The future projections of precipitation are aimed to be analysed at a regional scale. To do so, we will select two regions (Mediterranean and Western-Africa) from those defined in IPCC AR6 framework (<a class="reference external" href="https://regionmask.readthedocs.io/en/stable/defined_scientific.html#ar6-regions">https://regionmask.readthedocs.io/en/stable/defined_scientific.html#ar6-regions</a>), and assess the associated uncertainties in the projected changes.</p>
+<p>First, we install and import the IPCC AR6 regions from the <a class="reference external" href="https://regionmask.readthedocs.io/en/stable/">Regionmask</a> Python module and display the corresponding region names. After selecting the regions of interest (which are the Mediterranean region and Western-Africa in our case), we apply the mask to both projection fields (relative and absolute changes) and we create a single variable containing both regions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import regionmasks </span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>regionmask
+<span class="kn">import</span><span class="w"> </span><span class="nn">regionmask</span>
+<span class="n">ar6</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span><span class="o">.</span><span class="n">all</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">ar6</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">proj_prct_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display Region Names</span>
+<span class="n">ar6</span><span class="o">.</span><span class="n">names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Greenland/Iceland&#39;,
+ &#39;N.W.North-America&#39;,
+ &#39;N.E.North-America&#39;,
+ &#39;W.North-America&#39;,
+ &#39;C.North-America&#39;,
+ &#39;E.North-America&#39;,
+ &#39;N.Central-America&#39;,
+ &#39;S.Central-America&#39;,
+ &#39;Caribbean&#39;,
+ &#39;N.W.South-America&#39;,
+ &#39;N.South-America&#39;,
+ &#39;N.E.South-America&#39;,
+ &#39;South-American-Monsoon&#39;,
+ &#39;S.W.South-America&#39;,
+ &#39;S.E.South-America&#39;,
+ &#39;S.South-America&#39;,
+ &#39;N.Europe&#39;,
+ &#39;West&amp;Central-Europe&#39;,
+ &#39;E.Europe&#39;,
+ &#39;Mediterranean&#39;,
+ &#39;Sahara&#39;,
+ &#39;Western-Africa&#39;,
+ &#39;Central-Africa&#39;,
+ &#39;N.Eastern-Africa&#39;,
+ &#39;S.Eastern-Africa&#39;,
+ &#39;W.Southern-Africa&#39;,
+ &#39;E.Southern-Africa&#39;,
+ &#39;Madagascar&#39;,
+ &#39;Russian-Arctic&#39;,
+ &#39;W.Siberia&#39;,
+ &#39;E.Siberia&#39;,
+ &#39;Russian-Far-East&#39;,
+ &#39;W.C.Asia&#39;,
+ &#39;E.C.Asia&#39;,
+ &#39;Tibetan-Plateau&#39;,
+ &#39;E.Asia&#39;,
+ &#39;Arabian-Peninsula&#39;,
+ &#39;S.Asia&#39;,
+ &#39;S.E.Asia&#39;,
+ &#39;N.Australia&#39;,
+ &#39;C.Australia&#39;,
+ &#39;E.Australia&#39;,
+ &#39;S.Australia&#39;,
+ &#39;New-Zealand&#39;,
+ &#39;E.Antarctica&#39;,
+ &#39;W.Antarctica&#39;,
+ &#39;Arctic-Ocean&#39;,
+ &#39;N.Pacific-Ocean&#39;,
+ &#39;Equatorial.Pacific-Ocean&#39;,
+ &#39;S.Pacific-Ocean&#39;,
+ &#39;N.Atlantic-Ocean&#39;,
+ &#39;Equatorial.Atlantic-Ocean&#39;,
+ &#39;S.Atlantic-Ocean&#39;,
+ &#39;Arabian-Sea&#39;,
+ &#39;Bay-of-Bengal&#39;,
+ &#39;Equatorial.Indic-Ocean&#39;,
+ &#39;S.Indic-Ocean&#39;,
+ &#39;Southern-Ocean&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the regions</span>
+<span class="n">reg_id_1</span> <span class="o">=</span> <span class="n">ar6</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="s2">&quot;Mediterranean&quot;</span><span class="p">)</span>
+<span class="n">reg_id_2</span> <span class="o">=</span> <span class="n">ar6</span><span class="o">.</span><span class="n">map_keys</span><span class="p">(</span><span class="s2">&quot;Western-Africa&quot;</span><span class="p">)</span>
+
+<span class="c1"># Apply the region masks to the percentage projection field [%]</span>
+<span class="n">proj_prct_med</span> <span class="o">=</span> <span class="n">proj_prct</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">)</span>
+<span class="n">proj_prct_waf</span> <span class="o">=</span> <span class="n">proj_prct</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+
+<span class="n">proj_prct_region</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">proj_prct_med</span><span class="p">,</span> <span class="n">proj_prct_waf</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span> <span class="c1"># Create a single file for both regions</span>
+<span class="n">proj_prct_region</span> <span class="o">=</span> <span class="n">proj_prct_region</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mediterranean&quot;</span><span class="p">,</span> <span class="s2">&quot;Western-Africa&quot;</span><span class="p">])</span>
+
+<span class="c1"># Apply the region masks to the total projection field [mm day-1]</span>
+<span class="n">proj_med</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">)</span>
+<span class="n">proj_waf</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+
+<span class="n">proj_region</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">proj_med</span><span class="p">,</span> <span class="n">proj_waf</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span> <span class="c1"># Create a single file for both regions</span>
+<span class="n">proj_region</span> <span class="o">=</span> <span class="n">proj_region</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mediterranean&quot;</span><span class="p">,</span> <span class="s2">&quot;Western-Africa&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regional-mean-projections">
+<h2><span class="section-number">3.2.5. </span>Regional mean projections<a class="headerlink" href="#regional-mean-projections" title="Link to this heading">#</a></h2>
+<p>Once the changes have been computed and the regions selected, we analyse the mean precipitation changes over each region. For each model, the regional mean is obtained by averaging the data over latitude and longitude, resulting in a single value per model. This allows to observe the inter-model spread in the results: how differently models project the future.</p>
+<p>To draw conclusions about these projection changes, the uncertainty must be evaluated. This requires introducing two key concepts: model agreement and the internal variability threshold. These concepts are described in detail in Cross-Chapter Box Atlas 1 of the IPCC AR6 WGI Atlas (<a class="reference external" href="https://doi.org/10.1017/9781009157896.021">https://doi.org/10.1017/9781009157896.021</a>; pp. 1945–1950).</p>
+<section id="uncertainty-model-agreement-and-comparison-to-natural-variability">
+<h3>Uncertainty: Model agreement and comparison to natural variability<a class="headerlink" href="#uncertainty-model-agreement-and-comparison-to-natural-variability" title="Link to this heading">#</a></h3>
+<p>In the IPCC AR6 WGI Atlas, the uncertainty is evaluated by analysing two complementary aspects: 1) the level of agreement among models, and 2) the projected changes compared to the historical natural variability.</p>
+<ol class="arabic simple">
+<li><p><strong>Model agreement</strong> refers to the degree to which different climate models project the same (or different) direction of change for a given variable. It is commonly assessed by examining how many models agree on the sign of the projected change (for example, increase or decrease). High model agreement indicates that a substantial fraction of models produce similar results, which increases confidence in the robustness of the projection, although it does not imply absolute certainty.</p></li>
+<li><p>The comparison of the projected change to <strong>internal variability</strong> is used to assess whether the projected signal is robust and distinguishable from natural climate fluctuations, or whether it could simply reflect internal noise. Internal variability is typically estimated using the longest available historical period (from 1850 to the present), spanning the pre-industrial period to today, and represents the range of natural variations simulated by the models in the absence of future forcing. The projected change is then evaluated relative to this variability. If the projected signal is larger than a certain internal variability threshold (defined next), it is considered to clearly emerge from the noise. If it is comparable to or smaller than the internal variability, the projection is less robust, even if many models agree on the direction of change.
+The variability threshold is often defined as <strong>γ = √2 · 1.645 · σ</strong>, where σ is the standard deviation of 20-year means estimated from non-overlapping periods in the pre-industrial simulations. In this formulation, the factor √2 arises because we are considering the variability of a difference between two independent climate periods (e.g., a future period minus a reference period). When two independent random variables with the same variance are subtracted, their variances add, so the variance of the difference becomes σ² + σ² = 2σ², and therefore the standard deviation becomes √2 · σ. Thus, √2 accounts for the combined uncertainty of both periods involved in the climate change signal. The factor 1.645 corresponds to the 90% confidence level, meaning that, for a normal distribution, there is a 90% probability that values lie within ±1.645 standard deviations of the mean.</p></li>
+</ol>
+</section>
+<section id="compute-the-historical-standard-deviation">
+<h3>Compute the historical standard deviation<a class="headerlink" href="#compute-the-historical-standard-deviation" title="Link to this heading">#</a></h3>
+<p>In cases where the length of the historical period does not allow for the calculation of the standard deviation of 20-year means from non-overlapping periods, because the record is too short (as in this case, where only 35 years are available; 1971–2005), the following approximation is applied instead: <strong>γ = √(2/20)·1.645·σ₁yr</strong>, where σ₁yr is the interannual historical standard deviation calculated from a linearly detrended modern period (σ₂₀yr = σ₁yr / √20). Here, the historical standard deviation is computed over the period 1971–2005 (following C3S Atlas methodology), therefore, the second approximation is used.</p>
+<p>The above approximation allows comparison between a climate change signal defined over 20-year periods and variability estimated from annual data. In this framework, the annual standard deviation is scaled to approximate the variability of 20-year means, making the metrics comparable in terms of temporal aggregation. If long continuous simulations (e.g., from 1850 onwards) were available, the preferred approach would be to directly compute the standard deviation of non-overlapping 20-year means, which is fully consistent with the temporal scale of the climate change signal being assessed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">detrend</span>
+
+<span class="n">hist_std_detrended</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+    <span class="n">detrend</span><span class="p">,</span>
+    <span class="n">ds_hist_std</span><span class="p">,</span>
+    <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;year&quot;</span><span class="p">]],</span>
+    <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;year&quot;</span><span class="p">]],</span>
+    <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+    <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;axis&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Deviation</span>
+<span class="n">hist_std_smooth</span> <span class="o">=</span> <span class="n">hist_std_detrended</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+
+<span class="c1"># Apply mask to historical Standard Deviation field</span>
+<span class="n">hist_std_smooth_med</span> <span class="o">=</span> <span class="n">hist_std_smooth</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">)</span>
+<span class="n">hist_std_smooth_waf</span> <span class="o">=</span> <span class="n">hist_std_smooth</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+
+<span class="n">hist_std_smooth_region</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">hist_std_smooth_med</span><span class="p">,</span> <span class="n">hist_std_smooth_waf</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span>
+<span class="n">hist_std_smooth_region</span> <span class="o">=</span> <span class="n">hist_std_smooth_region</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mediterranean&quot;</span><span class="p">,</span> <span class="s2">&quot;Western-Africa&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-the-projected-regional-mean">
+<h3>Plotting the projected regional mean<a class="headerlink" href="#plotting-the-projected-regional-mean" title="Link to this heading">#</a></h3>
+<p>The following figure illustrates the CMIP6 precipitation changes inter-model spread for the Mediterranean and Western-Africa regions, that is, the extent to which different models simulate future precipitation over these areas. The bars in the figure represent the regionally averaged precipitation changes for each model, so that each bar corresponds to an individual model.</p>
+<p>In addition, the regional internal variability threshold is displayed as a red dot alongside the projected precipitation changes. This allows the climate change signal to be compared with natural variability, and helps to assess whether the projected changes are large enough to clearly emerge from it.</p>
+<p>Several conclusions can be drawn from the figure:</p>
+<ul class="simple">
+<li><p>The Mediterranean region exhibits a robust decrease in precipitation due to climate change. This is supported by the strong model agreement on a decrease in mean precipitation (all models agree on a negative sign of change), as well as by the fact that, in most models, the magnitude of the change exceeds the internal variability threshold (all but three models). Thus, the projected changes present low uncertainty</p></li>
+<li><p>In contrast, no robust or consistent signal emerges for the Western-Africa region. Although most models simulate changes that exceed the internal variability threshold (i.e., the bars are larger than the corresponding dots), the direction of change remains uncertain. Consequently, precipitation projections for this region are associated with a high degree of uncertainty. Nevertheless, the likelihood of an increase appears to be somewhat higher, as approximately three-quarters of the models project an increase in precipitation, while the remaining models indicate a decrease.</p></li>
+</ul>
+<p>Note that, in this figure, the results are aggregated over relatively large areas, which reduces the internal variability of the projections in the historical period. When this analysis is performed at the grid-cell level, the climate change signal is more difficult to distinguish from natural variability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figure: Comparison between Precipitation Projections and Natural Variability</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+
+    <span class="n">da</span> <span class="o">=</span> <span class="n">proj_region</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># Compute variability threshold</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">1.645</span><span class="o">*</span><span class="n">hist_std_smooth_region</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="c1"># gamma</span>
+    
+    
+    <span class="c1"># Sort regional values</span>
+    <span class="n">da_sorted</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="n">da</span><span class="p">)</span>
+    <span class="n">positive</span> <span class="o">=</span> <span class="n">da_sorted</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    
+    <span class="c1"># Plot</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span>
+        <span class="n">da_sorted</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="nb">abs</span><span class="p">(</span><span class="n">da_sorted</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> 
+        <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">positive</span><span class="p">,</span> <span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="s2">&quot;peru&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">gamma</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">da_sorted</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">zorder</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkred&quot;</span>
+    <span class="p">)</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;[mm/day]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">da</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">proj_region</span><span class="o">.</span><span class="n">member</span><span class="o">.</span><span class="n">values</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">mem</span> <span class="ow">in</span> <span class="n">proj_region</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">values</span><span class="p">])</span>
+    
+<span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precipitation Changes: Positive&quot;</span><span class="p">),</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;peru&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precipitation Changes: Negative&quot;</span><span class="p">),</span>
+    <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
+           <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Int. Var. Threshold&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.98</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Inter-model spread in Precipitation Projected Changes: </span><span class="se">\n</span><span class="s2"> Regional mean changes &amp; Internal Variability Threshold&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c83e370a359a203239547f807a3c33ff37e8470ec47ada06d09966bae70c5e0b.png" src="../_images/c83e370a359a203239547f807a3c33ff37e8470ec47ada06d09966bae70c5e0b.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="projected-spatial-patterns">
+<h2><span class="section-number">3.2.6. </span>Projected spatial patterns<a class="headerlink" href="#projected-spatial-patterns" title="Link to this heading">#</a></h2>
+<p>Now, we move to reproduce the regional spatial patterns of future precipitation changes together with their associated uncertainty. The spatial patterns are obtained by computing the ensemble mean of precipitation changes across all models, resulting in a two-dimensional field defined by latitude and longitude.</p>
+<p>It is important to note that the ensemble mean is included here only as background information to facilitate the interpretation of the uncertainty analysis. By itself, the ensemble mean does not provide sufficient information to assess the reliability of the projected changes, as it masks the spread and agreement among the individual model simulations. Therefore, the ensemble mean should not be interpreted as a substitute for a proper ensemble evaluation. Instead, it should always be considered jointly with the corresponding uncertainty metrics, which provide the necessary context for understanding the confidence and consistency of the projected spatial patterns.</p>
+<section id="representation-of-the-uncertainty-in-maps">
+<h3>Representation of the Uncertainty in maps<a class="headerlink" href="#representation-of-the-uncertainty-in-maps" title="Link to this heading">#</a></h3>
+<p>As mentioned above, the uncertainty in climate projections is assessed using two complementary metrics: the level of agreement among models regarding the direction of change (model agreement), and the extent to which the projected signal emerges from natural variability (internal variability threshold). In the previous figure, the uncertainty assessment was performed in a simplified way (just observing the values of both metrics).</p>
+<p>However, the uncertainty in spatial maps is usually represented using more <strong>advanced approaches</strong> that combines these two metrics in different ways. In this section, we adopt the methodology used in the AR6 framework, which classifies uncertainty into three categories (see the details in IPCC AR6 Cross-Chapter Box Atlas.1; <a class="reference external" href="https://doi.org/10.1017/9781009157896.021">https://doi.org/10.1017/9781009157896.021</a>; pp. 1945–1950):</p>
+<p>a) <strong>Robust change</strong>: areas where there is model agreement in the direction of change (consistency across models &gt; 80%), and the climate change signal emerges from internal variability (it exceeds the variability threshold in ≥66% of the models). As mentioned above, the variability threshold is defined as γ = √2·1.645·σ, where σ is the standard deviation of 20-year means, here computed from the historical simulation. Represented by ‘colour’ (no overlay).</p>
+<p>b) <strong>Conflicting changes/signals</strong>: areas where the signal emerges from internal variability but there is no agreement in the projection sign. Represented by ‘crossed lines’.</p>
+<p>c) <strong>No change or no robust change</strong>: areas where &lt;66% of models show change greater than variability threshold. Represented by ‘reversed diagonals’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># a) Model Agreement &gt; 80%</span>
+<span class="n">agree</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">proj_prct_region</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">member</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">da</span><span class="o">=</span> <span class="n">proj_prct_region</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">pos_mean</span><span class="o">=</span><span class="n">pos</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">neg</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">neg_mean</span><span class="o">=</span><span class="n">neg</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_mean</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">neg_mean</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">coin</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">agree</span><span class="p">[</span><span class="n">i</span><span class="p">,:,:]</span> <span class="o">=</span> <span class="n">coin</span>
+    
+<span class="n">agree</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">agree</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">),</span>
+    <span class="n">agree</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># b) Internal Variability threshold exceedance &gt; 66%</span>
+
+<span class="c1"># i) Threshold (gamma)</span>
+<span class="n">gamma</span><span class="o">=</span><span class="p">((</span><span class="mi">2</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">1.645</span><span class="o">*</span><span class="n">hist_std_smooth_region</span> 
+
+<span class="c1"># ii) Threshold exceedance</span>
+<span class="n">inter</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">proj_region</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gamma</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">inter</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">inter</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">agree2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">agree</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">inter</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">agree2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">agree2</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">),</span>
+    <span class="n">agree2</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># c) Conflicting Signals</span>
+<span class="n">agree3</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">agree</span><span class="p">)</span>
+<span class="n">agree3</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">agree</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">agree2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">agree3</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">agree3</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">),</span>
+    <span class="n">agree3</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-the-projected-regional-multi-model-mean-change">
+<h3>Plotting the projected regional multi-model mean change<a class="headerlink" href="#plotting-the-projected-regional-multi-model-mean-change" title="Link to this heading">#</a></h3>
+<p>In the next figure, the multi-model mean precipitation changes and their associated uncertainty are shown for the Mediterranean and Western-Africa regions. This figure complements the previous one. While the previous figure provided an overview of the regional precipitation changes showing a single value per model, this one presents the mean spatial pattern projected by the models, along with the associated uncertainty at the grid-point level.
+This allows to assess whether the multi-model mean climate change signal is spatially homogeneous across the region or whether there are areas where the changes are significant and others where they are not.</p>
+<p>The figure presents the following insights:</p>
+<ul class="simple">
+<li><p>The Mediterranean region shows a significant decrease in precipitation across most of the area. Only some areas near the regional boundaries (over the continent and Black Sea) display non-significant changes.</p></li>
+<li><p>The Western-Africa region exhibits a heterogeneous pattern. Although a region with significat changes appears over the northeastern area (high model agreement and strong climate change signal), most of the region shows conflicting signals: models project substantial precipitation changes but disagree on their direction.</p></li>
+</ul>
+<p>The above suggests that there is high level of confidence in the future precipitation changes of the Mediterranean region but not for the Western-Africa region, at least from a regional perspective. Focusing on more local scales, some certainty can be identified over the northeastern area of Western-Africa. Thus, the results are consistent with those presented in the previous figure.</p>
+<p>This figures can be compared with those displayed in the Copernicus Climate Change Service (C3S) Atlas by selecting the appropriate variables, simulations, and time periods for the Mediterranean region <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/FdSZMib9">permalink</a> and the Western Africa region <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/5fnv0Dym">permalink</a>. By clicking on the “i” icon in the upper-right corner of the C3S Atlas, users can access additional information about the workflow used to generate the figures and the multi-model ensemble, including details on data provenance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Regional Axis</span>
+<span class="n">axis_med</span> <span class="o">=</span> <span class="n">proj_prct_mean</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">axis_waf</span> <span class="o">=</span> <span class="n">proj_prct_mean</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="n">reg_id_2</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define the Figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()})</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">proj</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">proj_prct_region</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;member&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+        <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">vmax</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;BrBG&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;110m&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">proj</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">agree2</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">hatches</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">proj</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">proj</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">agree3</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">hatches</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;xx&#39;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">axis_med</span><span class="o">.</span><span class="n">lon</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">axis_med</span><span class="o">.</span><span class="n">lon</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">axis_med</span><span class="o">.</span><span class="n">lat</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">axis_med</span><span class="o">.</span><span class="n">lat</span><span class="p">)],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">axis_waf</span><span class="o">.</span><span class="n">lon</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">axis_waf</span><span class="o">.</span><span class="n">lon</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">axis_waf</span><span class="o">.</span><span class="n">lat</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">axis_waf</span><span class="o">.</span><span class="n">lat</span><span class="p">)],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    
+    <span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">top_labels</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">right_labels</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">xlabel_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">ylabel_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Lat&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Lon&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">proj_prct_region</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
+        <span class="n">im</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+        <span class="n">fraction</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+        <span class="n">pad</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;[%]&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Precipitation Projected Changes: CMIP6 Multi-Model mean&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.55</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52440a8838866641ead887f23b9f9bd27dcbb75697fb4c76fa7807e36aa6cbed.png" src="../_images/52440a8838866641ead887f23b9f9bd27dcbb75697fb4c76fa7807e36aa6cbed.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="climate_stripes_training.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Tutorial on climate stripes</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download-and-preparation">3.2.1. Data download and preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-cds-api">Install CDS API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-your-cds-api-key">Enter your CDS API key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-c3s-atlas-data">Download C3S Atlas data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">3.2.2. Data processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unzip-the-downloaded-data-files">Unzip the downloaded data files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-data-and-compute-climate-change-signals">3.2.3. Open data and compute climate change signals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-and-prepare-cmip6-data-for-all-experiments">Load and prepare CMIP6 data for all experiments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-sample">Select sample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-climate-change-signals">Compute climate change signals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-select-regions">3.2.4. Import and select regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-mean-projections">3.2.5. Regional mean projections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-model-agreement-and-comparison-to-natural-variability">Uncertainty: Model agreement and comparison to natural variability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-historical-standard-deviation">Compute the historical standard deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-projected-regional-mean">Plotting the projected regional mean</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projected-spatial-patterns">3.2.6. Projected spatial patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-the-uncertainty-in-maps">Representation of the Uncertainty in maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-projected-regional-multi-model-mean-change">Plotting the projected regional multi-model mean change</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Climate Change Service (C3S), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
