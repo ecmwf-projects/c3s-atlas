@@ -16,6 +16,7 @@ Table 1 lists the notebooks included in this chapter, which build upon the [C3S 
 |  [seasonal_stripe.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/seasonal_stripes.ipynb) | Jupyter Notebook for reproducing regional seasonal stripes for pre-defined regions.
 |  [annual_cycle.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/annual_cycle.ipynb) | Jupyter Notebook for reproducing regional annual cycles for pre-defined regions.
 |  [customized_regions.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/customized_regions.ipynb) | Jupyter Auxiliary notebook with examples of how to produce regional results for customized regions defined in machine-readable formats (e.g. geojson).
+|  [UHI.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/UHI.ipynb) | Jupyter Notebook to reproduce the Urban Climate analysis shown in the C3S Atlas.
 |  [GWLs.ipynb](https://github.com/ecmwf-projects/c3s-atlas/blob/main/book/notebooks/GWLs.ipynb) | Auxiliary Jupyter Notebook illustrating the calculation of Global Warming Levels (GWLs), following the IPCC AR6 WGI methodology. This is used by the previous notebooks for calculating changes for different warming levels.
 
 **Table 1.** Notebooks included as example to reproduce the C3S Atlas Application visual products.
