@@ -57,4 +57,3 @@ parts:
         title: Climate stripes
       - file: notebooks/precipitation_uncertainty_training
         title: Precipitation uncertainty
-

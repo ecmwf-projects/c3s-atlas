@@ -10,7 +10,7 @@ This directory integrates the specific files for the C3S Atlas (note)Book and th
 
 Several Jupyter notebooks have been developed to explain how to reproduce the different indices and products underpinning the C3S Atlas. These notebooks build upon the [software](https://github.com/ecmwf-projects/c3s-atlas/tree/main/c3s_atlas) and [auxiliary information](https://github.com/ecmwf-projects/c3s-atlas/tree/main/auxiliar) included in the repository.
 
-These notebooks are divided in two main groups: 
+These notebooks are divided in three main groups: 
  - C3S Atlas Dataset (see Table 1): These notebooks focus on the end-to-end processing used to compute the different indices forming the ["gridded dataset underpinning the Copernicus Interactive Climate Atlas""](https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview). They describe and illustrate examples of indices with differetn requirements included in the C3S Atlas. These notebooks build on the Python function package included in the repository to facilitate the different processing steps: harmonization, aggregation, interpolation, etc.
  - C3S Atlas Application (see Table 2): These notebooks focus on the products visualized in the C3S Atlas (maps, time series, climatic stripes, etc.). They describe how to reproduce these products, as well as the auxiliary elements required, such as the calculation of Global Warming Levels (GWLs), the calculation of robustness/uncertainty layers, etc.
  - C3S Atlas Training (see Table 3): These notebooks provide training materials designed to introduce users to key aspects of climate change analysis, including the calculation and visualization of climate stripes and the assessment and interpretation of uncertainty in climate change projections.

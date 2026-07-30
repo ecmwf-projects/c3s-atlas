@@ -11,9 +11,10 @@ The user tools of the [C3S Atlas](https://atlas.climate.copernicus.eu/atlas) hav
 
 This Jupyter Book integrates and documents various notebooks available in the [c3s-atlas GitHub repository](https://github.com/ecmwf-projects/c3s-atlas), explaining how to reproduce the different indices and products underpinning the C3S Atlas. These notebooks build upon the software and auxiliary information included in the repository.
 
-This book is divided into two main chapters: 
+This book is divided into three main chapters: 
  - [C3S Atlas Dataset](https://ecmwf-projects.github.io/c3s-atlas/chapter01.html): This chapter focuses on the end-to-end processing followed to compute the different indices forming the ["gridded dataset underpinning the Copernicus Interactive Climate Atlas""](https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview). It describes some Jupyter Notebooks with illustrative examples of indices with differetn requirements included in the C3S Atlas. These notebooks build on the Python function package included in the repository to facilitate the different processing steps: harmonization, aggregation, interpolation, etc.
  - [C3S Atlas Application](https://ecmwf-projects.github.io/c3s-atlas/chapter02.html): This chapter focuses of the products visualized in the C3S Atlas (maps, time series, climatic stripes, etc.). It describes several Jupyter Notebooks to reproduce these products, as well as the auxiliary elements required, such as the calculation of Global Warming Levels (GWLs), the calculation of robustness/uncertainty layers, etc.
+ - [C3S Atlas Training](https://ecmwf-projects.github.io/c3s-atlas/chapter03.html): This chapter provides training materials designed to introduce users to key aspects of climate change analysis, including the calculation and visualization of climate stripes and the assessment and interpretation of uncertainty in climate change projections.
 
 The Jupyter Book and the “c3s-atlas" GitHub repository serve as an initial package of user tools enabling reproducibility and reusability for the C3S Atlas. 
 
