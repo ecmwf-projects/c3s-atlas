@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -496,7 +496,7 @@
 <section class="tex2jax_ignore mathjax_ignore" id="tutorial-on-climate-stripes">
 <h1><span class="section-number">3.1. </span>Tutorial on climate stripes<a class="headerlink" href="#tutorial-on-climate-stripes" title="Link to this heading">#</a></h1>
 <p>The simple and easy-to-use climate stripes were proposed by Ed Hawkins in 2018. This minimalist design, which omits axes and numbers and uses only colours, communicates a clear message about rising temperatures caused by climate change.</p>
-<p>In this tutorial we will compute climate stripes for the Mediterranean region. First, we demonstrate how to create such climate stripes for climate monitoring based on the ERA5 global reanalysis, based on the ERA5 monthly data available through the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means?tab=overview">CDS ERA5 monthly catalogue</a>. Then, we show how climate stripes can be computed using global climate models, covering not only past but also future periods. Global climate model data are retrieved from the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a>, where datasets for a collection of models can be easily downloaded at a common temporal and spatial resolution.</p>
+<p>In this tutorial we will compute climate stripes for the Mediterranean region. First, we demonstrate how to create such climate stripes for climate monitoring based on the ERA5 global reanalysis, based on the ERA5 monthly data available through the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means?tab=overview">CDS ERA5 monthly catalogue</a>. Then, we show how climate stripes can be computed from global climate models, covering both historical and future periods under two Shared Socioeconomic Pathways (SSPs): the lowest-emissions scenario (SSP-119) and the highest-emissions scenario (SSP-585). Global climate model data are retrieved from the <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=overview">C3S Atlas Dataset</a>, where datasets for a collection of models can be easily downloaded at a common temporal and spatial resolution.</p>
 <section id="download-and-prepare-the-data">
 <h2><span class="section-number">3.1.1. </span>Download and prepare the data<a class="headerlink" href="#download-and-prepare-the-data" title="Link to this heading">#</a></h2>
 <p>Before starting, we need to prepare the environment. This includes two steps: 1) Installing the CDS API, 2) Importing the specific python libraries we will use.</p>
@@ -515,7 +515,7 @@ To install the <code class="docutils literal notranslate"><span class="pre">CDS<
 <section id="import-libraries">
 <h3>Import libraries<a class="headerlink" href="#import-libraries" title="Link to this heading">#</a></h3>
 <p>Python libraries are collections of pre-written code (functions, modules, classes) that provide ready-to-use solutions for specific tasks without writing everything from scratch.</p>
-<p>In climate science, we mostly work with data in <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> format. To best handle this type of data efficiently, we will use libraries designed for working with labelled multi-dimensional arrays, in particular <code class="docutils literal notranslate"><span class="pre">Xarray</span></code>. Additionally, we use <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, which supports large multi-dimensional arrays and provides a large collection of high-level mathematical functions to operate on these arrays. For plotting and visualising data, we will use <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>. Warnings related to data downloads via the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code> (e.g., server security, connection issues, download size, or data availability) are disabled using <code class="docutils literal notranslate"><span class="pre">urllib3</span></code>. Finally, the <code class="docutils literal notranslate"><span class="pre">glob</span></code> and <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> modules are imported to search for and extract files, respectively.</p>
+<p>In climate science, we mostly work with data in <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> format. To handle this type of data efficiently, we will use libraries designed for working with labelled multi-dimensional arrays, in particular <code class="docutils literal notranslate"><span class="pre">Xarray</span></code>. Additionally, we use <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, which supports large multi-dimensional arrays and provides a large collection of high-level mathematical functions to operate on these arrays. For plotting and visualising data, we will use <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code>. Warnings related to data downloads via the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code> (e.g., server security, connection issues, download size, or data availability) are disabled using <code class="docutils literal notranslate"><span class="pre">urllib3</span></code>. Finally, the <code class="docutils literal notranslate"><span class="pre">glob</span></code> and <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> modules are imported to search for and extract files, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CDS API</span>
@@ -669,76 +669,27 @@ The <code class="docutils literal notranslate"><span class="pre">xarray.Dataset<
  */
 
 :root {
-  --xr-font-color0: var(
-    --jp-content-font-color0,
-    var(--pst-color-text-base rgba(0, 0, 0, 1))
-  );
-  --xr-font-color2: var(
-    --jp-content-font-color2,
-    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
-  );
-  --xr-font-color3: var(
-    --jp-content-font-color3,
-    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
-  );
-  --xr-border-color: var(
-    --jp-border-color2,
-    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
-  );
-  --xr-disabled-color: var(
-    --jp-layout-color3,
-    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
-  );
-  --xr-background-color: var(
-    --jp-layout-color0,
-    var(--pst-color-on-background, white)
-  );
-  --xr-background-color-row-even: var(
-    --jp-layout-color1,
-    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
-  );
-  --xr-background-color-row-odd: var(
-    --jp-layout-color2,
-    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
-  );
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
 }
 
-html[theme="dark"],
-html[data-theme="dark"],
-body[data-theme="dark"],
+html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
-  --xr-font-color0: var(
-    --jp-content-font-color0,
-    var(--pst-color-text-base, rgba(255, 255, 255, 1))
-  );
-  --xr-font-color2: var(
-    --jp-content-font-color2,
-    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
-  );
-  --xr-font-color3: var(
-    --jp-content-font-color3,
-    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
-  );
-  --xr-border-color: var(
-    --jp-border-color2,
-    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
-  );
-  --xr-disabled-color: var(
-    --jp-layout-color3,
-    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
-  );
-  --xr-background-color: var(
-    --jp-layout-color0,
-    var(--pst-color-on-background, #111111)
-  );
-  --xr-background-color-row-even: var(
-    --jp-layout-color1,
-    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
-  );
-  --xr-background-color-row-odd: var(
-    --jp-layout-color2,
-    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
-  );
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
 }
 
 .xr-wrap {
@@ -779,7 +730,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
 }
 
 .xr-section-item {
@@ -787,23 +738,16 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: inline-block;
-  opacity: 0;
-  height: 0;
+  display: none;
 }
 
 .xr-section-item input + label {
   color: var(--xr-disabled-color);
-  border: 2px solid transparent !important;
 }
 
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
-}
-
-.xr-section-item input:focus + label {
-  border: 2px solid var(--xr-font-color0) !important;
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -827,7 +771,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: "►";
+  content: '►';
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -838,7 +782,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: "▼";
+  content: '▼';
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -910,15 +854,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: "(";
+  content: '(';
 }
 
 .xr-dim-list:after {
-  content: ")";
+  content: ')';
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ",";
+  content: ',';
   padding-right: 5px;
 }
 
@@ -935,9 +879,7 @@ body.vscode-dark {
 .xr-var-item label,
 .xr-var-item > .xr-var-name span {
   background-color: var(--xr-background-color-row-even);
-  border-color: var(--xr-background-color-row-odd);
   margin-bottom: 0;
-  padding-top: 2px;
 }
 
 .xr-var-item > .xr-var-name:hover span {
@@ -948,7 +890,6 @@ body.vscode-dark {
 .xr-var-list > li:nth-child(odd) > label,
 .xr-var-list > li:nth-child(odd) > .xr-var-name span {
   background-color: var(--xr-background-color-row-odd);
-  border-color: var(--xr-background-color-row-even);
 }
 
 .xr-var-name {
@@ -998,15 +939,8 @@ body.vscode-dark {
 .xr-var-data,
 .xr-index-data {
   display: none;
-  border-top: 2px dotted var(--xr-background-color);
-  padding-bottom: 20px !important;
-  padding-top: 10px !important;
-}
-
-.xr-var-attrs-in + label,
-.xr-var-data-in + label,
-.xr-index-data-in + label {
-  padding: 0 1px;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
@@ -1017,12 +951,6 @@ body.vscode-dark {
 
 .xr-var-data > table {
   float: right;
-}
-
-.xr-var-data > pre,
-.xr-index-data > pre,
-.xr-var-data > table > tbody > tr {
-  background-color: transparent !important;
 }
 
 .xr-var-name span,
@@ -1084,52 +1012,45 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-
-.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
-.xr-var-data-in:checked + label > .xr-icon-database,
-.xr-index-data-in:checked + label > .xr-icon-database {
-  color: var(--xr-font-color0);
-  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
-  stroke-width: 0.8px;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 101MB
-Dimensions:    (time: 1032, latitude: 61, longitude: 201)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:    (longitude: 201, latitude: 61, time: 1032)
 Coordinates:
-  * longitude  (longitude) float32 804B -10.0 -9.75 -9.5 ... 39.5 39.75 40.0
-  * latitude   (latitude) float32 244B 45.0 44.75 44.5 44.25 ... 30.5 30.25 30.0
-  * time       (time) datetime64[ns] 8kB 1940-01-01 1940-02-01 ... 2025-12-01
+  * longitude  (longitude) float32 -10.0 -9.75 -9.5 -9.25 ... 39.5 39.75 40.0
+  * latitude   (latitude) float32 45.0 44.75 44.5 44.25 ... 30.5 30.25 30.0
+  * time       (time) datetime64[ns] 1940-01-01 1940-02-01 ... 2025-12-01
 Data variables:
-    t2m        (time, latitude, longitude) float64 101MB ...
+    t2m        (time, latitude, longitude) float32 ...
 Attributes:
     Conventions:  CF-1.6
-    history:      2026-07-15 11:42:56 GMT by grib_to_netcdf-2.42.0: grib_to_n...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-05e6bbcd-6777-4fa9-931c-9c141fee81fc' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-05e6bbcd-6777-4fa9-931c-9c141fee81fc' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1032</li><li><span class='xr-has-index'>latitude</span>: 61</li><li><span class='xr-has-index'>longitude</span>: 201</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-49855f86-1d0c-46bf-a4e1-1548a137d452' class='xr-section-summary-in' type='checkbox'  checked><label for='section-49855f86-1d0c-46bf-a4e1-1548a137d452' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-10.0 -9.75 -9.5 ... 39.75 40.0</div><input id='attrs-52f26715-a41f-43e5-8107-110bddfec238' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-52f26715-a41f-43e5-8107-110bddfec238' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-91ed9305-d90b-42f5-8175-4da6f1229e00' class='xr-var-data-in' type='checkbox'><label for='data-91ed9305-d90b-42f5-8175-4da6f1229e00' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-10.  ,  -9.75,  -9.5 , ...,  39.5 ,  39.75,  40.  ],
-      shape=(201,), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 44.75 44.5 ... 30.5 30.25 30.0</div><input id='attrs-47dec98d-1844-4767-9567-5a1f6919eb62' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-47dec98d-1844-4767-9567-5a1f6919eb62' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e4b5cf5-b145-4b36-a1ac-c68d56e5ca9a' class='xr-var-data-in' type='checkbox'><label for='data-3e4b5cf5-b145-4b36-a1ac-c68d56e5ca9a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([45.  , 44.75, 44.5 , 44.25, 44.  , 43.75, 43.5 , 43.25, 43.  , 42.75,
+    history:      2026-07-15 11:42:56 GMT by grib_to_netcdf-2.42.0: grib_to_n...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-36933fa0-e948-4938-89e3-59d82143a046' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-36933fa0-e948-4938-89e3-59d82143a046' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 201</li><li><span class='xr-has-index'>latitude</span>: 61</li><li><span class='xr-has-index'>time</span>: 1032</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-d762c5f3-398e-4c8d-b8c8-e7b779f70bc8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d762c5f3-398e-4c8d-b8c8-e7b779f70bc8' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-10.0 -9.75 -9.5 ... 39.75 40.0</div><input id='attrs-0678c40f-301f-4656-b0cd-d46b3982ba3a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0678c40f-301f-4656-b0cd-d46b3982ba3a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-29745deb-a0e5-4b0c-9134-e2ac2ef5a796' class='xr-var-data-in' type='checkbox'><label for='data-29745deb-a0e5-4b0c-9134-e2ac2ef5a796' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([-10.  ,  -9.75,  -9.5 , ...,  39.5 ,  39.75,  40.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 44.75 44.5 ... 30.5 30.25 30.0</div><input id='attrs-16ee4139-a981-47b4-b6b4-8f8cffadee7d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-16ee4139-a981-47b4-b6b4-8f8cffadee7d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c393ff1-9bea-4170-94c5-b45c02eb8c07' class='xr-var-data-in' type='checkbox'><label for='data-4c393ff1-9bea-4170-94c5-b45c02eb8c07' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([45.  , 44.75, 44.5 , 44.25, 44.  , 43.75, 43.5 , 43.25, 43.  , 42.75,
        42.5 , 42.25, 42.  , 41.75, 41.5 , 41.25, 41.  , 40.75, 40.5 , 40.25,
        40.  , 39.75, 39.5 , 39.25, 39.  , 38.75, 38.5 , 38.25, 38.  , 37.75,
        37.5 , 37.25, 37.  , 36.75, 36.5 , 36.25, 36.  , 35.75, 35.5 , 35.25,
        35.  , 34.75, 34.5 , 34.25, 34.  , 33.75, 33.5 , 33.25, 33.  , 32.75,
        32.5 , 32.25, 32.  , 31.75, 31.5 , 31.25, 31.  , 30.75, 30.5 , 30.25,
-       30.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1940-01-01 ... 2025-12-01</div><input id='attrs-aed50f09-eebd-4e79-b409-d25bd16d8fa4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-aed50f09-eebd-4e79-b409-d25bd16d8fa4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f04426f0-3c01-4553-8548-653463679f16' class='xr-var-data-in' type='checkbox'><label for='data-f04426f0-3c01-4553-8548-653463679f16' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1940-01-01T00:00:00.000000000&#x27;, &#x27;1940-02-01T00:00:00.000000000&#x27;,
+       30.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1940-01-01 ... 2025-12-01</div><input id='attrs-39341a55-c766-4b8e-8615-ff66ba49bbc7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-39341a55-c766-4b8e-8615-ff66ba49bbc7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-12cf6701-28b0-4bfa-92d0-3e80cf427202' class='xr-var-data-in' type='checkbox'><label for='data-12cf6701-28b0-4bfa-92d0-3e80cf427202' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1940-01-01T00:00:00.000000000&#x27;, &#x27;1940-02-01T00:00:00.000000000&#x27;,
        &#x27;1940-03-01T00:00:00.000000000&#x27;, ..., &#x27;2025-10-01T00:00:00.000000000&#x27;,
        &#x27;2025-11-01T00:00:00.000000000&#x27;, &#x27;2025-12-01T00:00:00.000000000&#x27;],
-      shape=(1032,), dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0fffbb22-f56e-4af8-9dc2-217a48b196c1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0fffbb22-f56e-4af8-9dc2-217a48b196c1' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>t2m</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-aceb49c1-ac28-4df5-aaae-cc40e11da1fd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-aceb49c1-ac28-4df5-aaae-cc40e11da1fd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-71549870-853b-497f-b2eb-08ed539ac63c' class='xr-var-data-in' type='checkbox'><label for='data-71549870-853b-497f-b2eb-08ed539ac63c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>2 metre temperature</dd></dl></div><div class='xr-var-data'><pre>[12653352 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7f86dbb3-e0f6-4f2b-9b40-fb220cefbbfe' class='xr-section-summary-in' type='checkbox'  ><label for='section-7f86dbb3-e0f6-4f2b-9b40-fb220cefbbfe' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-04ea540b-0753-4c73-8dac-a445b2fa135a' class='xr-index-data-in' type='checkbox'/><label for='index-04ea540b-0753-4c73-8dac-a445b2fa135a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-10.0, -9.75,  -9.5, -9.25,  -9.0, -8.75,  -8.5, -8.25,  -8.0, -7.75,
-       ...
-       37.75,  38.0, 38.25,  38.5, 38.75,  39.0, 39.25,  39.5, 39.75,  40.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a2bf6f7a-7c42-4942-b25e-a96780ad1dfd' class='xr-index-data-in' type='checkbox'/><label for='index-a2bf6f7a-7c42-4942-b25e-a96780ad1dfd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 45.0, 44.75,  44.5, 44.25,  44.0, 43.75,  43.5, 43.25,  43.0, 42.75,
-        42.5, 42.25,  42.0, 41.75,  41.5, 41.25,  41.0, 40.75,  40.5, 40.25,
-        40.0, 39.75,  39.5, 39.25,  39.0, 38.75,  38.5, 38.25,  38.0, 37.75,
-        37.5, 37.25,  37.0, 36.75,  36.5, 36.25,  36.0, 35.75,  35.5, 35.25,
-        35.0, 34.75,  34.5, 34.25,  34.0, 33.75,  33.5, 33.25,  33.0, 32.75,
-        32.5, 32.25,  32.0, 31.75,  31.5, 31.25,  31.0, 30.75,  30.5, 30.25,
-        30.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-f561b3f8-307e-488b-a44c-bebd1bb8da89' class='xr-index-data-in' type='checkbox'/><label for='index-f561b3f8-307e-488b-a44c-bebd1bb8da89' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1940-01-01&#x27;, &#x27;1940-02-01&#x27;, &#x27;1940-03-01&#x27;, &#x27;1940-04-01&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d4538974-d7e0-4b29-b00b-3e8290b82115' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d4538974-d7e0-4b29-b00b-3e8290b82115' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>t2m</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-16b6d58f-693d-4698-b120-14bc6df1be52' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-16b6d58f-693d-4698-b120-14bc6df1be52' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3491cc28-6f7e-41a9-9475-fc68257bed60' class='xr-var-data-in' type='checkbox'><label for='data-3491cc28-6f7e-41a9-9475-fc68257bed60' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>K</dd><dt><span>long_name :</span></dt><dd>2 metre temperature</dd></dl></div><div class='xr-var-data'><pre>[12653352 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d7a91850-5b0a-446e-a0a4-b4c9d851dc33' class='xr-section-summary-in' type='checkbox'  ><label for='section-d7a91850-5b0a-446e-a0a4-b4c9d851dc33' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9d9d72b7-85a5-4f24-8d31-d87bafbe53b6' class='xr-index-data-in' type='checkbox'/><label for='index-9d9d72b7-85a5-4f24-8d31-d87bafbe53b6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-10.0, -9.75,  -9.5, -9.25,  -9.0, -8.75,  -8.5, -8.25,  -8.0,
+              -7.75,
+              ...
+              37.75,  38.0, 38.25,  38.5, 38.75,  39.0, 39.25,  39.5, 39.75,
+               40.0],
+             dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=201))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e43b06e8-a950-4569-86cf-2b0497c4447c' class='xr-index-data-in' type='checkbox'/><label for='index-e43b06e8-a950-4569-86cf-2b0497c4447c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([ 45.0, 44.75,  44.5, 44.25,  44.0, 43.75,  43.5, 43.25,  43.0,
+              42.75,  42.5, 42.25,  42.0, 41.75,  41.5, 41.25,  41.0, 40.75,
+               40.5, 40.25,  40.0, 39.75,  39.5, 39.25,  39.0, 38.75,  38.5,
+              38.25,  38.0, 37.75,  37.5, 37.25,  37.0, 36.75,  36.5, 36.25,
+               36.0, 35.75,  35.5, 35.25,  35.0, 34.75,  34.5, 34.25,  34.0,
+              33.75,  33.5, 33.25,  33.0, 32.75,  32.5, 32.25,  32.0, 31.75,
+               31.5, 31.25,  31.0, 30.75,  30.5, 30.25,  30.0],
+             dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fe8f0d48-dc86-41f7-8b09-39d391116e16' class='xr-index-data-in' type='checkbox'/><label for='index-fe8f0d48-dc86-41f7-8b09-39d391116e16' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1940-01-01&#x27;, &#x27;1940-02-01&#x27;, &#x27;1940-03-01&#x27;, &#x27;1940-04-01&#x27;,
                &#x27;1940-05-01&#x27;, &#x27;1940-06-01&#x27;, &#x27;1940-07-01&#x27;, &#x27;1940-08-01&#x27;,
                &#x27;1940-09-01&#x27;, &#x27;1940-10-01&#x27;,
                ...
                &#x27;2025-03-01&#x27;, &#x27;2025-04-01&#x27;, &#x27;2025-05-01&#x27;, &#x27;2025-06-01&#x27;,
                &#x27;2025-07-01&#x27;, &#x27;2025-08-01&#x27;, &#x27;2025-09-01&#x27;, &#x27;2025-10-01&#x27;,
                &#x27;2025-11-01&#x27;, &#x27;2025-12-01&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1032, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dc6f353f-a5d5-4240-a712-642f90045e64' class='xr-section-summary-in' type='checkbox'  checked><label for='section-dc6f353f-a5d5-4240-a712-642f90045e64' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2026-07-15 11:42:56 GMT by grib_to_netcdf-2.42.0: grib_to_netcdf -S param -o /tmp/tmpboolmivw/tmp2584bxpb/data.nc /tmp/tmpboolmivw/tmp2584bxpb/data.grib</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1032, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-84ae0d7c-81b4-4d84-809b-625955707d45' class='xr-section-summary-in' type='checkbox'  checked><label for='section-84ae0d7c-81b4-4d84-809b-625955707d45' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2026-07-15 11:42:56 GMT by grib_to_netcdf-2.42.0: grib_to_netcdf -S param -o /tmp/tmpboolmivw/tmp2584bxpb/data.nc /tmp/tmpboolmivw/tmp2584bxpb/data.grib</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Next, we convert the Xarray dataset which may contain multiple variables, into an Xarray DataArray, which only holds a single multi-dimensional variable along with its coordinates.</p>
 <p>Next, <code class="docutils literal notranslate"><span class="pre">expver</span></code> coordinate is selected. This coordinate distinguishes between different versions of the same dataset: in ERA5, 1 corresponds to the final (consolidated) data, and 5 to provisional (near real-time) data.</p>
@@ -1174,7 +1095,7 @@ Attributes:
 </div>
 </div>
 </div>
-<p>We will now inspect the anomaly of the different years with respect to the climate normal (the mean of at least 30 years of data). The term anomaly refers to the deviation of a value from the long-term average. Positive or negative anomalies indicate that the average temperature of a particular year was respectively warmer or cooler than the reference long-term mean.</p>
+<p>We will now inspect the anomaly of the different years with respect to the climate normal (the mean of at least 30 years of data). The term anomaly refers to the deviation of a value from the long-term average. Positive or negative anomalies indicate that the average temperature of a particular year was warmer or cooler, respectively, than the reference long-term mean.</p>
 <p>The annual anomalies of the Mediterranean temperature time series are computed by subtracting the climatology of the entire period or thirty-year period from it. We considered one of the WMO 30-year reference period (1961-1990) for the climate mean. It is important to note that grouping by <code class="docutils literal notranslate"><span class="pre">time.year</span></code> creates a new <code class="docutils literal notranslate"><span class="pre">year</span></code> dimension. The coordinates of this dimension correspond to individual calendar years, and the associated values are the annual means computed for each year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1268,7 +1189,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8cb53f2a277dd1ea3dae98d80ad9e53114897551de7b5431a57eedb14273b10b.png" src="../_images/8cb53f2a277dd1ea3dae98d80ad9e53114897551de7b5431a57eedb14273b10b.png" />
+<img alt="../_images/57455b38fec7bfb1a8cf45dbed7034f9bd41eb5d545f8ddf55067368a3923df0.png" src="../_images/57455b38fec7bfb1a8cf45dbed7034f9bd41eb5d545f8ddf55067368a3923df0.png" />
 </div>
 </div>
 </section>
@@ -1280,15 +1201,15 @@ Attributes:
 <h3>Download C3S Atlas data<a class="headerlink" href="#download-c3s-atlas-data" title="Link to this heading">#</a></h3>
 <p>To search for C3S Atlas data, visit the CDS website: <a class="reference external" href="https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=download">https://cds.climate.copernicus.eu/datasets/multi-origin-c3s-atlas?tab=download</a>. The C3S Atlas collects several databases encompassing observations, reanalysis and climate projections at both global and regional scales. In this work, we will focus on the CMIP6 global climate model projections, which corresponds to the 6th phase of the Coupled-Model Intercomparison Project.</p>
 <p>The variable used to generate the climate stripes is the ‘Monthly temperature’ (averaged from daily mean near-surface/2-metre air temperature) covering the period from 1850 to 2100 for the Mediterranean region.
-Although this full time span is not provided by a single CMIP6 experiment, it can be obtained by combining two experiments: historical and scenario (SSP5-8.5 in our case).</p>
-<p>The historical experiment simulates the climate conditions from 1850 to 2014, and characterizes the recent past climate. To investigate the potential future climate, several long-term climate projections experiments simulate the evolution of the climate system from 2015 to 2100 under different (radiative forcing and socio-economic) assumptions. Among the available family of scenarios, we consider the SSP5-8.5 experiment, which presents one of the largest anthropogenic climate change signals emerging from the background of natural variability.
+Although this full time span is not provided by a single CMIP6 experiment, it can be obtained by combining two experiments: historical and scenario. In our case we download two Shared Socioeconomic Pathways (SSPs): the lowest-emissions scenario (SSP-119) and the highest-emissions scenario (SSP-585).</p>
+<p>The historical experiment simulates the climate conditions from 1850 to 2014, and characterizes the recent past climate. To investigate the potential future climate, several long-term climate projections experiments simulate the evolution of the climate system from 2015 to 2100 under different (radiative forcing and socio-economic) assumptions. Among the available scenario family, we consider two Shared Socioeconomic Pathway (SSP) experiments: SSP1-1.9 and SSP5-8.5, which represent the lowest- and highest-emissions pathways, respectively, and therefore produce some of the weakest and strongest anthropogenic climate change signals relative to the background of natural climate variability.
 It is essential to remember that the same models must be present in both historical and scenario samples. In order to compare the simulations, the samples must contain the same number of simulations that correspond exactly to the same models.</p>
 <p>Similarly to the reanalysis data case, after selecting the correct catalogue entry, variables, temporal and geographic coverage, the data retrieval code appears in the “Show API request” box. The data can be downloaded by simply copying the code into the Jupyter Notebook.</p>
 <p>Running the code blocks below will download the data from the CDS as specified by the following API keywords:</p>
 <p><strong>Project:</strong> <code class="docutils literal notranslate"><span class="pre">C3S</span> <span class="pre">Atlas</span> <span class="pre">dataset</span></code><br />
 <strong>Origin:</strong> <code class="docutils literal notranslate"><span class="pre">CMIP6</span></code><br />
 <strong>Variables:</strong> <code class="docutils literal notranslate"><span class="pre">Monthly</span> <span class="pre">temperature</span></code><br />
-<strong>Experiment:</strong> <code class="docutils literal notranslate"><span class="pre">SSP5-8.5</span></code><br />
+<strong>Experiment:</strong> <code class="docutils literal notranslate"><span class="pre">SSP1-1.9</span> <span class="pre">and</span> <span class="pre">SSP5-8.5</span></code><br />
 <strong>Year:</strong> <code class="docutils literal notranslate"><span class="pre">1850-2014;</span> <span class="pre">2015-2100</span></code><br />
 <strong>Month:</strong> <code class="docutils literal notranslate"><span class="pre">All</span></code><br />
 <strong>Day:</strong> <code class="docutils literal notranslate"><span class="pre">All</span></code><br />
@@ -1335,6 +1256,27 @@ It is essential to remember that the same models must be present in both histori
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+        <span class="s2">&quot;multi-origin-c3s-atlas&quot;</span><span class="p">,</span>
+        <span class="p">{</span>
+    <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;ssp1_1_9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;period&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-2100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;monthly_temperature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bias_adjustment&quot;</span><span class="p">:</span> <span class="s2">&quot;no_bias_adjustment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;area&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+         <span class="p">},</span>
+
+         <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">c3s_monthly_T_ssp119.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="unzip-the-downloaded-data-files">
 <h4>Unzip the downloaded data files<a class="headerlink" href="#unzip-the-downloaded-data-files" title="Link to this heading">#</a></h4>
 <p>From the CDS, CMIP6 data are available as NetCDF files compressed into zip archives. We can use the <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> Python package to extract their contents. To do this, we use a loop that processes each file one by one. Inside the loop, a <code class="docutils literal notranslate"><span class="pre">ZipFile()</span></code> object is created for the current file, and all of its contents are extracted using the <code class="docutils literal notranslate"><span class="pre">extractall()</span></code> method.</p>
@@ -1362,13 +1304,16 @@ It is essential to remember that the same models must be present in both histori
 <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">t_CMIP6_historical_mon_18500101-20141201.nc&#39;</span><span class="p">)</span>
 <span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 
-<span class="n">ds_ssp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">t_CMIP6_ssp585_mon_20150101-21001201.nc&#39;</span><span class="p">)</span>
-<span class="n">ds_ssp</span> <span class="o">=</span> <span class="n">ds_ssp</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">ds_ssp119</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">t_CMIP6_ssp119_mon_20150101-21001201.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_ssp119</span> <span class="o">=</span> <span class="n">ds_ssp119</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="n">ds_ssp585</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">t_CMIP6_ssp585_mon_20150101-21001201.nc&#39;</span><span class="p">)</span>
+<span class="n">ds_ssp585</span> <span class="o">=</span> <span class="n">ds_ssp585</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">member</span></code> coordinate is a numerical index that indicates the number of models for the historical and SSP5-8.5 experiments. However, the dataset provides several alternative options to describe the ensemble members, depending on the intended analysis. These include:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">member</span></code> coordinate is a numerical index that indicates the number of models for the historical and SSP experiments. However, the dataset provides several alternative options to describe the ensemble members, depending on the intended analysis. These include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">member_id</span></code>: contains the full information about each model run.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gcm_institution</span></code>: indicates the originating institution.</p></li>
@@ -1379,14 +1324,17 @@ It is essential to remember that the same models must be present in both histori
 </section>
 <section id="select-sample">
 <h4>Select sample<a class="headerlink" href="#select-sample" title="Link to this heading">#</a></h4>
-<p>As mentioned earlier, sometimes different experiments are not performed to the same sample of models. In this case, the historical experiment has been performed on 30 models, and the scenario one only on 27. Since we are interested in long-term climate evolutions from 1850 to 2100, we identify and keep only those models which are present in both historical and scenario experiments.</p>
+<p>As mentioned earlier, not all GCMs have been simulated for every scenario. Consequently, the number of available models differs among experiments. In this study, the historical experiment includes simulations from 30 GCMs, whereas the SSP1-1.9 and SSP5-8.5 scenario experiments include simulations from 9 and 27 GCMs, respectively. Since we are interested in long-term climate evolutions from 1850 to 2100, we identify and keep only those models which are present in both historical and scenario experiments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify and select common models in both experiments</span>
-<span class="n">common</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="p">,</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">member_id</span><span class="p">)</span> <span class="c1"># identify</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="p">,</span> <span class="n">ds_ssp119</span><span class="o">.</span><span class="n">member_id</span><span class="p">)</span> <span class="c1"># identify</span>
+<span class="n">ds_hist119</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_ssp119</span>  <span class="o">=</span> <span class="n">ds_ssp119</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_ssp119</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ds_ssp</span>  <span class="o">=</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_ssp</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">common</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="p">,</span> <span class="n">ds_ssp585</span><span class="o">.</span><span class="n">member_id</span><span class="p">)</span> <span class="c1"># identify</span>
+<span class="n">ds_hist585</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_ssp585</span>  <span class="o">=</span> <span class="n">ds_ssp585</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds_ssp585</span><span class="o">.</span><span class="n">member_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="p">),</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1398,15 +1346,21 @@ It is essential to remember that the same models must be present in both histori
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate weights</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ds_hist</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ds_hist119</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
 
 <span class="c1"># Aggregate over the Mediterranean region using xarray funtion:</span>
-<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ds_ssp</span> <span class="o">=</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_hist119</span> <span class="o">=</span> <span class="n">ds_hist119</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_hist585</span> <span class="o">=</span> <span class="n">ds_hist585</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ds_ssp119</span> <span class="o">=</span> <span class="n">ds_ssp119</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ds_ssp585</span> <span class="o">=</span> <span class="n">ds_ssp585</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">),</span>  <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Group by year</span>
-<span class="n">ds_hist</span> <span class="o">=</span> <span class="n">ds_hist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">ds_ssp</span> <span class="o">=</span> <span class="n">ds_ssp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_hist119</span> <span class="o">=</span> <span class="n">ds_hist119</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_ssp119</span> <span class="o">=</span> <span class="n">ds_ssp119</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">ds_hist585</span> <span class="o">=</span> <span class="n">ds_hist585</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ds_ssp585</span> <span class="o">=</span> <span class="n">ds_ssp585</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1418,10 +1372,14 @@ It is essential to remember that the same models must be present in both histori
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total time-series and temperature anomaly</span>
-<span class="n">serie</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_hist</span><span class="p">,</span> <span class="n">ds_ssp</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
+<span class="n">serie119</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_hist119</span><span class="p">,</span> <span class="n">ds_ssp119</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
+<span class="n">serie585</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ds_hist585</span><span class="p">,</span> <span class="n">ds_ssp585</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">)</span>
 
-<span class="n">clim</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1850-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1899-12-31&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">t_anom</span> <span class="o">=</span>  <span class="n">serie</span> <span class="o">-</span> <span class="n">clim</span> 
+<span class="n">clim119</span> <span class="o">=</span> <span class="n">serie119</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1850-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1899-12-31&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_anom119</span> <span class="o">=</span>  <span class="n">serie119</span> <span class="o">-</span> <span class="n">clim119</span> 
+
+<span class="n">clim585</span> <span class="o">=</span> <span class="n">serie585</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1850-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1899-12-31&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_anom585</span> <span class="o">=</span>  <span class="n">serie585</span> <span class="o">-</span> <span class="n">clim585</span> 
 </pre></div>
 </div>
 </div>
@@ -1430,17 +1388,18 @@ It is essential to remember that the same models must be present in both histori
 </section>
 <section id="id3">
 <h3>Plot<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>The climate stripe figure is plotted similarly to the reanalysis case, but this time the vertical coordinate will indicate the number models.</p>
+<p>The climate stripe figure is plotted similarly to the reanalysis case, but this time the vertical coordinate will indicate the number of models.</p>
 <section id="define-coordinates">
 <h4>Define coordinates<a class="headerlink" href="#define-coordinates" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Coordinate definitions</span>
 <span class="c1"># Vertical coordinate</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">28</span><span class="p">),</span> <span class="n">dims</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
+<span class="n">y_119</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_anom119</span><span class="o">.</span><span class="n">member</span><span class="p">)),</span> <span class="n">dims</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
+<span class="n">y_585</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_anom585</span><span class="o">.</span><span class="n">member</span><span class="p">)),</span> <span class="n">dims</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
 
 <span class="c1"># Horizontal coordinate</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">t_anom</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">t_anom585</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># Temporal ticks</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -1453,10 +1412,12 @@ It is essential to remember that the same models must be present in both histori
 <section id="id4">
 <h4>Plotting the climate stripes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <p>To sum up, the figure shows the historical evolution (1850–2014) and future projections (2015–2100) of the Mediterranean region near-surface temperature, simulated by a collection of CMIP6 models. The data are presented as anomalies with respect to the pre-industrial period (1850–1900). A vertical line marks the year 2015 to distinguish the past (historical scenario) from the future (SSP scenario). The generated figure can be compared with its counterpart from the C3S Atlas: <a class="reference external" href="https://atlas.climate.copernicus.eu/atlas/PHBFl7Sq">https://atlas.climate.copernicus.eu/atlas/PHBFl7Sq</a>. By clicking on the “i” icon in the upper-right corner of the C3S Atlas, users can find more information about the workflow used to generate the figures and the multi-model ensemble (provenance).</p>
-<p>All models show a clear and positive trend, which can be summarized in two main aspects:</p>
+<p>All models project a clear increase in temperature throughout the 21st century. This evolution can be summarized in four main points:</p>
 <ul class="simple">
-<li><p>Temperature exhibits both negative and positive anomalies from the beginning of the period until approximately the start of the 21st century. From that point onwards the climate signal emerges and only positive anomalies are observed.</p></li>
-<li><p>The magnitude of the anomalies is relatively small before the 21st century and increases progressively from this point on. It is worth noting that not all models reach the same temperature anomaly by the end of the century. This reflects differences in climate sensitivity across models, which depend on variations in model characteristics such as the representation of physical processes, climate feedbacks, or spatial resolution.</p></li>
+<li><p>Temperature anomalies fluctuate between negative and positive values from the beginning of the historical period until approximately the start of the 21st century. From that point onwards, the climate signal clearly emerges, and only positive temperature anomalies are projected under both emission scenarios (SSP1-1.9 and SSP5-8.5).</p></li>
+<li><p>Under the SSP1-1.9 scenario, temperature anomalies continue to increase until around the middle of the 21st century, with some models projecting warming exceeding 3°C. Thereafter, temperatures stabilize or slightly decline towards the end of the century, reflecting the effects of strong mitigation.</p></li>
+<li><p>Under the SSP5-8.5 scenario, temperature anomalies increase continuously throughout the 21st century, with the highest projected warming exceeding 8°C by the end of the century.</p></li>
+<li><p>Although all models project warming, they do not converge on the same magnitude of temperature anomaly by the end of the century. This spread reflects differences in climate sensitivity among models, arising from variations in the representation of physical processes, climate feedbacks, parameterizations, and spatial resolution.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1468,17 +1429,17 @@ It is essential to remember that the same models must be present in both histori
 
 <span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
     <span class="n">time</span><span class="p">,</span>
-    <span class="n">y</span><span class="p">,</span>
-    <span class="n">t_anom</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;member&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span>
+    <span class="n">y_119</span><span class="p">,</span>
+    <span class="n">t_anom119</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;member&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
     <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-    <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;flat&quot;</span>
+    <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
 <span class="p">)</span>
 
 <span class="c1"># Axis</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">t_anom</span><span class="o">.</span><span class="n">gcm_model</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_anom119</span><span class="o">.</span><span class="n">member</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">t_anom119</span><span class="o">.</span><span class="n">gcm_model</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 
@@ -1487,14 +1448,53 @@ It is essential to remember that the same models must be present in both histori
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;[°C]&quot;</span><span class="p">)</span>
 
 <span class="c1"># Title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Temperature climate stripes: CMIP6 </span><span class="se">\n\n</span><span class="s2">Reference Climatology: 1850 - 1900. Area: Mediterranean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Temperature climate stripes: CMIP6 - SSP-119 </span><span class="se">\n\n</span><span class="s2">Reference Climatology: 1850 - 1900. Area: Mediterranean&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9fd763cb42ad6f7b921468282543f06b05fc2d59e44ea8ee33afb8daec20ae1f.png" src="../_images/9fd763cb42ad6f7b921468282543f06b05fc2d59e44ea8ee33afb8daec20ae1f.png" />
+<img alt="../_images/ec79a574e102ab94acb59a2ad9bb350adbf1a533ff3350ef78793d6a59c2ed46.png" src="../_images/ec79a574e102ab94acb59a2ad9bb350adbf1a533ff3350ef78793d6a59c2ed46.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colorbar: colors and number of colors</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;RdBu_r&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span> <span class="c1"># Figure size</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
+    <span class="n">time</span><span class="p">,</span>
+    <span class="n">y_585</span><span class="p">,</span>
+    <span class="n">t_anom585</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;member&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+    <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Axis</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_anom585</span><span class="o">.</span><span class="n">member</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">t_anom585</span><span class="o">.</span><span class="n">gcm_model</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># Add colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;[°C]&quot;</span><span class="p">)</span>
+
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Temperature climate stripes: CMIP6 - SSP-585 </span><span class="se">\n\n</span><span class="s2">Reference Climatology: 1850 - 1900. Area: Mediterranean&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/70d2673133237e0f9578c1e05002fb4edfd858cf26772b4e9b6989837efe77f1.png" src="../_images/70d2673133237e0f9578c1e05002fb4edfd858cf26772b4e9b6989837efe77f1.png" />
 </div>
 </div>
 </section>
@@ -1504,54 +1504,58 @@ It is essential to remember that the same models must be present in both histori
 <h2><span class="section-number">3.1.7. </span>Compare ERA5 against the CMIP6 multi-model median<a class="headerlink" href="#compare-era5-against-the-cmip6-multi-model-median" title="Link to this heading">#</a></h2>
 <p>We will now compare the CMIP6 multi-model median with the ERA5 reanalysis using the same reference period, 1961–1990, to calculate the climatological baseline for both datasets. This common reference period ensures that the temperature anomalies are calculated consistently and allows for a direct comparison between the CMIP6 simulations and the ERA5 reanalysis during the historical period.</p>
 <p>The comparison will cover the full ERA5 period. Up to 2014, the CMIP6 data represent historical simulations, while from 2015 onwards they correspond to climate projections. ERA5, in contrast, provides a reanalysis-based estimate of the observed climate for the historical period. Therefore, the comparison after 2015 should be interpreted as an assessment of how the CMIP6 projections evolve relative to the observational reference represented by ERA5, rather than as a direct model–observation validation.</p>
-<p>Calculate CMIP6 anomalies using the ERA5 reference period (1961–1990), compute the multi-model ensemble median, and select the common time period shared by ERA5 and CMIP6.</p>
+<p>Calculate CMIP6 anomalies for both scenarios (SSP1-1.9 and SSP5-8.5) using the ERA5 reference period (1961–1990), compute the multi-model ensemble median, and select the common time period shared by ERA5 and CMIP6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1961-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1990-12-01&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">t_anom</span> <span class="o">=</span>  <span class="n">serie</span> <span class="o">-</span> <span class="n">clim</span> 
-<span class="n">t_anom_median</span> <span class="o">=</span> <span class="n">t_anom</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
-<span class="n">t_anom_median_period</span> <span class="o">=</span> <span class="n">t_anom_median</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim119</span> <span class="o">=</span> <span class="n">serie119</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1961-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1990-12-01&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_anom119</span> <span class="o">=</span>  <span class="n">serie119</span> <span class="o">-</span> <span class="n">clim119</span> 
+<span class="n">t_anom_median119</span> <span class="o">=</span> <span class="n">t_anom119</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
+<span class="n">t_anom_median_period119</span> <span class="o">=</span> <span class="n">t_anom_median119</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
     <span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span>
         <span class="n">ds_ERA5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
         <span class="n">ds_ERA5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="p">)</span>
 <span class="p">)</span>
-<span class="n">time</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">t_anom_median_period</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span>
-    <span class="n">t_anom_median_period</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">time</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">t_anom_median_period119</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">t_anom_median_period119</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Calculate the difference between the CMIP6 multi-model median and ERA5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_values</span> <span class="o">=</span> <span class="n">t_anom_median_period</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">Z</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clim585</span> <span class="o">=</span> <span class="n">serie585</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1961-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1990-12-01&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">t_anom585</span> <span class="o">=</span>  <span class="n">serie585</span> <span class="o">-</span> <span class="n">clim585</span> 
+<span class="n">t_anom_median585</span> <span class="o">=</span> <span class="n">t_anom585</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;member&quot;</span><span class="p">)</span>
+<span class="n">t_anom_median_period585</span> <span class="o">=</span> <span class="n">t_anom_median585</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">year</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span>
+        <span class="n">ds_ERA5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+        <span class="n">ds_ERA5</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">t_anom_median_period585</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span>
+    <span class="n">t_anom_median_period585</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Plot the results in two subplots. The first should show the CMIP6 multi-model median and ERA5 temperature anomalies relative to the 1961–1990 reference period, while the second should show the difference between these two anomaly time series.</p>
+<p>Plot the climate stripes anomalies for ERA5 and the CMIP6 ensemble mean using the same reference period (1961–1990).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot climate stripes and CMIP6 - ERA5 difference</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot climate stripes: ERA5 and CMIP6</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
-    <span class="mi">2</span><span class="p">,</span>
-    <span class="mi">1</span><span class="p">,</span>
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-    <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;height_ratios&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="p">},</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">),</span>
     <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 
-<span class="c1"># TOP PANEL: ERA5 and CMIP6 multi-model median climate stripes</span>
-
-<span class="c1"># Create a 2-row array</span>
+<span class="c1"># Create a 3-row array</span>
 <span class="n">stripe_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
     <span class="n">Z</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span>
-    <span class="n">t_anom_median_period</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">t_anom_median_period119</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+    <span class="n">t_anom_median_period585</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
 <span class="p">])</span>
 
 <span class="c1"># Common temperature anomaly scale</span>
@@ -1560,9 +1564,9 @@ It is essential to remember that the same models must be present in both histori
 
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;RdBu_r&quot;</span><span class="p">)</span>
 
-<span class="n">img</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
     <span class="n">time</span><span class="p">,</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
     <span class="n">stripe_data</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
     <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
@@ -1571,15 +1575,15 @@ It is essential to remember that the same models must be present in both histori
 <span class="p">)</span>
 
 <span class="c1"># Labels</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span>
-    <span class="s2">&quot;ERA5&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CMIP6&quot;</span>
-<span class="p">],</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;ERA5&quot;</span><span class="p">,</span> <span class="s2">&quot;CMIP6 SSP-119&quot;</span><span class="p">,</span> <span class="s2">&quot;CMIP6 SSP-585&quot;</span><span class="p">],</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span>
+<span class="p">)</span>
 
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
 
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
     <span class="s2">&quot;Temperature climate stripes: ERA5 vs CMIP6 multi-model median&quot;</span><span class="p">,</span>
     <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span>
 <span class="p">)</span>
@@ -1587,61 +1591,30 @@ It is essential to remember that the same models must be present in both histori
 <span class="c1"># Colorbar</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
     <span class="n">img</span><span class="p">,</span>
-    <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
     <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span>
     <span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span>
 <span class="p">)</span>
 
-<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature anomaly (°C)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature anomaly (°C)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
-
-<span class="c1"># BOTTOM PANEL: CMIP6 multi-model median - ERA5</span>
-
-<span class="n">diff_vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff_values</span><span class="p">))</span>
-
-<span class="n">diff_img</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
-    <span class="n">time</span><span class="p">,</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="n">diff_values</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;RdBu_r&quot;</span><span class="p">),</span>
-    <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span>
-    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
-    <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;flat&quot;</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span>
 <span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span>
-    <span class="s2">&quot;&quot;</span>
-<span class="p">],</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">13</span><span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-    <span class="s2">&quot;Difference between CMIP6 multi-model median and ERA5&quot;</span><span class="p">,</span>
-    <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span>
-<span class="p">)</span>
-
-<span class="c1"># Colorbar</span>
-<span class="n">cbar_diff</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
-    <span class="n">diff_img</span><span class="p">,</span>
-    <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span>
-    <span class="n">pad</span><span class="o">=</span><span class="mf">0.01</span>
-<span class="p">)</span>
-
-<span class="n">cbar_diff</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Temperature difference (°C)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2015</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/39dfbeeab6e2a6880254e306043770929d38ab5deb57ddf12f49a9f107096d18.png" src="../_images/39dfbeeab6e2a6880254e306043770929d38ab5deb57ddf12f49a9f107096d18.png" />
+<img alt="../_images/f534347fe56ab411248f8222313d6883ef51fa81d90f8c105b66b876af31cde9.png" src="../_images/f534347fe56ab411248f8222313d6883ef51fa81d90f8c105b66b876af31cde9.png" />
 </div>
 </div>
-<p>As shown in the figure, the historical CMIP6 multi-model ensemble median reproduces the long-term evolution of the ERA5 temperature record remarkably well. As expected, the ensemble median exhibits substantially lower interannual variability than ERA5, since averaging across multiple climate models tends to smooth out the effects of individual years of internal climate variability. Nevertheless, the ensemble median provides an excellent representation of the observed long-term warming trend, particularly over the historical period.</p>
-<p>An interesting feature emerges during the projection period, beginning in 2015. Although the CMIP6 simulations are no longer constrained by the actual year-to-year evolution of the climate system, the ensemble median continues to closely track the ERA5 record during the first decade of the projection period. In particular, the projected warming trajectory remains broadly consistent with the recent warming observed in the reanalysis. The exceptional warmth recorded in the Mediterranean region in 2024 is also consistent with the range of outcomes represented by the CMIP6 ensemble, while the ensemble median continues to capture the broader increase in global temperatures observed in recent years.</p>
+<p>As shown in the figure, the historical CMIP6 multi-model ensemble median reproduces the long-term evolution of the ERA5 temperature record for both the high and the low emission scenarios. As expected, the ensemble median exhibits substantially lower interannual variability than ERA5, since averaging across multiple climate models tends to smooth out the effects of individual years of internal climate variability. Interestingly, the CMIP6 ensemble shows a consistent trend during the first decade of the projection period for both scenarios.</p>
 </section>
 </section>
 
